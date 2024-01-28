@@ -8,19 +8,36 @@
 import Foundation
 
 protocol SettingsViewModel: ObservableObject {
+    var config: Config { get set }
     
-    var passwordGeneratorConfig: PasswordGeneratorConfig { get set }
+    func fetchConfig()
 }
 
 final class SettingsViewModelDefault {
     
-    @Published var passwordGeneratorConfig: PasswordGeneratorConfig = .defaultConfig()
+    @Published var config: Config = .defaultConfig()
     
-    init() {
-        
+    private let configRepository: ConfigRepository
+    
+    init(configRepository: ConfigRepository) {
+        self.configRepository = configRepository
+        fetchConfig()
     }
 }
 
 extension SettingsViewModelDefault: SettingsViewModel {
+    
+    func fetchConfig() {
+        config = configRepository.fetchConfig()
+        
+//        if let passwordConfig = configRepository.fetchConfig().first {
+//            config = passwordConfig
+//        } else {
+//            storeDefaultConfig()
+//        }
+    }
+}
+
+private extension SettingsViewModelDefault {
     
 }

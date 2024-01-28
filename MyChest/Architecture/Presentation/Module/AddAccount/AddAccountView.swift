@@ -10,12 +10,12 @@ import SwiftUI
 struct AddAccountView<ViewModel: AddAccountViewModel>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    @State var path: NavigationPath = .init()
     @State var isUrlAlertPresented: Bool = false
+    @State var isPassConfigSheetPresented: Bool = false
     @Binding var isPresented: Bool
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             VStack {
                 Form {
                     Section {
@@ -55,14 +55,14 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                             .listRowSeparator(.hidden)
                         HStack {
                             Button {
-                                
+                                isPassConfigSheetPresented = true
                             } label: {
                                 Text("Opciones")
                             }
                             .buttonStyle(.bordered)
                             Spacer()
                             Button {
-                                
+                                viewModel.generatePassword()
                             } label: {
                                 Text("Generar")
                             }
@@ -79,8 +79,10 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                             ForEach(0..<25) { index in
                                 if index == 0 {
                                     Text("Nunca")
+                                        .tag(index)
                                 } else {
                                     Text("Cada \(index) \(index != 1 ? "meses" : "mes")")
+                                        .tag(index)
                                 }
                             }
                         }
@@ -128,6 +130,26 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                     }
                 }
             }
+            .sheet(isPresented: $isPassConfigSheetPresented, content: {
+                NavigationStack {
+                    List {
+                        Section {
+                            Picker("Número de caracteres", selection: $viewModel.config.charactersNumber) {
+                                ForEach(Constants.PasswordGenerator.minChars..<Constants.PasswordGenerator.maxChars, id: \.self) { index in
+                                    Text("\(index)")
+                                        .tag(index)
+                                }
+                            }
+                            Toggle("Mayúsculas", isOn: $viewModel.config.requireUpper)
+                            Toggle("Minúsculas", isOn: $viewModel.config.requireLower)
+                            Toggle("Números", isOn: $viewModel.config.requireNumber)
+                            Toggle("Especiales", isOn: $viewModel.config.requireSpecialCharacter)
+                        }
+                    }
+                    .navigationTitle("Generador de contraseñas")
+                }
+                .presentationDetents([.medium])
+            })
             .alert("Añade tu imagen.", isPresented: $isUrlAlertPresented) {
                 TextField("Image URL", text: $viewModel.account.image)
                 Button("Aceptar") {

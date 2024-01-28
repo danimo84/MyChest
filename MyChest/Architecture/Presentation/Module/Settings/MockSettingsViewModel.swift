@@ -9,5 +9,9 @@ import Foundation
 
 final class MockSettingsViewModel: SettingsViewModel {
     
-    var passwordGeneratorConfig: PasswordGeneratorConfig = .defaultConfig()
+    var config: Config = .defaultConfig()
+    
+    func fetchConfig() {
+        // Intentionally empty
+    }
 }

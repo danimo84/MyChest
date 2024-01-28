@@ -8,7 +8,7 @@
 import SwiftData
 
 enum StorageModels {
-    static var models = [Account.self, PasswordGeneratorConfig.self] as [any PersistentModel.Type]
+    static var models = [Account.self, Config.self] as [any PersistentModel.Type]
 }
 
 final class DatabaseManager {
@@ -21,7 +21,7 @@ final class DatabaseManager {
     
     @MainActor
     private init() {
-        //modelContainer = try! ModelContainer(for: Account.self, PasswordGeneratorConfig.self)
+        //modelContainer = try! ModelContainer(for: Account.self, Config.self)
         
         modelContainer = {
             let schema = Schema(StorageModels.models)
@@ -51,7 +51,7 @@ final class DatabaseManager {
 private extension DatabaseManagerDefault {
     
     func initContainer() {
-        modelContainer = try! ModelContainer(for: Account.self, PasswordGeneratorConfig.self)
+        modelContainer = try! ModelContainer(for: Account.self, Config.self)
 //        modelContainer = {
 //            let schema = Schema(StorageModels.models)
 //            let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)

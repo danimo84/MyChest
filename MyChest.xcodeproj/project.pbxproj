@@ -13,6 +13,16 @@
 		191A77142B57119600AFC37F /* MyChestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A77132B57119600AFC37F /* MyChestApp.swift */; };
 		191A77182B57119600AFC37F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191A77172B57119600AFC37F /* Assets.xcassets */; };
 		191A771C2B57119600AFC37F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191A771B2B57119600AFC37F /* Preview Assets.xcassets */; };
+		191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17AE2B64189500E2A19E /* ConfigLocalDataSource.swift */; };
+		191D17B12B64196800E2A19E /* ConfigRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B02B64196800E2A19E /* ConfigRepository.swift */; };
+		191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B22B6433F700E2A19E /* PasswordGeneratorManager.swift */; };
+		191D17B72B6555EA00E2A19E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B62B6555EA00E2A19E /* AuthViewModel.swift */; };
+		191D17BA2B65560F00E2A19E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B92B65560F00E2A19E /* AuthView.swift */; };
+		191D17BC2B65561C00E2A19E /* AuthConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17BB2B65561C00E2A19E /* AuthConfigurator.swift */; };
+		191D17BE2B65562D00E2A19E /* MockAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17BD2B65562D00E2A19E /* MockAuthViewModel.swift */; };
+		191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17BF2B657AD700E2A19E /* PermissionManager.swift */; };
+		191D17C32B65AB8100E2A19E /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17C22B65AB8100E2A19E /* AuthRouter.swift */; };
+		191D17C52B66619900E2A19E /* MyChestLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 191D17C42B66619900E2A19E /* MyChestLaunchScreen.storyboard */; };
 		1954251D2B5E961500B11BA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954251C2B5E961500B11BA1 /* Constants.swift */; };
 		195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */; };
 		195425242B5EA7A300B11BA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 195425232B5EA7A300B11BA1 /* Kingfisher */; };
@@ -56,6 +66,17 @@
 		191A77172B57119600AFC37F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		191A77192B57119600AFC37F /* MyChest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyChest.entitlements; sourceTree = "<group>"; };
 		191A771B2B57119600AFC37F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		191D17AE2B64189500E2A19E /* ConfigLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigLocalDataSource.swift; sourceTree = "<group>"; };
+		191D17B02B64196800E2A19E /* ConfigRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRepository.swift; sourceTree = "<group>"; };
+		191D17B22B6433F700E2A19E /* PasswordGeneratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorManager.swift; sourceTree = "<group>"; };
+		191D17B52B654E7F00E2A19E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		191D17B62B6555EA00E2A19E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		191D17B92B65560F00E2A19E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		191D17BB2B65561C00E2A19E /* AuthConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfigurator.swift; sourceTree = "<group>"; };
+		191D17BD2B65562D00E2A19E /* MockAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthViewModel.swift; sourceTree = "<group>"; };
+		191D17BF2B657AD700E2A19E /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		191D17C22B65AB8100E2A19E /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		191D17C42B66619900E2A19E /* MyChestLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyChestLaunchScreen.storyboard; sourceTree = "<group>"; };
 		1954251C2B5E961500B11BA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Kingfisher.swift"; sourceTree = "<group>"; };
 		195425252B5EF81200B11BA1 /* PasswordGeneratorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorConfig.swift; sourceTree = "<group>"; };
@@ -114,6 +135,7 @@
 			children = (
 				1903B1462B600A3C00C26865 /* Core */,
 				1903B1492B600A7200C26865 /* AccountDataSource.swift */,
+				191D17AE2B64189500E2A19E /* ConfigLocalDataSource.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -130,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				1903B14B2B60378100C26865 /* AccountRepository.swift */,
+				191D17B02B64196800E2A19E /* ConfigRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -154,6 +177,7 @@
 		191A77122B57119600AFC37F /* MyChest */ = {
 			isa = PBXGroup;
 			children = (
+				191D17B52B654E7F00E2A19E /* Info.plist */,
 				191A77192B57119600AFC37F /* MyChest.entitlements */,
 				1988CB7A2B58297C00D2C08F /* Architecture */,
 				191A77172B57119600AFC37F /* Assets.xcassets */,
@@ -168,6 +192,34 @@
 				191A771B2B57119600AFC37F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		191D17B42B6433FD00E2A19E /* PasswordGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				191D17B22B6433F700E2A19E /* PasswordGeneratorManager.swift */,
+			);
+			path = PasswordGenerator;
+			sourceTree = "<group>";
+		};
+		191D17B82B65560000E2A19E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				191D17B92B65560F00E2A19E /* AuthView.swift */,
+				191D17B62B6555EA00E2A19E /* AuthViewModel.swift */,
+				191D17C22B65AB8100E2A19E /* AuthRouter.swift */,
+				191D17BB2B65561C00E2A19E /* AuthConfigurator.swift */,
+				191D17BD2B65562D00E2A19E /* MockAuthViewModel.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		191D17C12B657AE200E2A19E /* Permissions */ = {
+			isa = PBXGroup;
+			children = (
+				191D17BF2B657AD700E2A19E /* PermissionManager.swift */,
+			);
+			path = Permissions;
 			sourceTree = "<group>";
 		};
 		193069962B5C3C8200168C27 /* Frameworks */ = {
@@ -232,8 +284,9 @@
 			isa = PBXGroup;
 			children = (
 				1988CB7F2B582A7900D2C08F /* DI */,
-				1988CB852B582A7900D2C08F /* AppDelegate+Injections.swift */,
 				1954251E2B5E961B00B11BA1 /* Constants */,
+				191D17B42B6433FD00E2A19E /* PasswordGenerator */,
+				191D17C12B657AE200E2A19E /* Permissions */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -243,6 +296,7 @@
 			children = (
 				191A77132B57119600AFC37F /* MyChestApp.swift */,
 				1988CB7D2B582A3800D2C08F /* AppDelegate.swift */,
+				191D17C42B66619900E2A19E /* MyChestLaunchScreen.storyboard */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -252,6 +306,7 @@
 			children = (
 				1988CB802B582A7900D2C08F /* Core */,
 				1988CB862B582A7900D2C08F /* Modules */,
+				1988CB852B582A7900D2C08F /* AppDelegate+Injections.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -293,6 +348,7 @@
 				1988CB952B585ED400D2C08F /* Accounts */,
 				19E0DFC72B5AF59F008A1AF2 /* AddAccount */,
 				195998FD2B59444600F17512 /* Settings */,
+				191D17B82B65560000E2A19E /* Auth */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -419,6 +475,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191D17C52B66619900E2A19E /* MyChestLaunchScreen.storyboard in Resources */,
 				191A771C2B57119600AFC37F /* Preview Assets.xcassets in Resources */,
 				191A77182B57119600AFC37F /* Assets.xcassets in Resources */,
 			);
@@ -431,15 +488,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191D17B12B64196800E2A19E /* ConfigRepository.swift in Sources */,
 				195998F62B59440000F17512 /* SettingsView.swift in Sources */,
+				191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */,
 				19E0DFD42B5B1902008A1AF2 /* Account.swift in Sources */,
+				191D17B72B6555EA00E2A19E /* AuthViewModel.swift in Sources */,
 				195425262B5EF81200B11BA1 /* PasswordGeneratorConfig.swift in Sources */,
 				1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */,
 				1988CB992B585F2F00D2C08F /* AccountsViewModel.swift in Sources */,
+				191D17BA2B65560F00E2A19E /* AuthView.swift in Sources */,
 				1988CB8A2B582A7900D2C08F /* Injector.swift in Sources */,
 				1988CB8B2B582A7900D2C08F /* InjectorModule.swift in Sources */,
 				1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */,
 				1903B1452B5FFE1300C26865 /* DatabaseManager.swift in Sources */,
+				191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */,
 				19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */,
 				1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */,
 				1988CB8C2B582A7900D2C08F /* AppDelegate+Injections.swift in Sources */,
@@ -454,7 +516,9 @@
 				195998F12B593B8400F17512 /* TabBarView.swift in Sources */,
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
 				19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */,
+				191D17C32B65AB8100E2A19E /* AuthRouter.swift in Sources */,
 				1988CB8D2B582A7900D2C08F /* MyChestModule.swift in Sources */,
+				191D17BE2B65562D00E2A19E /* MockAuthViewModel.swift in Sources */,
 				1988CB892B582A7900D2C08F /* InjectorProvider.swift in Sources */,
 				195998F42B593C1D00F17512 /* TabBarViewModel.swift in Sources */,
 				19E0DFC92B5AF5B6008A1AF2 /* AddAccountViewModel.swift in Sources */,
@@ -463,7 +527,9 @@
 				19E0DFC62B5AF59A008A1AF2 /* AddAccountView.swift in Sources */,
 				195998F82B59441900F17512 /* SettingsViewModel.swift in Sources */,
 				19E0DFCB2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift in Sources */,
+				191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */,
 				195998FA2B59442300F17512 /* SettingsConfigurator.swift in Sources */,
+				191D17BC2B65561C00E2A19E /* AuthConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,12 +665,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyChest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyChest/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "para login";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = MyChestLaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -635,12 +704,15 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyChest/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyChest/Info.plist;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "para login";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = MyChestLaunchScreen.storyboard;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

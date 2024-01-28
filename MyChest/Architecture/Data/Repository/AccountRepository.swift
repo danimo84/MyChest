@@ -16,9 +16,9 @@ protocol AccountRepository {
 
 final class AccountRepositoryDefault {
     
-    private let localDataSource: any AccountLocalDataSource
+    private let localDataSource: AccountLocalDataSource
     
-    init(localDataSource: any AccountLocalDataSource) {
+    init(localDataSource: AccountLocalDataSource) {
         self.localDataSource = localDataSource
     }
 }

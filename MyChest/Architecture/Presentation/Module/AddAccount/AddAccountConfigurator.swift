@@ -16,10 +16,14 @@ struct AddAccountConfigurator {
     func view(isPresented: Binding<Bool>, originalAccount: Account?) -> some View {
         
         let accountRepository = injector.instanceOf(AccountRepository.self)
+        let configRepository = injector.instanceOf(ConfigRepository.self)
+        let passwordGenerator = injector.instanceOf(PasswordGeneratorManager.self)
         
         let viewModel = AddAccountViewModelDefault(
             originalAccount: originalAccount,
-            accountRepository: accountRepository
+            accountRepository: accountRepository,
+            configRepository: configRepository,
+            passordGenerator: passwordGenerator
         )
         
         let view: some View = AddAccountView<AddAccountViewModelDefault>(isPresented: isPresented)

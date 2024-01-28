@@ -12,6 +12,7 @@ final class MockAddAccountViewModel: AddAccountViewModel {
     
     var account: Account = .mock()
     var newAccount: Bool = false
+    var config: Config = .defaultConfig()
     
     func isSaveButtonDisabled() -> Bool {
         true
@@ -22,6 +23,14 @@ final class MockAddAccountViewModel: AddAccountViewModel {
     }
     
     func deleteAccount() {
+        // Intentionally empty
+    }
+    
+    func fetchConfig() {
+        // Intentionally empty
+    }
+    
+    func generatePassword() {
         // Intentionally empty
     }
 }

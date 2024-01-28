@@ -11,11 +11,10 @@ import SwiftData
 struct AccountsView<ViewModel: AccountsViewModel>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    @State var path: NavigationPath = .init()
     @State var isAccountSheetPresented: Bool = false
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack {
             List() {
                 ForEach(viewModel.accounts) { account in
                     HStack {
@@ -61,6 +60,7 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
         }
         .sheet(isPresented: $isAccountSheetPresented) {
             AddAccountConfigurator().view(isPresented: $isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
+                .presentationDetents([.medium, .large])
         }
     }
 }

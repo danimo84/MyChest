@@ -12,23 +12,46 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
     @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
-        TabView(selection: $viewModel.selectedTabItem) {
-            AccountsConfigurator().view()
-                .tabItem {
-                    Label("Accounts", systemImage: "key")
-                        .onTapGesture {
-                            viewModel.selectedTabItem = 1
-                        }
+        if viewModel.isAuthenticated {
+            TabView(selection: $viewModel.selectedTabItem) {
+                Text("Notificaciones")
+                    .tabItem {
+                        Label("Notificaciones", systemImage: "bell")
+                            .onTapGesture {
+                                viewModel.selectedTabItem = 1
+                            }
+                    }
+                    .tag(1)
+                AccountsConfigurator().view()
+                    .tabItem {
+                        Label("Accounts", systemImage: "key")
+                            .onTapGesture {
+                                viewModel.selectedTabItem = 2
+                            }
+                    }
+                    .tag(2)
+                SettingsConfigurator().view()
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape")
+                            .onTapGesture {
+                                viewModel.selectedTabItem = 3
+                            }
+                    }
+                    .tag(3)
+            }
+        } else {
+            VStack {
+                Spacer()
+                Image(systemName: "lock.iphone")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .padding(.horizontal, 64)
+                Spacer()
+                Button("Login") {
+                    viewModel.tryAuthentication()
                 }
-                .tag(1)
-            SettingsConfigurator().view()
-                .tabItem {
-                    Label("Settings", systemImage: "gearshape")
-                        .onTapGesture {
-                            viewModel.selectedTabItem = 2
-                        }
-                }
-                .tag(2)
+                .buttonStyle(.bordered)
+            }
         }
     }
 }

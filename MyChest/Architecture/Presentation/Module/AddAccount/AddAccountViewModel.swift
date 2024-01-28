@@ -11,10 +11,13 @@ import SwiftData
 protocol AddAccountViewModel: ObservableObject {
     var account: Account { get set }
     var newAccount: Bool { get set }
+    var config: Config { get set }
     
     func isSaveButtonDisabled() -> Bool
     func saveNewAccount()
     func deleteAccount()
+    func fetchConfig()
+    func generatePassword()
 }
 
 final class AddAccountViewModelDefault: AddAccountViewModel {
@@ -30,19 +33,26 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     }
     
     @Published var newAccount: Bool = false
+    @Published var config: Config = .defaultConfig()
     
-    @ObservationIgnored
     private let accountRepository: AccountRepository
+    private let configRepository: ConfigRepository
+    private let passordGenerator: PasswordGeneratorManager
     
     init(
         originalAccount: Account?,
-        accountRepository: AccountRepository
+        accountRepository: AccountRepository,
+        configRepository: ConfigRepository,
+        passordGenerator: PasswordGeneratorManager
     ) {
         if let originalAccount {
             account = originalAccount
         }
         newAccount = originalAccount == nil ? true : false
         self.accountRepository = accountRepository
+        self.configRepository = configRepository
+        self.passordGenerator = passordGenerator
+        fetchConfig()
     }
     
     func isSaveButtonDisabled() -> Bool {
@@ -51,15 +61,18 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     
     func saveNewAccount() {
         accountRepository.inserAccount(account)
-//        guard newAccount else {
-//            return
-//        }
-//        modelContext.insert(account)
     }
     
     func deleteAccount() {
         accountRepository.removeAccount(account)
-//        modelContext.delete(account)
+    }
+    
+    func fetchConfig() {
+        config = configRepository.fetchConfig()
+    }
+    
+    func generatePassword() {
+        account.password = passordGenerator.generatePasswordWithConfig(config)
     }
 }
 

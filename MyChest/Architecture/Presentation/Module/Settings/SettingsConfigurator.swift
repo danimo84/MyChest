@@ -14,7 +14,10 @@ struct SettingsConfigurator {
     }
     
     func view() -> some View {
-        let viewModel = SettingsViewModelDefault()
+        
+        let configRepository = injector.instanceOf(ConfigRepository.self)
+        
+        let viewModel = SettingsViewModelDefault(configRepository: configRepository)
         
         let view: some View = SettingsView<SettingsViewModelDefault>()
             .environmentObject(viewModel)

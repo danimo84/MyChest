@@ -13,33 +13,30 @@ protocol AccountsViewModel: ObservableObject {
     var accounts: [Account] { get set }
     
     func fetchAccounts()
-    func deleteAccount(/*modelContext: ModelContext,*/ _ account: Account)
+    func deleteAccount(_ account: Account)
 }
 
-final class AccountsViewModelDefault: AccountsViewModel {
+final class AccountsViewModelDefault {
     
     @Published var selectedAccount: Account?
     @Published var accounts: [Account] = []
     
-    @ObservationIgnored
     private let accountRepository: AccountRepository
     
     init(accountRepository: AccountRepository) {
         self.accountRepository = accountRepository
         fetchAccounts()
     }
+}
+
+extension AccountsViewModelDefault: AccountsViewModel {
     
     func fetchAccounts() {
         accounts = accountRepository.fetchAccounts()
     }
     
-    func deleteAccount(/*modelContext: ModelContext,*/ _ account: Account) {
+    func deleteAccount(_ account: Account) {
         accountRepository.removeAccount(account)
         accounts = accountRepository.fetchAccounts()
-        //modelContext.delete(account)
     }
-}
-
-private extension AccountsViewModelDefault {
-    
 }
