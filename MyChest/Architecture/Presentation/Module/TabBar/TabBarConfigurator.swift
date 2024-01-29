@@ -16,8 +16,8 @@ struct TabBarConfigurator {
     func view() -> some View {
         let viewModel = TabBarViewModelDefault()
         
-        let view: some View = TabBarView<TabBarViewModelDefault>()
-            .environmentObject(viewModel)
+        let view: some View = TabBarView<TabBarViewModelDefault>(viewModel: viewModel)
+            
         
         return view
     }

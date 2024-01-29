@@ -60,7 +60,7 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
         }
         .sheet(isPresented: $isAccountSheetPresented) {
             AddAccountConfigurator().view(isPresented: $isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
-                .presentationDetents([.medium, .large])
+                .presentationDetents([.large])
         }
     }
 }

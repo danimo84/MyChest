@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabBarView<ViewModel: TabBarViewModel>: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         if viewModel.isAuthenticated {
@@ -30,7 +30,7 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
                             }
                     }
                     .tag(2)
-                SettingsConfigurator().view()
+                SettingsConfigurator(navigationPath: viewModel.settingsPath).view()
                     .tabItem {
                         Label("Settings", systemImage: "gearshape")
                             .onTapGesture {
@@ -57,6 +57,6 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
 }
 
 #Preview {
-    TabBarView<MockTabBarViewModel>()
+    TabBarView<MockTabBarViewModel>(viewModel: MockTabBarViewModel())
         .environmentObject(MockTabBarViewModel())
 }

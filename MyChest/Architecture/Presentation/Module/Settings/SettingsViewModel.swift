@@ -6,21 +6,34 @@
 //
 
 import Foundation
+import SwiftUI
+
+enum SettingsRoute: String, Hashable {
+    case info
+}
 
 protocol SettingsViewModel: ObservableObject {
     var config: Config { get set }
+    var settingsPath: NavigationPath { get set }
     
     func fetchConfig()
+    func navigate(route: SettingsRoute)
+    func pop()
 }
 
 final class SettingsViewModelDefault {
     
     @Published var config: Config = .defaultConfig()
+    @Published var settingsPath: NavigationPath
     
     private let configRepository: ConfigRepository
     
-    init(configRepository: ConfigRepository) {
+    init(
+        configRepository: ConfigRepository,
+        settingsPath: NavigationPath
+    ) {
         self.configRepository = configRepository
+        self.settingsPath = settingsPath
         fetchConfig()
     }
 }
@@ -29,12 +42,14 @@ extension SettingsViewModelDefault: SettingsViewModel {
     
     func fetchConfig() {
         config = configRepository.fetchConfig()
-        
-//        if let passwordConfig = configRepository.fetchConfig().first {
-//            config = passwordConfig
-//        } else {
-//            storeDefaultConfig()
-//        }
+    }
+    
+    func navigate(route: SettingsRoute) {
+        settingsPath.append(route)
+    }
+    
+    func pop() {
+        settingsPath.removeLast()
     }
 }
 

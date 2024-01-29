@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
+import UIKit
 
 struct AddAccountView<ViewModel: AddAccountViewModel>: View {
     
@@ -51,22 +53,54 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                         }
                     }
                     Section {
-                        TextField("Contraseña", text: $viewModel.account.password)
-                            .listRowSeparator(.hidden)
+                        if viewModel.isPasswordSecured {
+                            SecureField("Contraseña", text: $viewModel.account.password)
+                                .listRowSeparator(.hidden)
+                                .disabled(!viewModel.isPasswordEditable)
+                                .background(viewModel.isPasswordEditable ? Color(.systemBackground) : .gray)
+                        } else {
+                            TextField("Contraseña", text: $viewModel.account.password)
+                                .listRowSeparator(.hidden)
+                                .disabled(!viewModel.isPasswordEditable)
+                                .background(viewModel.isPasswordEditable ? Color(.systemBackground) : .gray)
+                        }
                         HStack {
                             Button {
-                                isPassConfigSheetPresented = true
+                                copyPasswordToClipboard()
                             } label: {
-                                Text("Opciones")
+                                Image(systemName: "doc.on.doc")
+                                    .frame(height: 30)
                             }
                             .buttonStyle(.bordered)
-                            Spacer()
                             Button {
-                                viewModel.generatePassword()
+                                viewModel.isPasswordEditable.toggle()
                             } label: {
-                                Text("Generar")
+                                viewModel.isPasswordEditable ? Image(systemName: "lock").frame(height: 30) : Image(systemName: "lock.open").frame(height: 30)
                             }
                             .buttonStyle(.bordered)
+                            Button {
+                                viewModel.isPasswordSecured.toggle()
+                            } label: {
+                                viewModel.isPasswordSecured ? Image(systemName: "eye").frame(height: 30) : Image(systemName: "eye.slash").frame(height: 30)
+                            }
+                            .buttonStyle(.bordered)
+                            if viewModel.isPasswordEditable {
+                                Spacer()
+                                Button {
+                                    isPassConfigSheetPresented = true
+                                } label: {
+                                    Image(systemName: "gearshape")
+                                        .frame(height: 30)
+                                }
+                                .buttonStyle(.bordered)
+                                Button {
+                                    viewModel.generatePassword()
+                                } label: {
+                                    Text("Generar")
+                                        .frame(height: 30)
+                                }
+                                .buttonStyle(.bordered)
+                            }
                         }
                     } header: {
                         if !viewModel.account.password.isEmpty {
@@ -159,6 +193,10 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                 Text("Customiza la imagen de esta cuenta añadiendo la url de la misma.")
             }
         }
+    }
+    
+    private func copyPasswordToClipboard() {
+        UIPasteboard.general.setValue(viewModel.account.password, forPasteboardType: UTType.plainText.identifier)
     }
 }
 

@@ -11,6 +11,8 @@ import SwiftData
 protocol AddAccountViewModel: ObservableObject {
     var account: Account { get set }
     var newAccount: Bool { get set }
+    var isPasswordEditable: Bool { get set }
+    var isPasswordSecured: Bool { get set }
     var config: Config { get set }
     
     func isSaveButtonDisabled() -> Bool
@@ -33,6 +35,8 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     }
     
     @Published var newAccount: Bool = false
+    @Published var isPasswordEditable: Bool = false
+    @Published var isPasswordSecured: Bool = true
     @Published var config: Config = .defaultConfig()
     
     private let accountRepository: AccountRepository
@@ -49,6 +53,7 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
             account = originalAccount
         }
         newAccount = originalAccount == nil ? true : false
+        isPasswordEditable = originalAccount == nil ? true : false
         self.accountRepository = accountRepository
         self.configRepository = configRepository
         self.passordGenerator = passordGenerator

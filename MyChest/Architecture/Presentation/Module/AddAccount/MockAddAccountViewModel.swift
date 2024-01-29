@@ -12,6 +12,8 @@ final class MockAddAccountViewModel: AddAccountViewModel {
     
     var account: Account = .mock()
     var newAccount: Bool = false
+    var isPasswordEditable: Bool = false
+    var isPasswordSecured: Bool = false
     var config: Config = .defaultConfig()
     
     func isSaveButtonDisabled() -> Bool {

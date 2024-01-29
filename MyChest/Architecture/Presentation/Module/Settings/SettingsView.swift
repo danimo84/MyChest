@@ -9,15 +9,18 @@ import SwiftUI
 
 struct SettingsView<ViewModel: SettingsViewModel>: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     @State var storeInKeyChain: Bool = false
     
     var body: some View {
-        NavigationStack() {
+        NavigationStack(path: $viewModel.settingsPath) {
             List {
                 Section {
                     HStack {
                         Text("Información")
+                            .onTapGesture {
+                                viewModel.navigate(route: .info)
+                            }
                         Spacer()
                         Image(systemName: "chevron.right")
                     }
@@ -46,11 +49,17 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
                 }
             }
             .navigationTitle("Settings")
+            .navigationDestination(for: SettingsRoute.self, destination: { routes in
+                switch routes {
+                case .info:
+                    Text("Info")
+                }
+            })
         }
     }
 }
 
 #Preview {
-    SettingsView<MockSettingsViewModel>()
+    SettingsView<MockSettingsViewModel>(viewModel: MockSettingsViewModel())
         .environmentObject(MockSettingsViewModel())
 }
