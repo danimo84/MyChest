@@ -11,13 +11,15 @@ import SwiftData
 @Model
 class Account: ModelDefault {
     
-    var id: String
+    @Attribute(.unique) var id: String
     var user: String
     var password: String
     var domain: String
     var image: String
     var comment: String
     var rememberUpdateMonths: Int
+    var createdAt: Date
+    var updatedAt: Date
     
     init(
         user: String,
@@ -25,7 +27,9 @@ class Account: ModelDefault {
         domain: String,
         image: String,
         comment: String,
-        rememberUpdateMonths: Int
+        rememberUpdateMonths: Int,
+        createdAt: Date,
+        updatedAt: Date
     ) {
         self.id = UUID().uuidString
         self.user = user
@@ -34,6 +38,8 @@ class Account: ModelDefault {
         self.image = image
         self.comment = comment
         self.rememberUpdateMonths = rememberUpdateMonths
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
     }
 }
 
@@ -46,7 +52,9 @@ extension Account {
             domain: "",
             image: "",
             comment: "",
-            rememberUpdateMonths: 0
+            rememberUpdateMonths: 0,
+            createdAt: .now,
+            updatedAt: .now
         )
     }
 
@@ -57,7 +65,9 @@ extension Account {
             domain: "google.com",
             image: "",
             comment: "Cuenta para publicidad.",
-            rememberUpdateMonths: 1
+            rememberUpdateMonths: 1,
+            createdAt: Date(timeIntervalSince1970: 1300),
+            updatedAt: Date(timeIntervalSince1970: 1000)
         )
     }
     
@@ -69,7 +79,9 @@ extension Account {
                 domain: "google.com",
                 image: "",
                 comment: "Cuenta para publicidad.",
-                rememberUpdateMonths: 0
+                rememberUpdateMonths: 0,
+                createdAt: Date(timeIntervalSince1970: 1300),
+                updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
                 user: "danimo321",
@@ -77,7 +89,9 @@ extension Account {
                 domain: "facebook.com",
                 image: "",
                 comment: "",
-                rememberUpdateMonths: 12
+                rememberUpdateMonths: 12,
+                createdAt: Date(timeIntervalSince1970: 1300),
+                updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
                 user: "danimo321",
@@ -85,7 +99,9 @@ extension Account {
                 domain: "linkedin.com",
                 image: "",
                 comment: "",
-                rememberUpdateMonths: 5
+                rememberUpdateMonths: 5,
+                createdAt: Date(timeIntervalSince1970: 1300),
+                updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
                 user: "danimo321",
@@ -93,7 +109,9 @@ extension Account {
                 domain: "instagram.com",
                 image: "",
                 comment: "Cuenta personal.",
-                rememberUpdateMonths: 2
+                rememberUpdateMonths: 2,
+                createdAt: Date(timeIntervalSince1970: 1300),
+                updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
                 user: "danimo321",
@@ -102,7 +120,9 @@ extension Account {
                 image: "",
                 comment: "Cuenta de trabajo."
                 ,
-                rememberUpdateMonths: 6
+                rememberUpdateMonths: 6,
+                createdAt: Date(timeIntervalSince1970: 1300),
+                updatedAt: Date(timeIntervalSince1970: 1000)
             )
         ]
     }

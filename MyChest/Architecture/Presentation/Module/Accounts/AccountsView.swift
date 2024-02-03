@@ -15,7 +15,7 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
     
     var body: some View {
         NavigationStack {
-            List() {
+            List {
                 ForEach(viewModel.accounts) { account in
                     HStack {
                         if !account.image.isEmpty, let imageUrl = URL(string: account.image) {

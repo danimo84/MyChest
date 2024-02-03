@@ -41,13 +41,17 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     
     private let accountRepository: AccountRepository
     private let configRepository: ConfigRepository
+    private let notificationRepository: LocalNotificationRepository
     private let passordGenerator: PasswordGeneratorManager
+    private let notificationsManager: NotificationsManager
     
     init(
         originalAccount: Account?,
         accountRepository: AccountRepository,
         configRepository: ConfigRepository,
-        passordGenerator: PasswordGeneratorManager
+        notificationRepository: LocalNotificationRepository,
+        passordGenerator: PasswordGeneratorManager,
+        notificationsManager: NotificationsManager
     ) {
         if let originalAccount {
             account = originalAccount
@@ -56,7 +60,9 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
         isPasswordEditable = originalAccount == nil ? true : false
         self.accountRepository = accountRepository
         self.configRepository = configRepository
+        self.notificationRepository = notificationRepository
         self.passordGenerator = passordGenerator
+        self.notificationsManager = notificationsManager
         fetchConfig()
     }
     
@@ -66,6 +72,7 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     
     func saveNewAccount() {
         accountRepository.inserAccount(account)
+        scheduleNotification(account: account)
     }
     
     func deleteAccount() {
@@ -83,4 +90,34 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
 
 private extension AddAccountViewModelDefault {
     
+    func scheduleNotification(account: Account) {
+        guard account.rememberUpdateMonths != .zero,
+        let notification = buildNotification(account: account) else {
+            return
+        }
+        notificationsManager.scheduleNotifications([notification])
+        saveNotification(notification)
+    }
+    
+    // TODO: find other best place ¿in model like empty or mock?
+    func buildNotification(account: Account) -> LocalNotification? {
+        guard let date = Calendar.current.date(byAdding: .second, value: 10, to: .now) else {
+            return nil
+        }
+        return .init(
+            id: UUID().uuidString,
+            accountId: account.id,
+            title: "Cambio de contraseña",
+            body: "La contraseña para el dominio \(account.domain) debe ser actualizada. Han pasado \(account.rememberUpdateMonths) meses",
+            datetime: date,
+            repeats: false,
+            createdAt: .now,
+            updatedAt: .now,
+            isReaded: false
+        )
+    }
+    
+    func saveNotification(_ notification: LocalNotification) {
+        notificationRepository.insertNotification(notification)
+    }
 }

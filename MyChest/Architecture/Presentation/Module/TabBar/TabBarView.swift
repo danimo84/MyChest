@@ -14,7 +14,7 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
     var body: some View {
         if viewModel.isAuthenticated {
             TabView(selection: $viewModel.selectedTabItem) {
-                Text("Notificaciones")
+                NotificationsConfigurator().view()
                     .tabItem {
                         Label("Notificaciones", systemImage: "bell")
                             .onTapGesture {

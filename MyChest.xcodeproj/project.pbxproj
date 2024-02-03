@@ -10,19 +10,24 @@
 		1903B1452B5FFE1300C26865 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1903B1442B5FFE1300C26865 /* DatabaseManager.swift */; };
 		1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1903B1492B600A7200C26865 /* AccountDataSource.swift */; };
 		1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1903B14B2B60378100C26865 /* AccountRepository.swift */; };
+		19127CB52B694BB000D90170 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CB42B694BB000D90170 /* StorageManager.swift */; };
+		19127CB72B694CCE00D90170 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CB62B694CCE00D90170 /* DataError.swift */; };
+		19127CBA2B6D0DEA00D90170 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CB92B6D0DEA00D90170 /* LocalNotification.swift */; };
+		19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CBB2B6D120300D90170 /* NotificationsManager.swift */; };
 		191A77142B57119600AFC37F /* MyChestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A77132B57119600AFC37F /* MyChestApp.swift */; };
 		191A77182B57119600AFC37F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191A77172B57119600AFC37F /* Assets.xcassets */; };
 		191A771C2B57119600AFC37F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191A771B2B57119600AFC37F /* Preview Assets.xcassets */; };
 		191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17AE2B64189500E2A19E /* ConfigLocalDataSource.swift */; };
 		191D17B12B64196800E2A19E /* ConfigRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B02B64196800E2A19E /* ConfigRepository.swift */; };
 		191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B22B6433F700E2A19E /* PasswordGeneratorManager.swift */; };
-		191D17B72B6555EA00E2A19E /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B62B6555EA00E2A19E /* AuthViewModel.swift */; };
-		191D17BA2B65560F00E2A19E /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17B92B65560F00E2A19E /* AuthView.swift */; };
-		191D17BC2B65561C00E2A19E /* AuthConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17BB2B65561C00E2A19E /* AuthConfigurator.swift */; };
-		191D17BE2B65562D00E2A19E /* MockAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17BD2B65562D00E2A19E /* MockAuthViewModel.swift */; };
 		191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17BF2B657AD700E2A19E /* PermissionManager.swift */; };
-		191D17C32B65AB8100E2A19E /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191D17C22B65AB8100E2A19E /* AuthRouter.swift */; };
 		191D17C52B66619900E2A19E /* MyChestLaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 191D17C42B66619900E2A19E /* MyChestLaunchScreen.storyboard */; };
+		192C77FF2B6D3A2200664B89 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C77FE2B6D3A2200664B89 /* NotificationsViewModel.swift */; };
+		192C78022B6D3A4300664B89 /* MockNotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78012B6D3A4300664B89 /* MockNotificationsViewModel.swift */; };
+		192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78032B6D3A6000664B89 /* NotificationsConfigurator.swift */; };
+		192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78052B6D3A6F00664B89 /* NotificationsView.swift */; };
+		192C78082B6D3BCB00664B89 /* NotificationLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78072B6D3BCB00664B89 /* NotificationLocalDataSource.swift */; };
+		192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */; };
 		1954251D2B5E961500B11BA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954251C2B5E961500B11BA1 /* Constants.swift */; };
 		195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */; };
 		195425242B5EA7A300B11BA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 195425232B5EA7A300B11BA1 /* Kingfisher */; };
@@ -61,6 +66,10 @@
 		1903B1442B5FFE1300C26865 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1903B1492B600A7200C26865 /* AccountDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDataSource.swift; sourceTree = "<group>"; };
 		1903B14B2B60378100C26865 /* AccountRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepository.swift; sourceTree = "<group>"; };
+		19127CB42B694BB000D90170 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		19127CB62B694CCE00D90170 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		19127CB92B6D0DEA00D90170 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		19127CBB2B6D120300D90170 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		191A77102B57119600AFC37F /* MyChest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		191A77132B57119600AFC37F /* MyChestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChestApp.swift; sourceTree = "<group>"; };
 		191A77172B57119600AFC37F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,13 +79,14 @@
 		191D17B02B64196800E2A19E /* ConfigRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigRepository.swift; sourceTree = "<group>"; };
 		191D17B22B6433F700E2A19E /* PasswordGeneratorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorManager.swift; sourceTree = "<group>"; };
 		191D17B52B654E7F00E2A19E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		191D17B62B6555EA00E2A19E /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		191D17B92B65560F00E2A19E /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		191D17BB2B65561C00E2A19E /* AuthConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfigurator.swift; sourceTree = "<group>"; };
-		191D17BD2B65562D00E2A19E /* MockAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthViewModel.swift; sourceTree = "<group>"; };
 		191D17BF2B657AD700E2A19E /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
-		191D17C22B65AB8100E2A19E /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		191D17C42B66619900E2A19E /* MyChestLaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyChestLaunchScreen.storyboard; sourceTree = "<group>"; };
+		192C77FE2B6D3A2200664B89 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
+		192C78012B6D3A4300664B89 /* MockNotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNotificationsViewModel.swift; sourceTree = "<group>"; };
+		192C78032B6D3A6000664B89 /* NotificationsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsConfigurator.swift; sourceTree = "<group>"; };
+		192C78052B6D3A6F00664B89 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		192C78072B6D3BCB00664B89 /* NotificationLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLocalDataSource.swift; sourceTree = "<group>"; };
+		192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationRepository.swift; sourceTree = "<group>"; };
 		1954251C2B5E961500B11BA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Kingfisher.swift"; sourceTree = "<group>"; };
 		195425252B5EF81200B11BA1 /* PasswordGeneratorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorConfig.swift; sourceTree = "<group>"; };
@@ -126,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				1903B1442B5FFE1300C26865 /* DatabaseManager.swift */,
+				19127CB42B694BB000D90170 /* StorageManager.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -136,6 +147,7 @@
 				1903B1462B600A3C00C26865 /* Core */,
 				1903B1492B600A7200C26865 /* AccountDataSource.swift */,
 				191D17AE2B64189500E2A19E /* ConfigLocalDataSource.swift */,
+				192C78072B6D3BCB00664B89 /* NotificationLocalDataSource.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -143,6 +155,7 @@
 		1903B1482B600A4500C26865 /* DataSource */ = {
 			isa = PBXGroup;
 			children = (
+				19127CB82B694D0400D90170 /* Core */,
 				1903B1472B600A4000C26865 /* Local */,
 			);
 			path = DataSource;
@@ -153,8 +166,17 @@
 			children = (
 				1903B14B2B60378100C26865 /* AccountRepository.swift */,
 				191D17B02B64196800E2A19E /* ConfigRepository.swift */,
+				192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		19127CB82B694D0400D90170 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				19127CB62B694CCE00D90170 /* DataError.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		191A77072B57119500AFC37F = {
@@ -202,24 +224,23 @@
 			path = PasswordGenerator;
 			sourceTree = "<group>";
 		};
-		191D17B82B65560000E2A19E /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				191D17B92B65560F00E2A19E /* AuthView.swift */,
-				191D17B62B6555EA00E2A19E /* AuthViewModel.swift */,
-				191D17C22B65AB8100E2A19E /* AuthRouter.swift */,
-				191D17BB2B65561C00E2A19E /* AuthConfigurator.swift */,
-				191D17BD2B65562D00E2A19E /* MockAuthViewModel.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
 		191D17C12B657AE200E2A19E /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
 				191D17BF2B657AD700E2A19E /* PermissionManager.swift */,
 			);
 			path = Permissions;
+			sourceTree = "<group>";
+		};
+		192C78002B6D3A2800664B89 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				192C78052B6D3A6F00664B89 /* NotificationsView.swift */,
+				192C77FE2B6D3A2200664B89 /* NotificationsViewModel.swift */,
+				192C78032B6D3A6000664B89 /* NotificationsConfigurator.swift */,
+				192C78012B6D3A4300664B89 /* MockNotificationsViewModel.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		193069962B5C3C8200168C27 /* Frameworks */ = {
@@ -287,6 +308,7 @@
 				1954251E2B5E961B00B11BA1 /* Constants */,
 				191D17B42B6433FD00E2A19E /* PasswordGenerator */,
 				191D17C12B657AE200E2A19E /* Permissions */,
+				19986CC12B6D4A25003DC110 /* Notifications */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -348,7 +370,7 @@
 				1988CB952B585ED400D2C08F /* Accounts */,
 				19E0DFC72B5AF59F008A1AF2 /* AddAccount */,
 				195998FD2B59444600F17512 /* Settings */,
-				191D17B82B65560000E2A19E /* Auth */,
+				192C78002B6D3A2800664B89 /* Notifications */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -359,6 +381,14 @@
 				1988CB962B585EDC00D2C08F /* Module */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		19986CC12B6D4A25003DC110 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				19127CBB2B6D120300D90170 /* NotificationsManager.swift */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		19E0DFC72B5AF59F008A1AF2 /* AddAccount */ = {
@@ -386,6 +416,7 @@
 				19E0DFD02B5B1888008A1AF2 /* Core */,
 				19E0DFD32B5B1902008A1AF2 /* Account.swift */,
 				195425252B5EF81200B11BA1 /* PasswordGeneratorConfig.swift */,
+				19127CB92B6D0DEA00D90170 /* LocalNotification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -492,11 +523,9 @@
 				195998F62B59440000F17512 /* SettingsView.swift in Sources */,
 				191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */,
 				19E0DFD42B5B1902008A1AF2 /* Account.swift in Sources */,
-				191D17B72B6555EA00E2A19E /* AuthViewModel.swift in Sources */,
 				195425262B5EF81200B11BA1 /* PasswordGeneratorConfig.swift in Sources */,
 				1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */,
 				1988CB992B585F2F00D2C08F /* AccountsViewModel.swift in Sources */,
-				191D17BA2B65560F00E2A19E /* AuthView.swift in Sources */,
 				1988CB8A2B582A7900D2C08F /* Injector.swift in Sources */,
 				1988CB8B2B582A7900D2C08F /* InjectorModule.swift in Sources */,
 				1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */,
@@ -504,6 +533,7 @@
 				191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */,
 				19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */,
 				1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */,
+				19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */,
 				1988CB8C2B582A7900D2C08F /* AppDelegate+Injections.swift in Sources */,
 				1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */,
 				1988CB882B582A7900D2C08F /* MyChestInjectorProvider.swift in Sources */,
@@ -515,21 +545,27 @@
 				1988CB942B585EC700D2C08F /* AccountsView.swift in Sources */,
 				195998F12B593B8400F17512 /* TabBarView.swift in Sources */,
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
+				192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */,
 				19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */,
-				191D17C32B65AB8100E2A19E /* AuthRouter.swift in Sources */,
 				1988CB8D2B582A7900D2C08F /* MyChestModule.swift in Sources */,
-				191D17BE2B65562D00E2A19E /* MockAuthViewModel.swift in Sources */,
+				192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */,
+				19127CB72B694CCE00D90170 /* DataError.swift in Sources */,
+				19127CBA2B6D0DEA00D90170 /* LocalNotification.swift in Sources */,
+				192C78082B6D3BCB00664B89 /* NotificationLocalDataSource.swift in Sources */,
+				192C78022B6D3A4300664B89 /* MockNotificationsViewModel.swift in Sources */,
 				1988CB892B582A7900D2C08F /* InjectorProvider.swift in Sources */,
+				19127CB52B694BB000D90170 /* StorageManager.swift in Sources */,
 				195998F42B593C1D00F17512 /* TabBarViewModel.swift in Sources */,
 				19E0DFC92B5AF5B6008A1AF2 /* AddAccountViewModel.swift in Sources */,
 				191A77142B57119600AFC37F /* MyChestApp.swift in Sources */,
+				192C77FF2B6D3A2200664B89 /* NotificationsViewModel.swift in Sources */,
 				195998FC2B59443C00F17512 /* MockSettingsViewModel.swift in Sources */,
 				19E0DFC62B5AF59A008A1AF2 /* AddAccountView.swift in Sources */,
+				192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */,
 				195998F82B59441900F17512 /* SettingsViewModel.swift in Sources */,
 				19E0DFCB2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift in Sources */,
 				191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */,
 				195998FA2B59442300F17512 /* SettingsConfigurator.swift in Sources */,
-				191D17BC2B65561C00E2A19E /* AuthConfigurator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

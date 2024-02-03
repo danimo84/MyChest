@@ -15,13 +15,16 @@ protocol AccountLocalDataSource {
     func removeAllAccounts()
 }
 
-final class AccountLocalDataSourceDefault: AccountLocalDataSource {
+final class AccountLocalDataSourceDefault {
     
     private let databaseManager = DatabaseManager.shared
     
     init() {
         
     }
+}
+
+extension AccountLocalDataSourceDefault: AccountLocalDataSource {
     
     func fetchAccounts() -> [Account] {
         do {

@@ -13,6 +13,7 @@ class MyChestModule: InjectorModule {
     override func configure(_ container: Container) {
         configureAccounts(container)
         configureSettings(container)
+        configureNotifications(container)
     }
     
     private func configureAccounts(_ container: Container) {
@@ -40,6 +41,23 @@ class MyChestModule: InjectorModule {
         
         container.register(ConfigRepository.self) { r in
             ConfigRepositoryDefault(localDataSource: r.resolve(ConfigLocalDataSource.self)!)
+        }
+        .inObjectScope(.container)
+    }
+    
+    private func configureNotifications(_ container: Container) {
+        container.register(LocalNotificationLocalDataSource.self) { _ in
+            LocalNotificationLocalDataSourceDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(LocalNotificationRepository.self) { r in
+            LocalNotificationRepositoryDefault(localDataSource: r.resolve(LocalNotificationLocalDataSource.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(NotificationsManager.self) { _ in
+            NotificationsManagerDefault()
         }
         .inObjectScope(.container)
     }

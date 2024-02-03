@@ -29,7 +29,7 @@ extension TabBarViewModelDefault: TabBarViewModel {
     @MainActor
     func tryAuthentication() {
         Task {
-            isAuthenticated = await PermissionManager.isPermissionGrantedAndRequested(forType: .biometricAuth).isAccepted
+            isAuthenticated = await PermissionsManager.isPermissionGrantedAndRequested(forType: .biometricAuth).isAccepted
         }
         
     }

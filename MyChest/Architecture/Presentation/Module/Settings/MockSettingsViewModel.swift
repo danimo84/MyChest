@@ -24,4 +24,16 @@ final class MockSettingsViewModel: SettingsViewModel {
     func pop() {
         // Intentionally empty
     }
+    
+    func requestNotificationsPermission() {
+        // Intentionally empty
+    }
+    
+    func isNotificationsToogleValueChange() {
+        // Intentionally empty
+    }
+    
+    func isNotificationsAllowed() {
+        // Intentionally empty
+    }
 }

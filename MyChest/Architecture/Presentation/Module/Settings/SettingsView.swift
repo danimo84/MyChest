@@ -26,6 +26,9 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
                     }
                     
                     Toggle("Notificaciones", isOn: $viewModel.config.areNotificationsEnabled)
+                        .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
+                            viewModel.isNotificationsToogleValueChange()
+                        }
                     Toggle("Usar KeyChain", isOn: $viewModel.config.storeInKeyChain)
                     Text("Si usas KeyChain para almacenar tus credenciales y en la configuración del dispositivos tienes activado el iCloud para los llaveros, tus contraseñas viajarán a los servidores de Apple.")
                         .font(.system(size: 12))
@@ -55,6 +58,9 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
                     Text("Info")
                 }
             })
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+                viewModel.isNotificationsAllowed()
+            }
         }
     }
 }
