@@ -10,6 +10,7 @@ import UserNotifications
 
 protocol NotificationsManager {
     func scheduleNotifications(_ notifications: [LocalNotification])
+    func cancelPendingNotificationWithAccountId(_ id: String)
     func handleNotification(_ notificationUserInfo: [AnyHashable: Any])
 }
 
@@ -32,8 +33,20 @@ extension NotificationsManagerDefault: NotificationsManager {
         }
     }
     
+    func cancelPendingNotificationWithAccountId(_ id: String) {
+        cancelScheduledNotificationsForAccountId(id)
+    }
+    
     func handleNotification(_ notificationUserInfo: [AnyHashable: Any]) {
-        // TODO: - Handle notification tap route
+        guard let payload = NotificationPayload(notificationUserInfo) else {
+            return
+        }
+        switch payload.notificationType {
+        case .updatePasswordReminder:
+            navigateToAccountWithPayload(payload)
+        case .none:
+            return
+        }
     }
 }
 
@@ -65,6 +78,10 @@ private extension NotificationsManagerDefault {
         content.title = notification.title
         content.body = notification.body
         content.sound = .default
+        content.userInfo = [
+            "type": "update_password_reminder",
+            "id_account": "\(notification.accountId)"
+        ]
         return content
     }
     
@@ -75,5 +92,26 @@ private extension NotificationsManagerDefault {
             }
             print("Notification scheduled with ID = \(request.identifier)")
         }
+    }
+    
+    func cancelScheduledNotificationsForAccountId(_ id: String) {
+        UNUserNotificationCenter.current().getPendingNotificationRequests {
+            for notification: UNNotificationRequest in $0 {
+                if let idAccount = notification.content.userInfo["id_account"] as? String,
+                   idAccount == id {
+                    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [notification.identifier])
+                }
+            }
+        }
+    }
+}
+
+private extension NotificationsManagerDefault {
+    
+    func navigateToAccountWithPayload(_ payload: NotificationPayload) {
+        guard let idAccount = payload.idAccount else {
+            return
+        }
+        Router.shared.navigateToAccountsAndStoreRoutingToId(idAccount)
     }
 }

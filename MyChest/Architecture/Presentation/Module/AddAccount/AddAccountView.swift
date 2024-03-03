@@ -13,6 +13,7 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
     
     @EnvironmentObject var viewModel: ViewModel
     @State var isUrlAlertPresented: Bool = false
+    @State var isDeleteConfirmationAlertPresented: Bool = false
     @State var isPassConfigSheetPresented: Bool = false
     @Binding var isPresented: Bool
     
@@ -107,6 +108,9 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                             Text("Contraseña")
                         }
                     }
+                    .onChange(of: viewModel.account.password) {
+                        viewModel.paswordUpdated()
+                    }
                     
                     Section {
                         Picker("Recordar actualizar", selection: $viewModel.account.rememberUpdateMonths) {
@@ -130,6 +134,15 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                             Text("(\(viewModel.account.comment.count)/\(Constants.Accounts.maxAccountCommentCharacters))")
                                 .foregroundStyle(viewModel.account.comment.count >= Constants.Accounts.maxAccountCommentCharacters ? .red : .gray)
                         }
+                    }
+                    
+                    HStack {
+                        Text("Contraseña modificada")
+                            .font(Theme.Font.caption)
+                        Spacer()
+                        Text(viewModel.account.updatedAt.description
+                        )
+                        .font(Theme.Font.footnote)
                     }
                 }
             }
@@ -155,8 +168,7 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                 } else {
                     ToolbarItem(placement: .topBarLeading) {
                         Button {
-                            viewModel.deleteAccount()
-                            isPresented.toggle()
+                            isDeleteConfirmationAlertPresented = true
                         } label: {
                             Text("Eliminar")
                                 .foregroundStyle(.red)
@@ -191,6 +203,15 @@ struct AddAccountView<ViewModel: AddAccountViewModel>: View {
                 }
             } message: {
                 Text("Customiza la imagen de esta cuenta añadiendo la url de la misma.")
+            }
+            .alert("Eliminar cuenta.", isPresented: $isDeleteConfirmationAlertPresented) {
+                Button("Eliminar", role: .destructive) {
+                    isUrlAlertPresented = false
+                    viewModel.deleteAccount()
+                    isPresented.toggle()
+                }
+            } message: {
+                Text("¿Estás seguro de eliminar esta cuenta?")
             }
         }
     }

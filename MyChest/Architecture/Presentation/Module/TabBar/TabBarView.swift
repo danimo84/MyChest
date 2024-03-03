@@ -10,15 +10,16 @@ import SwiftUI
 struct TabBarView<ViewModel: TabBarViewModel>: View {
     
     @StateObject var viewModel: ViewModel
+    @EnvironmentObject var router: Router
     
     var body: some View {
         if viewModel.isAuthenticated {
-            TabView(selection: $viewModel.selectedTabItem) {
+            TabView(selection: $router.selectedTabItem) {
                 NotificationsConfigurator().view()
                     .tabItem {
                         Label("Notificaciones", systemImage: "bell")
                             .onTapGesture {
-                                viewModel.selectedTabItem = 1
+                                router.selectedTabItem = 1
                             }
                     }
                     .tag(1)
@@ -26,15 +27,15 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
                     .tabItem {
                         Label("Accounts", systemImage: "key")
                             .onTapGesture {
-                                viewModel.selectedTabItem = 2
+                                router.selectedTabItem = 2
                             }
                     }
                     .tag(2)
-                SettingsConfigurator(navigationPath: viewModel.settingsPath).view()
+                SettingsConfigurator().view()
                     .tabItem {
                         Label("Settings", systemImage: "gearshape")
                             .onTapGesture {
-                                viewModel.selectedTabItem = 3
+                                router.selectedTabItem = 3
                             }
                     }
                     .tag(3)

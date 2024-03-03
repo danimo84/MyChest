@@ -20,6 +20,7 @@ protocol AddAccountViewModel: ObservableObject {
     func deleteAccount()
     func fetchConfig()
     func generatePassword()
+    func paswordUpdated()
 }
 
 final class AddAccountViewModelDefault: AddAccountViewModel {
@@ -72,11 +73,12 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     
     func saveNewAccount() {
         accountRepository.inserAccount(account)
-        scheduleNotification(account: account)
+        scheduleNotification()
     }
     
     func deleteAccount() {
         accountRepository.removeAccount(account)
+        notificationRepository.removeNotificationsWithAccountId(account.id)
     }
     
     func fetchConfig() {
@@ -86,11 +88,22 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     func generatePassword() {
         account.password = passordGenerator.generatePasswordWithConfig(config)
     }
+    
+    func paswordUpdated() {
+        account.updatedAt = .now
+        cancelPendingNotificationForAccount()
+        notificationRepository.removePendingNotificationsWithAccountId(account.id)
+        scheduleNotification()
+    }
 }
 
 private extension AddAccountViewModelDefault {
     
-    func scheduleNotification(account: Account) {
+    func cancelPendingNotificationForAccount() {
+        notificationsManager.cancelPendingNotificationWithAccountId(account.id)
+    }
+    
+    func scheduleNotification() {
         guard account.rememberUpdateMonths != .zero,
         let notification = buildNotification(account: account) else {
             return
@@ -101,7 +114,7 @@ private extension AddAccountViewModelDefault {
     
     // TODO: find other best place ¿in model like empty or mock?
     func buildNotification(account: Account) -> LocalNotification? {
-        guard let date = Calendar.current.date(byAdding: .second, value: 10, to: .now) else {
+        guard let date = Calendar.current.date(byAdding: .second, value: account.rememberUpdateMonths * 10, to: .now) else {
             return nil
         }
         return .init(

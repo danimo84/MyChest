@@ -15,7 +15,7 @@ final class MockNotificationsViewModel: NotificationsViewModel {
         // Intentionally empty
     }
     
-    func onNotificationTapppedWithId(_ id: String) {
+    func onNotificationTapppedWithId(_ id: String, accountId: String) {
         // Intentionally empty
     }
 }

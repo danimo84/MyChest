@@ -11,7 +11,6 @@ import SwiftData
 struct AccountsView<ViewModel: AccountsViewModel>: View {
     
     @EnvironmentObject var viewModel: ViewModel
-    @State var isAccountSheetPresented: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -32,7 +31,7 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
                     }
                     .onTapGesture {
                         viewModel.selectedAccount = account
-                        isAccountSheetPresented = true
+                        viewModel.isAccountSheetPresented = true
                     }
                     .swipeActions {
                         Button("Borrar", role: .destructive) {
@@ -46,20 +45,23 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         viewModel.selectedAccount = nil
-                        isAccountSheetPresented = true
+                        viewModel.isAccountSheetPresented = true
                     } label: {
                         Image(systemName: "plus")
                     }
                 }
             }
-            .onChange(of: isAccountSheetPresented) {
-                if !isAccountSheetPresented {
+            .onChange(of: viewModel.isAccountSheetPresented) {
+                if !viewModel.isAccountSheetPresented {
                     viewModel.fetchAccounts()
                 }
             }
+            .onAppear {
+                viewModel.onAppear()
+            }
         }
-        .sheet(isPresented: $isAccountSheetPresented) {
-            AddAccountConfigurator().view(isPresented: $isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
+        .sheet(isPresented: $viewModel.isAccountSheetPresented) {
+            AddAccountConfigurator().view(isPresented: $viewModel.isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
                 .presentationDetents([.large])
         }
     }

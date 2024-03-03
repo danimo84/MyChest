@@ -16,8 +16,12 @@ final class StorageManager {
     @StorageEntry(key: .areNotificationsEnabled, emptyValue: false)
     var areNotificationsEnabled: Bool
     
+    @StorageEntry(key: .accountIdToNavigate, emptyValue: nil)
+    var accountIdToNavigate: String?
+    
     enum Keys: String, CaseIterable {
         case areNotificationsEnabled
+        case accountIdToNavigate
     }
 }
 
@@ -31,6 +35,10 @@ extension StorageManager {
     
     func clearAll() {
         UserDefaultsManager.shared.clearAll()
+    }
+    
+    func clearPendingNavigations() {
+        clearKeys(.accountIdToNavigate)
     }
 }
 

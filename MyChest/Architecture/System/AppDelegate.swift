@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         configureDependencyInjection()
         swiftDataStorage()
+        initNotificationsManger()
         
         return true
     }

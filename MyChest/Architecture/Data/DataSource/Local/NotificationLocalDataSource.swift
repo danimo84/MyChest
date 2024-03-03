@@ -12,6 +12,8 @@ protocol LocalNotificationLocalDataSource {
     func fetchNotifications() -> [LocalNotification]
     func insertNotification(_ notification: LocalNotification)
     func removeNotification(_ notification: LocalNotification)
+    func removeNotificationsWithAccountId(_ accountId: String)
+    func removePendingNotificationsWithAccountId(_ accountId: String)
     func removeAllNotifications()
 }
 
@@ -46,6 +48,27 @@ extension LocalNotificationLocalDataSourceDefault: LocalNotificationLocalDataSou
     
     func removeNotification(_ notification: LocalNotification) {
         databaseManager.modelContext.delete(notification)
+    }
+    
+    func removeNotificationsWithAccountId(_ accountId: String) {
+        do {
+            try databaseManager.modelContext.delete(model: LocalNotification.self, where: #Predicate { notification in
+                notification.accountId == accountId
+            })
+        } catch {
+            print("Error deleting Notificaitons for account id: \(accountId)")
+        }
+    }
+    
+    func removePendingNotificationsWithAccountId(_ accountId: String) {
+        let now: Date = .now
+        do {
+            try databaseManager.modelContext.delete(model: LocalNotification.self, where: #Predicate { notification in
+                notification.accountId == accountId && notification.datetime < now
+            })
+        } catch {
+            print("Error deleting Pending Notificaitons for account id: \(accountId)")
+        }
     }
     
     func removeAllNotifications() {

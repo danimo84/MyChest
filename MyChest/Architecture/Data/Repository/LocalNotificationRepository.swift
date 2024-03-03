@@ -11,6 +11,8 @@ protocol LocalNotificationRepository {
     func fetchNotifications() -> [LocalNotification]
     func insertNotification(_ notification: LocalNotification)
     func removeNotification(_ notification: LocalNotification)
+    func removeNotificationsWithAccountId(_ accountId: String)
+    func removePendingNotificationsWithAccountId(_ accountId: String)
     func removeAllNotifications()
 }
 
@@ -27,6 +29,7 @@ extension LocalNotificationRepositoryDefault: LocalNotificationRepository {
     
     func fetchNotifications() -> [LocalNotification] {
         localDataSource.fetchNotifications()
+            .sorted { $0.datetime > $1.datetime }
     }
     
     func insertNotification(_ notification: LocalNotification) {
@@ -35,6 +38,14 @@ extension LocalNotificationRepositoryDefault: LocalNotificationRepository {
     
     func removeNotification(_ notification: LocalNotification) {
         localDataSource.removeNotification(notification)
+    }
+    
+    func removeNotificationsWithAccountId(_ accountId: String) {
+        localDataSource.removeNotificationsWithAccountId(accountId)
+    }
+    
+    func removePendingNotificationsWithAccountId(_ accountId: String) {
+        localDataSource.removePendingNotificationsWithAccountId(accountId)
     }
     
     func removeAllNotifications() {

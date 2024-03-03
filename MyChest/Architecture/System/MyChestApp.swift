@@ -11,10 +11,12 @@ import SwiftUI
 struct MyChestApp: App {
     
     @UIApplicationDelegateAdaptor var delegate: AppDelegate
+    @ObservedObject var router = Router.shared
     
     var body: some Scene {
         WindowGroup {
             TabBarConfigurator().view()
+                .environmentObject(router)
         }
     }
 }

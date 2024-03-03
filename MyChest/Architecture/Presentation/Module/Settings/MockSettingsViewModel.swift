@@ -11,17 +11,16 @@ import SwiftUI
 final class MockSettingsViewModel: SettingsViewModel {
     
     var config: Config = .defaultConfig()
-    var settingsPath: NavigationPath = NavigationPath()
     
     func fetchConfig() {
         // Intentionally empty
     }
     
-    func navigate(route: SettingsRoute) {
+    func navigateToInfo() {
         // Intentionally empty
     }
     
-    func pop() {
+    func goBack() {
         // Intentionally empty
     }
     

@@ -16,9 +16,11 @@ struct AccountsConfigurator {
     func view() -> some View {
         
         let accountRepository = injector.instanceOf(AccountRepository.self)
+        let notificationRepository = injector.instanceOf(LocalNotificationRepository.self)
         
         let viewModel = AccountsViewModelDefault(
-            accountRepository: accountRepository
+            accountRepository: accountRepository,
+            notificationRepository: notificationRepository
         )
         
         let view: some View = AccountsView<AccountsViewModelDefault>()

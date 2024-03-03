@@ -11,7 +11,7 @@ protocol NotificationsViewModel: ObservableObject {
     var notifications: [LocalNotification] { get set }
     
     func onAppear()
-    func onNotificationTapppedWithId(_ id: String)
+    func onNotificationTapppedWithId(_ id: String, accountId: String)
 }
 
 final class NotificationsViewModelDefault {
@@ -31,8 +31,9 @@ extension NotificationsViewModelDefault: NotificationsViewModel {
         fetchNotifications()
     }
     
-    func onNotificationTapppedWithId(_ id: String) {
+    func onNotificationTapppedWithId(_ id: String, accountId: String) {
         markNotificationAsReadedWithId(id)
+        navigateToAccountWithId(accountId)
     }
 }
 
@@ -44,5 +45,9 @@ private extension NotificationsViewModelDefault {
     
     func markNotificationAsReadedWithId(_ id: String) {
         notifications.first(where: { $0.id == id } )?.isReaded = true
+    }
+    
+    func navigateToAccountWithId(_ id: String) {
+        Router.shared.navigateToAccountsAndStoreRoutingToId(id)
     }
 }

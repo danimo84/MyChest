@@ -35,4 +35,8 @@ final class MockAddAccountViewModel: AddAccountViewModel {
     func generatePassword() {
         // Intentionally empty
     }
+    
+    func paswordUpdated() {
+        // Intentionally empty
+    }
 }

@@ -18,14 +18,26 @@ struct NotificationsView<ViewModel: NotificationsViewModel>: View {
                     List {
                         ForEach(viewModel.notifications) { notification in
                             if notification.isSent {
-                                VStack {
-                                    Text(notification.title)
-                                    Text(notification.body)
-                                    Text(notification.isReaded ? "Readed" : "Unreaded")
-                                    Text(notification.isSent ? "Sent" : "Scheduled")
+                                VStack(spacing: 12) {
+                                    HStack {
+                                        Text(notification.title)
+                                            .font(Theme.Font.bodyBold)
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Text(notification.body)
+                                            .font(Theme.Font.body)
+                                        Spacer()
+                                    }
+                                    HStack {
+                                        Spacer()
+                                        Text(notification.datetime.description)
+                                            .font(Theme.Font.caption)
+                                    }
                                 }
+                                .listRowBackground(notification.isReaded ? .clear : Color.blue)
                                 .onTapGesture {
-                                    viewModel.onNotificationTapppedWithId(notification.id)
+                                    viewModel.onNotificationTapppedWithId(notification.id, accountId: notification.accountId)
                                 }
                             }
                         }

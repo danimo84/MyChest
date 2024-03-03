@@ -9,14 +9,12 @@ import SwiftUI
 
 struct SettingsConfigurator {
     
-    private let navigationPath: NavigationPath
-    
     private var injector: Injector {
         MyChestInjectorProvider.shared.injector
     }
     
-    init(navigationPath: NavigationPath) {
-        self.navigationPath = navigationPath
+    init() {
+
     }
     
     func view() -> some View {
@@ -24,8 +22,7 @@ struct SettingsConfigurator {
         let configRepository = injector.instanceOf(ConfigRepository.self)
         
         let viewModel = SettingsViewModelDefault(
-            configRepository: configRepository,
-            settingsPath: navigationPath
+            configRepository: configRepository
         )
         
         let view: some View = SettingsView<SettingsViewModelDefault>(viewModel: viewModel)

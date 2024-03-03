@@ -11,15 +11,16 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
     
     @StateObject var viewModel: ViewModel
     @State var storeInKeyChain: Bool = false
+    @EnvironmentObject var router: Router
     
     var body: some View {
-        NavigationStack(path: $viewModel.settingsPath) {
+        NavigationStack(path: $router.settingsNavigationPath) {
             List {
                 Section {
                     HStack {
                         Text("Información")
                             .onTapGesture {
-                                viewModel.navigate(route: .info)
+                                viewModel.navigateToInfo()
                             }
                         Spacer()
                         Image(systemName: "chevron.right")
@@ -29,9 +30,6 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
                         .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
                             viewModel.isNotificationsToogleValueChange()
                         }
-                    Toggle("Usar KeyChain", isOn: $viewModel.config.storeInKeyChain)
-                    Text("Si usas KeyChain para almacenar tus credenciales y en la configuración del dispositivos tienes activado el iCloud para los llaveros, tus contraseñas viajarán a los servidores de Apple.")
-                        .font(.system(size: 12))
                 } header: {
                     Text("General")
                 }
