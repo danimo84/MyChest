@@ -72,7 +72,6 @@ extension NotificationsManagerDefault: UNUserNotificationCenterDelegate {
 }
 
 private extension NotificationsManagerDefault {
-    
     func getNotificationContent(_ notification: LocalNotification) -> UNNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = notification.title

@@ -1,5 +1,5 @@
 //
-//  AddAccountViewModel.swift
+//  AccountDetailViewModel.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 19/1/24.
@@ -8,14 +8,14 @@
 import Foundation
 import SwiftData
 
-protocol AddAccountViewModel: ObservableObject {
+protocol AccountDetailViewModel: ObservableObject {
     var account: Account { get set }
     var newAccount: Bool { get set }
     var isPasswordEditable: Bool { get set }
     var isPasswordSecured: Bool { get set }
     var config: Config { get set }
+    var isSaveButtonDisabled: Bool { get set }
     
-    func isSaveButtonDisabled() -> Bool
     func saveNewAccount()
     func deleteAccount()
     func fetchConfig()
@@ -23,15 +23,16 @@ protocol AddAccountViewModel: ObservableObject {
     func paswordUpdated()
 }
 
-final class AddAccountViewModelDefault: AddAccountViewModel {
+final class AccountDetailViewModelDefault: AccountDetailViewModel {
     
-    let maxCommentCharacters = Constants.Accounts.maxAccountCommentCharacters
+    let maxCommentCharacters = Theme.AccountDetail.maxAccountCommentCharacters
     
     @Published var account: Account = .empty() {
         didSet {
             if account.comment.count > maxCommentCharacters {
                 account.comment = String(account.comment.prefix(maxCommentCharacters))
             }
+            isSaveButtonDisabled = account.domain.isEmpty || account.user.isEmpty || account.password.isEmpty
         }
     }
     
@@ -39,6 +40,7 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     @Published var isPasswordEditable: Bool = false
     @Published var isPasswordSecured: Bool = true
     @Published var config: Config = .defaultConfig()
+    @Published var isSaveButtonDisabled: Bool = true
     
     private let accountRepository: AccountRepository
     private let configRepository: ConfigRepository
@@ -67,10 +69,6 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
         fetchConfig()
     }
     
-    func isSaveButtonDisabled() -> Bool {
-        account.domain.isEmpty || account.user.isEmpty || account.password.isEmpty
-    }
-    
     func saveNewAccount() {
         accountRepository.inserAccount(account)
         scheduleNotification()
@@ -97,7 +95,7 @@ final class AddAccountViewModelDefault: AddAccountViewModel {
     }
 }
 
-private extension AddAccountViewModelDefault {
+private extension AccountDetailViewModelDefault {
     
     func cancelPendingNotificationForAccount() {
         notificationsManager.cancelPendingNotificationWithAccountId(account.id)
@@ -112,22 +110,8 @@ private extension AddAccountViewModelDefault {
         saveNotification(notification)
     }
     
-    // TODO: find other best place ¿in model like empty or mock?
     func buildNotification(account: Account) -> LocalNotification? {
-        guard let date = Calendar.current.date(byAdding: .second, value: account.rememberUpdateMonths * 10, to: .now) else {
-            return nil
-        }
-        return .init(
-            id: UUID().uuidString,
-            accountId: account.id,
-            title: "Cambio de contraseña",
-            body: "La contraseña para el dominio \(account.domain) debe ser actualizada. Han pasado \(account.rememberUpdateMonths) meses",
-            datetime: date,
-            repeats: false,
-            createdAt: .now,
-            updatedAt: .now,
-            isReaded: false
-        )
+        .buildLocalNotificationForAccount(account)
     }
     
     func saveNotification(_ notification: LocalNotification) {

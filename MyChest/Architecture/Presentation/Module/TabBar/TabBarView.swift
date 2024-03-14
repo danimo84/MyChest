@@ -14,45 +14,74 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
     
     var body: some View {
         if viewModel.isAuthenticated {
-            TabView(selection: $router.selectedTabItem) {
-                NotificationsConfigurator().view()
-                    .tabItem {
-                        Label("Notificaciones", systemImage: "bell")
-                            .onTapGesture {
-                                router.selectedTabItem = 1
-                            }
-                    }
-                    .tag(1)
-                AccountsConfigurator().view()
-                    .tabItem {
-                        Label("Accounts", systemImage: "key")
-                            .onTapGesture {
-                                router.selectedTabItem = 2
-                            }
-                    }
-                    .tag(2)
-                SettingsConfigurator().view()
-                    .tabItem {
-                        Label("Settings", systemImage: "gearshape")
-                            .onTapGesture {
-                                router.selectedTabItem = 3
-                            }
-                    }
-                    .tag(3)
-            }
+            tabView
         } else {
-            VStack {
-                Spacer()
-                Image(systemName: "lock.iphone")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding(.horizontal, 64)
-                Spacer()
-                Button("Login") {
-                    viewModel.tryAuthentication()
+            lockedStateView
+        }
+    }
+    
+    var tabView: some View {
+        TabView(selection: $router.selectedTabItem) {
+            notificationsTab
+            accountsTab
+            settingsTab
+        }
+    }
+    
+    var notificationsTab: some View {
+        NotificationsConfigurator().view()
+            .tabItem {
+                Label(
+                    Strings.MainScreen.notificationsTab,
+                    systemImage: Assets.SystemImage.bell
+                )
+                .onTapGesture {
+                    router.selectedTabItem = Theme.Tabbar.notifications
                 }
-                .buttonStyle(.bordered)
             }
+            .tag(Theme.Tabbar.notifications)
+    }
+    
+    var accountsTab: some View {
+        AccountsConfigurator().view()
+            .tabItem {
+                Label(
+                    Strings.MainScreen.accountsTab,
+                    systemImage: Assets.SystemImage.key
+                )
+                .onTapGesture {
+                    router.selectedTabItem = Theme.Tabbar.accounts
+                }
+            }
+            .tag(Theme.Tabbar.accounts)
+    }
+    
+    var settingsTab: some View {
+        SettingsConfigurator().view()
+            .tabItem {
+                Label(
+                    Strings.MainScreen.settingsTab,
+                    systemImage: Assets.SystemImage.gearshape
+                )
+                .onTapGesture {
+                    router.selectedTabItem = Theme.Tabbar.settings
+                }
+            }
+            .tag(Theme.Tabbar.settings)
+    }
+    
+    var lockedStateView: some View {
+        VStack {
+            Spacer()
+            Image(systemName: Assets.SystemImage.lockIphone)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.horizontal, Theme.Spacing.large_64)
+            Spacer()
+            Button(Strings.MainScreen.loginButton) {
+                viewModel.tryAuthentication()
+            }
+            .buttonStyle(.bordered)
         }
     }
 }

@@ -16,40 +16,56 @@ struct NotificationsView<ViewModel: NotificationsViewModel>: View {
             VStack {
                 if !viewModel.notifications.isEmpty {
                     List {
-                        ForEach(viewModel.notifications) { notification in
-                            if notification.isSent {
-                                VStack(spacing: 12) {
-                                    HStack {
-                                        Text(notification.title)
-                                            .font(Theme.Font.bodyBold)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Text(notification.body)
-                                            .font(Theme.Font.body)
-                                        Spacer()
-                                    }
-                                    HStack {
-                                        Spacer()
-                                        Text(notification.datetime.description)
-                                            .font(Theme.Font.caption)
-                                    }
-                                }
-                                .listRowBackground(notification.isReaded ? .clear : Color.blue)
-                                .onTapGesture {
-                                    viewModel.onNotificationTapppedWithId(notification.id, accountId: notification.accountId)
-                                }
+                        ForEach(viewModel.notifications) {
+                            if $0.isSent {
+                                notificationCard($0)
                             }
                         }
                     }
                 } else {
-                    Text("No hay notificaciones aún...")
+                    Text(Strings.NotificationsScreen.emptyState)
                 }
             }
-            .navigationTitle("Notificaciones")
+            .navigationTitle(Strings.NotificationsScreen.title)
             .onAppear {
                 viewModel.onAppear()
             }
+        }
+    }
+    
+    private func notificationCard(_ notification: LocalNotification) -> some View {
+        VStack(spacing: Theme.Spacing.medium_12) {
+            notificationTitle(notification.title)
+            notificationBody(notification.body)
+            notificationDatetime(notification.datetime.description)
+        }
+        .listRowBackground(notification.isReaded ? .clear : Color.blue)
+        .onTapGesture {
+            viewModel.onNotificationTapppedWithId(notification.id, accountId: notification.accountId)
+        }
+    }
+    
+    private func notificationTitle(_ title: String) -> some View {
+        HStack {
+            Text(title)
+                .font(Theme.Font.bodyBold)
+            Spacer()
+        }
+    }
+    
+    private func notificationBody(_ body: String) -> some View {
+        HStack {
+            Text(body)
+                .font(Theme.Font.body)
+            Spacer()
+        }
+    }
+    
+    private func notificationDatetime(_ datetime: String) -> some View {
+        HStack {
+            Spacer()
+            Text(datetime)
+                .font(Theme.Font.caption)
         }
     }
 }

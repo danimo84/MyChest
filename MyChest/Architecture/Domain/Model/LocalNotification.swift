@@ -49,6 +49,23 @@ class LocalNotification: ModelDefault {
 
 extension LocalNotification {
     
+    static func buildLocalNotificationForAccount(_ account: Account) -> LocalNotification? {
+        guard let date = Calendar.current.date(byAdding: .second, value: account.rememberUpdateMonths * 10, to: .now) else {
+            return nil
+        }
+        return .init(
+            id: UUID().uuidString,
+            accountId: account.id,
+            title: "Cambio de contraseña",
+            body: "La contraseña para el dominio \(account.domain) debe ser actualizada. Han pasado \(account.rememberUpdateMonths) meses",
+            datetime: date,
+            repeats: false,
+            createdAt: .now,
+            updatedAt: .now,
+            isReaded: false
+        )
+    }
+    
     static func empty() -> LocalNotification {
         .init(
             id: UUID().uuidString,

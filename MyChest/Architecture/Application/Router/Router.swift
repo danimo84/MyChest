@@ -49,9 +49,11 @@ extension Router {
 }
 
 enum SettingsRoute: String, Hashable {
+    
     case info
 }
 
 enum RoutePath: String {
+    
     case settings
 }

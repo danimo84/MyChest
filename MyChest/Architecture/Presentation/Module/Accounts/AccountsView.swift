@@ -15,42 +15,19 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.accounts) { account in
-                    HStack {
-                        if !account.image.isEmpty, let imageUrl = URL(string: account.image) {
-                            Image.cachedURL(imageUrl)
-                                .resizable()
-                                .frame(width: 36, height: 36)
-                                .aspectRatio(contentMode: .fit)
-                        } else {
-                            Image(systemName: "photo")
-                                .resizable()
-                                .frame(width: 36, height: 36)
-                        }
-                        Text(account.domain)
-                    }
-                    .onTapGesture {
-                        viewModel.selectedAccount = account
-                        viewModel.isAccountSheetPresented = true
-                    }
-                    .swipeActions {
-                        Button("Borrar", role: .destructive) {
-                            viewModel.deleteAccount(account)
-                        }
-                    }
+                ForEach(viewModel.accounts) {
+                    accountCard($0)
                 }
             }
-            .navigationTitle("Accounts")
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
+            .navigationTitle(Strings.AccountsScreen.title)
+            .toolbar(
+                .accounts,
+                action: {
+                    if $0 == .add {
                         viewModel.selectedAccount = nil
                         viewModel.isAccountSheetPresented = true
-                    } label: {
-                        Image(systemName: "plus")
                     }
-                }
-            }
+                })
             .onChange(of: viewModel.isAccountSheetPresented) {
                 if !viewModel.isAccountSheetPresented {
                     viewModel.fetchAccounts()
@@ -61,8 +38,53 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
             }
         }
         .sheet(isPresented: $viewModel.isAccountSheetPresented) {
-            AddAccountConfigurator().view(isPresented: $viewModel.isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
+            AccountDetailConfigurator().view(isPresented: $viewModel.isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
                 .presentationDetents([.large])
+        }
+    }
+    
+    var defaultImage: some View {
+        Image(systemName: Assets.SystemImage.photo)
+            .resizable()
+            .frame(
+                width: Theme.Accounts.accountImageSize,
+                height: Theme.Accounts.accountImageSize
+            )
+    }
+    
+    func remoteImage(_ imageUrl: URL) -> some View {
+        Image.cachedURL(imageUrl)
+            .resizable()
+            .frame(
+                width: Theme.Accounts.accountImageSize,
+                height: Theme.Accounts.accountImageSize
+            )
+            .aspectRatio(contentMode: .fit)
+    }
+    
+    func accountCard(_ account: Account) -> some View {
+        HStack {
+            if !account.image.isEmpty,
+               let imageUrl = URL(string: account.image) {
+                remoteImage(imageUrl)
+            } else {
+                defaultImage
+            }
+            Text(account.domain)
+            Spacer()
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            viewModel.selectedAccount = account
+            viewModel.isAccountSheetPresented = true
+        }
+        .swipeActions {
+            Button(
+                Strings.AccountsScreen.deletableButton,
+                role: .destructive
+            ) {
+                viewModel.deleteAccount(account)
+            }
         }
     }
 }

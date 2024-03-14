@@ -21,8 +21,6 @@ final class DatabaseManager {
     
     @MainActor
     private init() {
-        //modelContainer = try! ModelContainer(for: Account.self, Config.self)
-        
         modelContainer = {
             let schema = Schema(StorageModels.models)
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
@@ -47,26 +45,3 @@ final class DatabaseManager {
         }
     }
 }
-/*
-private extension DatabaseManagerDefault {
-    
-    func initContainer() {
-        modelContainer = try! ModelContainer(for: Account.self, Config.self)
-//        modelContainer = {
-//            let schema = Schema(StorageModels.models)
-//            let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-//
-//            do {
-//                return try ModelContainer(for: schema, configurations: [modelConfiguration])
-//            } catch {
-//                fatalError("Could not create ModelContainer: \(error)")
-//            }
-//        }()
-    }
-    
-    @MainActor
-    func initContext() {
-        modelContext = modelContainer.mainContext
-    }
-}
-*/

@@ -16,49 +16,58 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
     var body: some View {
         NavigationStack(path: $router.settingsNavigationPath) {
             List {
-                Section {
-                    HStack {
-                        Text("Información")
-                            .onTapGesture {
-                                viewModel.navigateToInfo()
-                            }
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                    }
-                    
-                    Toggle("Notificaciones", isOn: $viewModel.config.areNotificationsEnabled)
-                        .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
-                            viewModel.isNotificationsToogleValueChange()
-                        }
-                } header: {
-                    Text("General")
-                }
-                
-                Section {
-                    Picker("Número de caracteres", selection: $viewModel.config.charactersNumber) {
-                        ForEach(Constants.PasswordGenerator.minChars..<Constants.PasswordGenerator.maxChars, id: \.self) { index in
-                            Text("\(index)")
-                                .tag(index)
-                        }
-                    }
-                    Toggle("Mayúsculas", isOn: $viewModel.config.requireUpper)
-                    Toggle("Minúsculas", isOn: $viewModel.config.requireLower)
-                    Toggle("Números", isOn: $viewModel.config.requireNumber)
-                    Toggle("Especiales", isOn: $viewModel.config.requireSpecialCharacter)
-                } header: {
-                    Text("Generador de contraseñas")
-                }
+                generalSection
+                PasswordGeneratorSettings(
+                    charactersNumber: $viewModel.config.charactersNumber,
+                    requireUpper: $viewModel.config.requireUpper,
+                    requireLower: $viewModel.config.requireLower,
+                    requireNumber: $viewModel.config.requireNumber,
+                    requireSpecialCharacter: $viewModel.config.requireSpecialCharacter,
+                    showHeader: true
+                )
             }
-            .navigationTitle("Settings")
-            .navigationDestination(for: SettingsRoute.self, destination: { routes in
-                switch routes {
-                case .info:
-                    Text("Info")
-                }
+            .navigationTitle(Strings.SettingsScreen.title)
+            .navigationDestination(for: SettingsRoute.self, destination: {
+                route($0)
             })
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 viewModel.isNotificationsAllowed()
             }
+        }
+    }
+    
+    var generalSection: some View {
+        Section {
+            infoItem
+            notificationsToggle
+        } header: {
+            Text(Strings.SettingsScreen.generalHeader)
+        }
+    }
+    
+    var infoItem: some View {
+        HStack {
+            Text(Strings.SettingsScreen.informationTitle)
+            Spacer()
+            Image(systemName: Assets.SystemImage.chevronRight)
+        }
+        .contentShape(Rectangle())
+        .onTapGesture {
+            viewModel.navigateToInfo()
+        }
+    }
+    
+    var notificationsToggle: some View {
+        Toggle(Strings.SettingsScreen.notificationsTitle, isOn: $viewModel.config.areNotificationsEnabled)
+            .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
+                viewModel.isNotificationsToogleValueChange()
+            }
+    }
+    
+    private func route(_ route: SettingsRoute) -> some View {
+        switch route {
+        case .info:
+            Text("Info")
         }
     }
 }

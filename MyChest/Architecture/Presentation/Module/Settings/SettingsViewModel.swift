@@ -92,8 +92,3 @@ extension SettingsViewModelDefault: SettingsViewModel {
         }
     }
 }
-
-private extension SettingsViewModelDefault {
-    
-    
-}

@@ -14,6 +14,16 @@
 		19127CB72B694CCE00D90170 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CB62B694CCE00D90170 /* DataError.swift */; };
 		19127CBA2B6D0DEA00D90170 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CB92B6D0DEA00D90170 /* LocalNotification.swift */; };
 		19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19127CBB2B6D120300D90170 /* NotificationsManager.swift */; };
+		1913A2EB2B9C65DD004FFC2F /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2EA2B9C65DD004FFC2F /* Assets.swift */; };
+		1913A2ED2B9C6960004FFC2F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 1913A2EC2B9C6960004FFC2F /* Localizable.xcstrings */; };
+		1913A2F02B9C6E8C004FFC2F /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2EF2B9C6E8C004FFC2F /* Strings.swift */; };
+		1913A2F22B9C7B74004FFC2F /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2F12B9C7B73004FFC2F /* Toolbar.swift */; };
+		1913A2F52B9C84B6004FFC2F /* MainToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2F42B9C84B6004FFC2F /* MainToolbar.swift */; };
+		1913A2F72B9CDEF5004FFC2F /* AccountDetailDomainSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2F62B9CDEF5004FFC2F /* AccountDetailDomainSection.swift */; };
+		1913A2FA2B9CF230004FFC2F /* AccountDetailUserSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2F92B9CF230004FFC2F /* AccountDetailUserSection.swift */; };
+		1913A2FC2B9D059A004FFC2F /* AccountDetailPasswordSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2FB2B9D059A004FFC2F /* AccountDetailPasswordSection.swift */; };
+		1913A2FE2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2FD2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift */; };
+		1913A3002B9D07B4004FFC2F /* AccountDetailNotesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1913A2FF2B9D07B4004FFC2F /* AccountDetailNotesSection.swift */; };
 		191A77142B57119600AFC37F /* MyChestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191A77132B57119600AFC37F /* MyChestApp.swift */; };
 		191A77182B57119600AFC37F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191A77172B57119600AFC37F /* Assets.xcassets */; };
 		191A771C2B57119600AFC37F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 191A771B2B57119600AFC37F /* Preview Assets.xcassets */; };
@@ -28,7 +38,6 @@
 		192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78052B6D3A6F00664B89 /* NotificationsView.swift */; };
 		192C78082B6D3BCB00664B89 /* NotificationLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78072B6D3BCB00664B89 /* NotificationLocalDataSource.swift */; };
 		192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */; };
-		1954251D2B5E961500B11BA1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954251C2B5E961500B11BA1 /* Constants.swift */; };
 		195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */; };
 		195425242B5EA7A300B11BA1 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 195425232B5EA7A300B11BA1 /* Kingfisher */; };
 		195425262B5EF81200B11BA1 /* PasswordGeneratorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195425252B5EF81200B11BA1 /* PasswordGeneratorConfig.swift */; };
@@ -54,15 +63,19 @@
 		1988CB992B585F2F00D2C08F /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB982B585F2F00D2C08F /* AccountsViewModel.swift */; };
 		1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB9A2B585F4B00D2C08F /* AccountsConfigurator.swift */; };
 		1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB9C2B58604C00D2C08F /* MockAccountsViewModel.swift */; };
+		19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */; };
+		19C4DA352BA1BDB600E0DCC5 /* ToolbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */; };
+		19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */; };
 		19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D02B6ECC5900C2EB0D /* Router.swift */; };
 		19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */; };
 		19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */; };
+		19D90FB82B9E243D0010DED2 /* PasswordGeneratorSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D90FB72B9E243D0010DED2 /* PasswordGeneratorSettings.swift */; };
 		19E0DFC22B5AF372008A1AF2 /* MockTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFC12B5AF372008A1AF2 /* MockTabBarViewModel.swift */; };
 		19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFC32B5AF391008A1AF2 /* TabBarConfigurator.swift */; };
-		19E0DFC62B5AF59A008A1AF2 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFC52B5AF599008A1AF2 /* AddAccountView.swift */; };
-		19E0DFC92B5AF5B6008A1AF2 /* AddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFC82B5AF5B6008A1AF2 /* AddAccountViewModel.swift */; };
-		19E0DFCB2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCA2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift */; };
-		19E0DFCD2B5AF5DA008A1AF2 /* MockAddAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCC2B5AF5DA008A1AF2 /* MockAddAccountViewModel.swift */; };
+		19E0DFC62B5AF59A008A1AF2 /* AccountDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFC52B5AF599008A1AF2 /* AccountDetailView.swift */; };
+		19E0DFC92B5AF5B6008A1AF2 /* AccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFC82B5AF5B6008A1AF2 /* AccountDetailViewModel.swift */; };
+		19E0DFCB2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCA2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift */; };
+		19E0DFCD2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCC2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift */; };
 		19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCE2B5B1879008A1AF2 /* ModelDefault.swift */; };
 		19E0DFD42B5B1902008A1AF2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFD32B5B1902008A1AF2 /* Account.swift */; };
 		19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF4C622B5D62D600AD36B1 /* AppDelegate+SwfitData.swift */; };
@@ -76,6 +89,16 @@
 		19127CB62B694CCE00D90170 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		19127CB92B6D0DEA00D90170 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		19127CBB2B6D120300D90170 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		1913A2EA2B9C65DD004FFC2F /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		1913A2EC2B9C6960004FFC2F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		1913A2EF2B9C6E8C004FFC2F /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		1913A2F12B9C7B73004FFC2F /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		1913A2F42B9C84B6004FFC2F /* MainToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainToolbar.swift; sourceTree = "<group>"; };
+		1913A2F62B9CDEF5004FFC2F /* AccountDetailDomainSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailDomainSection.swift; sourceTree = "<group>"; };
+		1913A2F92B9CF230004FFC2F /* AccountDetailUserSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailUserSection.swift; sourceTree = "<group>"; };
+		1913A2FB2B9D059A004FFC2F /* AccountDetailPasswordSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailPasswordSection.swift; sourceTree = "<group>"; };
+		1913A2FD2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailRememberUpdatePasswordSection.swift; sourceTree = "<group>"; };
+		1913A2FF2B9D07B4004FFC2F /* AccountDetailNotesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailNotesSection.swift; sourceTree = "<group>"; };
 		191A77102B57119600AFC37F /* MyChest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		191A77132B57119600AFC37F /* MyChestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChestApp.swift; sourceTree = "<group>"; };
 		191A77172B57119600AFC37F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -93,7 +116,6 @@
 		192C78052B6D3A6F00664B89 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		192C78072B6D3BCB00664B89 /* NotificationLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationLocalDataSource.swift; sourceTree = "<group>"; };
 		192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationRepository.swift; sourceTree = "<group>"; };
-		1954251C2B5E961500B11BA1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Kingfisher.swift"; sourceTree = "<group>"; };
 		195425252B5EF81200B11BA1 /* PasswordGeneratorConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorConfig.swift; sourceTree = "<group>"; };
 		195998F02B593B8400F17512 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -116,15 +138,19 @@
 		1988CB982B585F2F00D2C08F /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
 		1988CB9A2B585F4B00D2C08F /* AccountsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsConfigurator.swift; sourceTree = "<group>"; };
 		1988CB9C2B58604C00D2C08F /* MockAccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountsViewModel.swift; sourceTree = "<group>"; };
+		19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonAction.swift; sourceTree = "<group>"; };
+		19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarStyle.swift; sourceTree = "<group>"; };
+		19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsBuilder.swift; sourceTree = "<group>"; };
 		19D0B5D02B6ECC5900C2EB0D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayload.swift; sourceTree = "<group>"; };
+		19D90FB72B9E243D0010DED2 /* PasswordGeneratorSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordGeneratorSettings.swift; sourceTree = "<group>"; };
 		19E0DFC12B5AF372008A1AF2 /* MockTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTabBarViewModel.swift; sourceTree = "<group>"; };
 		19E0DFC32B5AF391008A1AF2 /* TabBarConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarConfigurator.swift; sourceTree = "<group>"; };
-		19E0DFC52B5AF599008A1AF2 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
-		19E0DFC82B5AF5B6008A1AF2 /* AddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewModel.swift; sourceTree = "<group>"; };
-		19E0DFCA2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountConfigurator.swift; sourceTree = "<group>"; };
-		19E0DFCC2B5AF5DA008A1AF2 /* MockAddAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAddAccountViewModel.swift; sourceTree = "<group>"; };
+		19E0DFC52B5AF599008A1AF2 /* AccountDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailView.swift; sourceTree = "<group>"; };
+		19E0DFC82B5AF5B6008A1AF2 /* AccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewModel.swift; sourceTree = "<group>"; };
+		19E0DFCA2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailConfigurator.swift; sourceTree = "<group>"; };
+		19E0DFCC2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountDetailViewModel.swift; sourceTree = "<group>"; };
 		19E0DFCE2B5B1879008A1AF2 /* ModelDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDefault.swift; sourceTree = "<group>"; };
 		19E0DFD32B5B1902008A1AF2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		19FF4C622B5D62D600AD36B1 /* AppDelegate+SwfitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SwfitData.swift"; sourceTree = "<group>"; };
@@ -191,6 +217,45 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		1913A2EE2B9C6967004FFC2F /* Languages */ = {
+			isa = PBXGroup;
+			children = (
+				1913A2EC2B9C6960004FFC2F /* Localizable.xcstrings */,
+				1913A2EF2B9C6E8C004FFC2F /* Strings.swift */,
+			);
+			path = Languages;
+			sourceTree = "<group>";
+		};
+		1913A2F32B9C7B79004FFC2F /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				19D90FB62B9E24210010DED2 /* Toolbar */,
+				191B06BB2BA0BEA800D5A679 /* PasswordGenerator */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		1913A2F82B9CF1EB004FFC2F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19E0DFC52B5AF599008A1AF2 /* AccountDetailView.swift */,
+				1913A3012B9D0896004FFC2F /* Sections */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1913A3012B9D0896004FFC2F /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				1913A2F62B9CDEF5004FFC2F /* AccountDetailDomainSection.swift */,
+				1913A2F92B9CF230004FFC2F /* AccountDetailUserSection.swift */,
+				1913A2FB2B9D059A004FFC2F /* AccountDetailPasswordSection.swift */,
+				1913A2FD2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift */,
+				1913A2FF2B9D07B4004FFC2F /* AccountDetailNotesSection.swift */,
+			);
+			path = Sections;
+			sourceTree = "<group>";
+		};
 		191A77072B57119500AFC37F = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +293,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		191B06BB2BA0BEA800D5A679 /* PasswordGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				19D90FB72B9E243D0010DED2 /* PasswordGeneratorSettings.swift */,
+			);
+			path = PasswordGenerator;
+			sourceTree = "<group>";
+		};
 		191D17B42B6433FD00E2A19E /* PasswordGenerator */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,14 +333,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1954251E2B5E961B00B11BA1 /* Constants */ = {
-			isa = PBXGroup;
-			children = (
-				1954251C2B5E961500B11BA1 /* Constants.swift */,
-			);
-			path = Constants;
 			sourceTree = "<group>";
 		};
 		195425212B5EA76300B11BA1 /* Extensions */ = {
@@ -306,6 +371,7 @@
 			children = (
 				196105CC2B876C5900EA47AE /* Assets */,
 				196105CD2B876C6900EA47AE /* Theme.swift */,
+				1913A2EE2B9C6967004FFC2F /* Languages */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -314,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				191A77172B57119600AFC37F /* Assets.xcassets */,
+				1913A2EA2B9C65DD004FFC2F /* Assets.swift */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -336,7 +403,6 @@
 			children = (
 				19D0B5D22B70F5C000C2EB0D /* Router */,
 				1988CB7F2B582A7900D2C08F /* DI */,
-				1954251E2B5E961B00B11BA1 /* Constants */,
 				191D17B42B6433FD00E2A19E /* PasswordGenerator */,
 				191D17C12B657AE200E2A19E /* Permissions */,
 				19986CC12B6D4A25003DC110 /* Notifications */,
@@ -399,7 +465,7 @@
 			children = (
 				195998F22B593BE200F17512 /* TabBar */,
 				1988CB952B585ED400D2C08F /* Accounts */,
-				19E0DFC72B5AF59F008A1AF2 /* AddAccount */,
+				19E0DFC72B5AF59F008A1AF2 /* AccountDetail */,
 				195998FD2B59444600F17512 /* Settings */,
 				192C78002B6D3A2800664B89 /* Notifications */,
 			);
@@ -409,6 +475,7 @@
 		1988CB972B585EE400D2C08F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1913A2F32B9C7B79004FFC2F /* Component */,
 				1988CB962B585EDC00D2C08F /* Module */,
 			);
 			path = Presentation;
@@ -432,15 +499,27 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		19E0DFC72B5AF59F008A1AF2 /* AddAccount */ = {
+		19D90FB62B9E24210010DED2 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-				19E0DFC52B5AF599008A1AF2 /* AddAccountView.swift */,
-				19E0DFC82B5AF5B6008A1AF2 /* AddAccountViewModel.swift */,
-				19E0DFCA2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift */,
-				19E0DFCC2B5AF5DA008A1AF2 /* MockAddAccountViewModel.swift */,
+				1913A2F12B9C7B73004FFC2F /* Toolbar.swift */,
+				19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */,
+				19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */,
+				19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */,
+				1913A2F42B9C84B6004FFC2F /* MainToolbar.swift */,
 			);
-			path = AddAccount;
+			path = Toolbar;
+			sourceTree = "<group>";
+		};
+		19E0DFC72B5AF59F008A1AF2 /* AccountDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1913A2F82B9CF1EB004FFC2F /* View */,
+				19E0DFC82B5AF5B6008A1AF2 /* AccountDetailViewModel.swift */,
+				19E0DFCA2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift */,
+				19E0DFCC2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift */,
+			);
+			path = AccountDetail;
 			sourceTree = "<group>";
 		};
 		19E0DFD02B5B1888008A1AF2 /* Core */ = {
@@ -527,6 +606,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				es,
 				Base,
 			);
 			mainGroup = 191A77072B57119500AFC37F;
@@ -550,6 +630,7 @@
 			files = (
 				191D17C52B66619900E2A19E /* MyChestLaunchScreen.storyboard in Resources */,
 				191A771C2B57119600AFC37F /* Preview Assets.xcassets in Resources */,
+				1913A2ED2B9C6960004FFC2F /* Localizable.xcstrings in Resources */,
 				191A77182B57119600AFC37F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1913A2FA2B9CF230004FFC2F /* AccountDetailUserSection.swift in Sources */,
 				191D17B12B64196800E2A19E /* ConfigRepository.swift in Sources */,
 				195998F62B59440000F17512 /* SettingsView.swift in Sources */,
 				191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */,
@@ -573,45 +655,56 @@
 				1988CB8B2B582A7900D2C08F /* InjectorModule.swift in Sources */,
 				1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */,
 				1903B1452B5FFE1300C26865 /* DatabaseManager.swift in Sources */,
+				1913A2F02B9C6E8C004FFC2F /* Strings.swift in Sources */,
 				191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */,
 				19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */,
+				1913A2F72B9CDEF5004FFC2F /* AccountDetailDomainSection.swift in Sources */,
+				19C4DA352BA1BDB600E0DCC5 /* ToolbarStyle.swift in Sources */,
 				1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */,
 				19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */,
 				1988CB8C2B582A7900D2C08F /* AppDelegate+Injections.swift in Sources */,
 				1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */,
+				1913A3002B9D07B4004FFC2F /* AccountDetailNotesSection.swift in Sources */,
 				1988CB882B582A7900D2C08F /* MyChestInjectorProvider.swift in Sources */,
 				195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */,
 				196C39AB2B8BC316001235E9 /* LinkMetadata.swift in Sources */,
-				1954251D2B5E961500B11BA1 /* Constants.swift in Sources */,
 				19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */,
-				19E0DFCD2B5AF5DA008A1AF2 /* MockAddAccountViewModel.swift in Sources */,
+				19E0DFCD2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift in Sources */,
 				19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */,
 				19E0DFC22B5AF372008A1AF2 /* MockTabBarViewModel.swift in Sources */,
+				1913A2EB2B9C65DD004FFC2F /* Assets.swift in Sources */,
 				1988CB942B585EC700D2C08F /* AccountsView.swift in Sources */,
 				195998F12B593B8400F17512 /* TabBarView.swift in Sources */,
+				19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */,
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
 				192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */,
 				19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */,
+				19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */,
+				19D90FB82B9E243D0010DED2 /* PasswordGeneratorSettings.swift in Sources */,
 				1988CB8D2B582A7900D2C08F /* MyChestModule.swift in Sources */,
 				192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */,
+				1913A2F22B9C7B74004FFC2F /* Toolbar.swift in Sources */,
 				19127CB72B694CCE00D90170 /* DataError.swift in Sources */,
+				1913A2FE2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift in Sources */,
 				196C39A92B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift in Sources */,
 				196105CE2B876C6900EA47AE /* Theme.swift in Sources */,
 				19127CBA2B6D0DEA00D90170 /* LocalNotification.swift in Sources */,
 				192C78082B6D3BCB00664B89 /* NotificationLocalDataSource.swift in Sources */,
 				192C78022B6D3A4300664B89 /* MockNotificationsViewModel.swift in Sources */,
+				1913A2FC2B9D059A004FFC2F /* AccountDetailPasswordSection.swift in Sources */,
 				1988CB892B582A7900D2C08F /* InjectorProvider.swift in Sources */,
 				19127CB52B694BB000D90170 /* StorageManager.swift in Sources */,
 				195998F42B593C1D00F17512 /* TabBarViewModel.swift in Sources */,
-				19E0DFC92B5AF5B6008A1AF2 /* AddAccountViewModel.swift in Sources */,
+				19E0DFC92B5AF5B6008A1AF2 /* AccountDetailViewModel.swift in Sources */,
 				191A77142B57119600AFC37F /* MyChestApp.swift in Sources */,
 				192C77FF2B6D3A2200664B89 /* NotificationsViewModel.swift in Sources */,
 				19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */,
 				195998FC2B59443C00F17512 /* MockSettingsViewModel.swift in Sources */,
-				19E0DFC62B5AF59A008A1AF2 /* AddAccountView.swift in Sources */,
+				1913A2F52B9C84B6004FFC2F /* MainToolbar.swift in Sources */,
+				19E0DFC62B5AF59A008A1AF2 /* AccountDetailView.swift in Sources */,
 				192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */,
 				195998F82B59441900F17512 /* SettingsViewModel.swift in Sources */,
-				19E0DFCB2B5AF5C8008A1AF2 /* AddAccountConfigurator.swift in Sources */,
+				19E0DFCB2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift in Sources */,
 				191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */,
 				195998FA2B59442300F17512 /* SettingsConfigurator.swift in Sources */,
 			);

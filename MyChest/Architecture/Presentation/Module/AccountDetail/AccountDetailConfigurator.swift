@@ -1,5 +1,5 @@
 //
-//  AddAccountConfigurator.swift
+//  AccountDetailConfigurator.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 19/1/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddAccountConfigurator {
+struct AccountDetailConfigurator {
     
     private var injector: Injector {
         MyChestInjectorProvider.shared.injector
@@ -21,7 +21,7 @@ struct AddAccountConfigurator {
         let passwordGenerator = injector.instanceOf(PasswordGeneratorManager.self)
         let notificationsManager = injector.instanceOf(NotificationsManager.self)
         
-        let viewModel = AddAccountViewModelDefault(
+        let viewModel = AccountDetailViewModelDefault(
             originalAccount: originalAccount,
             accountRepository: accountRepository,
             configRepository: configRepository,
@@ -30,7 +30,7 @@ struct AddAccountConfigurator {
             notificationsManager: notificationsManager
         )
         
-        let view: some View = AddAccountView<AddAccountViewModelDefault>(isPresented: isPresented)
+        let view: some View = AccountDetailView<AccountDetailViewModelDefault>(isPresented: isPresented)
             .environmentObject(viewModel)
         
         return view

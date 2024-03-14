@@ -14,7 +14,6 @@ protocol PasswordGeneratorManager {
 final class  PasswordGeneratorManagerDefault: PasswordGeneratorManager {
     
     func generatePasswordWithConfig(_ config: Config) -> String {
-        
         String((0..<config.charactersNumber).compactMap { _ in
             allowedCharacters(config).randomElement()
         })
@@ -24,10 +23,10 @@ final class  PasswordGeneratorManagerDefault: PasswordGeneratorManager {
 private extension PasswordGeneratorManagerDefault {
     
     func allowedCharacters(_ config: Config) -> String {
-        let config = (config.requireUpper ? Constants.PasswordGenerator.letters.uppercased() : "")
-            .appending(config.requireLower ? Constants.PasswordGenerator.letters : "")
-            .appending(config.requireNumber ? Constants.PasswordGenerator.numbers : "")
-            .appending(config.requireSpecialCharacter ? Constants.PasswordGenerator.special : "")
+        let config = (config.requireUpper ? Theme.PasswordGenerator.letters.uppercased() : "")
+            .appending(config.requireLower ? Theme.PasswordGenerator.letters : "")
+            .appending(config.requireNumber ? Theme.PasswordGenerator.numbers : "")
+            .appending(config.requireSpecialCharacter ? Theme.PasswordGenerator.special : "")
         
         return config
     }

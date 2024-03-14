@@ -1,5 +1,5 @@
 //
-//  MockAddAccountViewModel.swift
+//  MockAccountDetailViewModel.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 19/1/24.
@@ -8,17 +8,14 @@
 import Foundation
 import SwiftData
 
-final class MockAddAccountViewModel: AddAccountViewModel {
+final class MockAccountDetailViewModel: AccountDetailViewModel {
     
     var account: Account = .mock()
     var newAccount: Bool = false
     var isPasswordEditable: Bool = false
     var isPasswordSecured: Bool = false
     var config: Config = .defaultConfig()
-    
-    func isSaveButtonDisabled() -> Bool {
-        true
-    }
+    var isSaveButtonDisabled: Bool = false
     
     func saveNewAccount() {
         // Intentionally empty
