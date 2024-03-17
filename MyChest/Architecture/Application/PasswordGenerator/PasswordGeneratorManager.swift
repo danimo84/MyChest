@@ -11,7 +11,7 @@ protocol PasswordGeneratorManager {
     func generatePasswordWithConfig(_ config: Config) -> String
 }
 
-final class  PasswordGeneratorManagerDefault: PasswordGeneratorManager {
+final class PasswordGeneratorManagerDefault: PasswordGeneratorManager {
     
     func generatePasswordWithConfig(_ config: Config) -> String {
         String((0..<config.charactersNumber).compactMap { _ in

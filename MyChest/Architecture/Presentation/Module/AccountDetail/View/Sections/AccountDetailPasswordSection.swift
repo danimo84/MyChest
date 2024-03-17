@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 struct AccountDetailPasswordSection<ViewModel: AccountDetailViewModel>: View {
     
     @ObservedObject var viewModel: ViewModel
-    @Binding var isPassConfigSheetPresented: Bool
+    @Binding var isPresented: Bool
     
     var body: some View {
         Section {
@@ -91,7 +91,7 @@ struct AccountDetailPasswordSection<ViewModel: AccountDetailViewModel>: View {
     
     var passwordSettingsButton: some View {
         Button {
-            isPassConfigSheetPresented = true
+            isPresented = true
         } label: {
             Image(systemName: Assets.SystemImage.gearshape)
                 .frame(height: Theme.AccountDetail.passwordButtonsHeight)
@@ -117,6 +117,6 @@ struct AccountDetailPasswordSection<ViewModel: AccountDetailViewModel>: View {
 #Preview {
     AccountDetailPasswordSection(
         viewModel: MockAccountDetailViewModel(),
-        isPassConfigSheetPresented: .constant(false)
+        isPresented: .constant(false)
     )
 }

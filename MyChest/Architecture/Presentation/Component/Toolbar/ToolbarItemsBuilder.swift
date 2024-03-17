@@ -10,6 +10,23 @@ import SwiftUI
 
 enum ToolbarItemsBuilder {
     
+    private static var addImage: some View {
+        Image(systemName: Assets.SystemImage.plus)
+    }
+    
+    private static var saveText: some View {
+        Text(Strings.Toolbar.saveButton)
+    }
+    
+    private static var deleteText: some View {
+        Text(Strings.Toolbar.delteButton)
+            .foregroundStyle(.red)
+    }
+    
+    private static var cancelText: some View {
+        Text(Strings.Toolbar.cancelButton)
+    }
+    
     static func button(buttonType: ToolbarButton, action: ((_ action: ToolbarButton) -> Void)?) -> some View {
         Button {
             action?(buttonType)
@@ -22,14 +39,13 @@ enum ToolbarItemsBuilder {
         Group {
             switch toolbarBotton {
             case .add:
-                Image(systemName: Assets.SystemImage.plus)
+                addImage
             case .save:
-                Text(Strings.Toolbar.saveButton)
+                saveText
             case .delete:
-                Text(Strings.Toolbar.delteButton)
-                    .foregroundStyle(.red)
+                deleteText
             case .cancel:
-                Text(Strings.Toolbar.cancelButton)
+                cancelText
             }
         }
     }

@@ -66,6 +66,11 @@
 		19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */; };
 		19C4DA352BA1BDB600E0DCC5 /* ToolbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */; };
 		19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */; };
+		19C4DA392BA3549400E0DCC5 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA382BA3549400E0DCC5 /* AlertType.swift */; };
+		19C4DA3C2BA3557800E0DCC5 /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA3B2BA3557800E0DCC5 /* AlertViewModel.swift */; };
+		19C4DA3E2BA3590D00E0DCC5 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA3D2BA3590D00E0DCC5 /* Alertable.swift */; };
+		19C4DA402BA359EF00E0DCC5 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA3F2BA359EF00E0DCC5 /* AlertViewModifier.swift */; };
+		19C4DA422BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */; };
 		19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D02B6ECC5900C2EB0D /* Router.swift */; };
 		19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */; };
 		19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */; };
@@ -141,6 +146,11 @@
 		19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonAction.swift; sourceTree = "<group>"; };
 		19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarStyle.swift; sourceTree = "<group>"; };
 		19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsBuilder.swift; sourceTree = "<group>"; };
+		19C4DA382BA3549400E0DCC5 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
+		19C4DA3B2BA3557800E0DCC5 /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
+		19C4DA3D2BA3590D00E0DCC5 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		19C4DA3F2BA359EF00E0DCC5 /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
+		19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedStringKey+StringValue.swift"; sourceTree = "<group>"; };
 		19D0B5D02B6ECC5900C2EB0D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayload.swift; sourceTree = "<group>"; };
@@ -231,6 +241,7 @@
 			children = (
 				19D90FB62B9E24210010DED2 /* Toolbar */,
 				191B06BB2BA0BEA800D5A679 /* PasswordGenerator */,
+				19C4DA3A2BA3549900E0DCC5 /* Alert */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -340,6 +351,7 @@
 			children = (
 				1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */,
 				196C39A82B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift */,
+				19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -489,6 +501,17 @@
 				19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */,
 			);
 			path = Notifications;
+			sourceTree = "<group>";
+		};
+		19C4DA3A2BA3549900E0DCC5 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				19C4DA382BA3549400E0DCC5 /* AlertType.swift */,
+				19C4DA3B2BA3557800E0DCC5 /* AlertViewModel.swift */,
+				19C4DA3D2BA3590D00E0DCC5 /* Alertable.swift */,
+				19C4DA3F2BA359EF00E0DCC5 /* AlertViewModifier.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		19D0B5D22B70F5C000C2EB0D /* Router */ = {
@@ -668,13 +691,16 @@
 				1988CB882B582A7900D2C08F /* MyChestInjectorProvider.swift in Sources */,
 				195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */,
 				196C39AB2B8BC316001235E9 /* LinkMetadata.swift in Sources */,
+				19C4DA402BA359EF00E0DCC5 /* AlertViewModifier.swift in Sources */,
 				19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */,
 				19E0DFCD2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift in Sources */,
 				19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */,
 				19E0DFC22B5AF372008A1AF2 /* MockTabBarViewModel.swift in Sources */,
 				1913A2EB2B9C65DD004FFC2F /* Assets.swift in Sources */,
 				1988CB942B585EC700D2C08F /* AccountsView.swift in Sources */,
+				19C4DA392BA3549400E0DCC5 /* AlertType.swift in Sources */,
 				195998F12B593B8400F17512 /* TabBarView.swift in Sources */,
+				19C4DA422BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift in Sources */,
 				19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */,
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
 				192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */,
@@ -687,6 +713,7 @@
 				19127CB72B694CCE00D90170 /* DataError.swift in Sources */,
 				1913A2FE2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift in Sources */,
 				196C39A92B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift in Sources */,
+				19C4DA3E2BA3590D00E0DCC5 /* Alertable.swift in Sources */,
 				196105CE2B876C6900EA47AE /* Theme.swift in Sources */,
 				19127CBA2B6D0DEA00D90170 /* LocalNotification.swift in Sources */,
 				192C78082B6D3BCB00664B89 /* NotificationLocalDataSource.swift in Sources */,
@@ -703,6 +730,7 @@
 				1913A2F52B9C84B6004FFC2F /* MainToolbar.swift in Sources */,
 				19E0DFC62B5AF59A008A1AF2 /* AccountDetailView.swift in Sources */,
 				192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */,
+				19C4DA3C2BA3557800E0DCC5 /* AlertViewModel.swift in Sources */,
 				195998F82B59441900F17512 /* SettingsViewModel.swift in Sources */,
 				19E0DFCB2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift in Sources */,
 				191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */,

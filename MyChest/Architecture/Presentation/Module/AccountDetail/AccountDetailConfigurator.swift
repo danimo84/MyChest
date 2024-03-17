@@ -30,7 +30,7 @@ struct AccountDetailConfigurator {
             notificationsManager: notificationsManager
         )
         
-        let view: some View = AccountDetailView<AccountDetailViewModelDefault>(isPresented: isPresented)
+        let view: some View = AccountDetailView<AccountDetailViewModelDefault>()
             .environmentObject(viewModel)
         
         return view

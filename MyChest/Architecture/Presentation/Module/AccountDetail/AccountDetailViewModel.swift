@@ -8,7 +8,9 @@
 import Foundation
 import SwiftData
 
-protocol AccountDetailViewModel: ObservableObject {
+protocol AccountDetailViewModel: ObservableObject, Alertable {
+    var isPresented: Bool { get }
+    var isPassConfigSheetPresented: Bool { get set }
     var account: Account { get set }
     var newAccount: Bool { get set }
     var isPasswordEditable: Bool { get set }
@@ -21,12 +23,15 @@ protocol AccountDetailViewModel: ObservableObject {
     func fetchConfig()
     func generatePassword()
     func paswordUpdated()
+    func configAlertViewModel(_ forType: AlertType)
 }
 
 final class AccountDetailViewModelDefault: AccountDetailViewModel {
     
     let maxCommentCharacters = Theme.AccountDetail.maxAccountCommentCharacters
     
+    var isPresented: Bool = true
+    @Published var isPassConfigSheetPresented: Bool = false
     @Published var account: Account = .empty() {
         didSet {
             if account.comment.count > maxCommentCharacters {
@@ -41,6 +46,8 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
     @Published var isPasswordSecured: Bool = true
     @Published var config: Config = .defaultConfig()
     @Published var isSaveButtonDisabled: Bool = true
+    @Published var alertIsVisible: Bool = false
+    @Published var alertViewModel: AlertViewModel = .empty()
     
     private let accountRepository: AccountRepository
     private let configRepository: ConfigRepository
@@ -92,6 +99,25 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
         cancelPendingNotificationForAccount()
         notificationRepository.removePendingNotificationsWithAccountId(account.id)
         scheduleNotification()
+    }
+    
+    func configAlertViewModel(_ type: AlertType) {
+        alertViewModel = AlertViewModel(
+            alertType: type,
+            dismissAction: {
+                self.alertIsVisible = false
+            },
+            confirmAction: {
+                switch type {
+                case .deleteConfirmation:
+                    self.deleteAccount()
+                    self.isPresented = false
+                default:
+                    break
+                }
+                self.alertIsVisible = false
+            }
+        )
     }
 }
 

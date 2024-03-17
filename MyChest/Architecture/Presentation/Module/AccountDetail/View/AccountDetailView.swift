@@ -10,11 +10,8 @@ import UIKit
 
 struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
     
+    @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: ViewModel
-    @State var isUrlAlertPresented: Bool = false
-    @State var isDeleteConfirmationAlertPresented: Bool = false
-    @State var isPassConfigSheetPresented: Bool = false
-    @Binding var isPresented: Bool
     
     var body: some View {
         NavigationStack {
@@ -33,25 +30,18 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
                     handleToolbarAction($0)
                 }
             )
-            .sheet(isPresented: $isPassConfigSheetPresented, content: {
+            .sheet(isPresented: $viewModel.isPassConfigSheetPresented, content: {
                 passwordConfigSheet
             })
-            .alert(Strings.AccountDetailScreen.addYourImageAlertTitle, isPresented: $isUrlAlertPresented) {
-                TextField(Strings.AccountDetailScreen.addYourImageAlertPlaceholder, text: $viewModel.account.image)
-                Button(Strings.AccountDetailScreen.addYourImageAlertAcceptButton) {
-                    isUrlAlertPresented = false
+            .alert(
+                isPresented: $viewModel.alertIsVisible,
+                viewModel: $viewModel.alertViewModel,
+                bindableString: $viewModel.account.image
+            )
+            .onChange(of: viewModel.isPresented) {
+                if !viewModel.isPresented {
+                    dismiss()
                 }
-            } message: {
-                Text(Strings.AccountDetailScreen.addYourImageAlertMessage)
-            }
-            .alert(Strings.AccountDetailScreen.deleteAccountAlertTitle, isPresented: $isDeleteConfirmationAlertPresented) {
-                Button(Strings.AccountDetailScreen.deleteAccountAlertAcceptButton, role: .destructive) {
-                    isUrlAlertPresented = false
-                    viewModel.deleteAccount()
-                    isPresented.toggle()
-                }
-            } message: {
-                Text(Strings.AccountDetailScreen.deleteAccountAlertMessage)
             }
         }
     }
@@ -60,12 +50,12 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
         Form {
             AccountDetailDomainSection(
                 viewModel: viewModel,
-                isUrlAlertPresented: $isUrlAlertPresented
+                isUrlAlertPresented: $viewModel.alertIsVisible
             )
             AccountDetailUserSection(viewModel: viewModel)
             AccountDetailPasswordSection(
                 viewModel: viewModel,
-                isPassConfigSheetPresented: $isPassConfigSheetPresented
+                isPresented: $viewModel.isPassConfigSheetPresented
             )
             AccountDetailRememberUpdatePasswordSection(viewModel: viewModel)
             AccountDetailNotesSection(viewModel: viewModel)
@@ -104,12 +94,13 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
     private func handleToolbarAction(_ action: ToolbarButton) {
         switch action {
         case .cancel:
-            isPresented.toggle()
+            dismiss()
         case .delete:
-            isDeleteConfirmationAlertPresented = true
+            viewModel.configAlertViewModel(.deleteConfirmation)
+            viewModel.alertIsVisible = true
         case .save:
             viewModel.saveNewAccount()
-            isPresented.toggle()
+            dismiss()
         default:
             return
         }
@@ -117,7 +108,7 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
 }
 
 #Preview {
-    AccountDetailView<MockAccountDetailViewModel>(isPresented: .constant(true))
+    AccountDetailView<MockAccountDetailViewModel>()
         .environmentObject(MockAccountDetailViewModel())
         .modelContainer(for: Account.self)
 }

@@ -33,6 +33,5 @@ extension TabBarViewModelDefault: TabBarViewModel {
         Task {
             isAuthenticated = await PermissionsManager.isPermissionGrantedAndRequested(forType: .biometricAuth).isAccepted
         }
-        
     }
 }

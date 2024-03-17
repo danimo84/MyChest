@@ -16,9 +16,7 @@ final class ConfigLocalDataSourceDefault: ConfigLocalDataSource {
     
     private let databaseManager = DatabaseManager.shared
     
-    init() {
-        
-    }
+    init() { }
     
     func fetchConfig() -> Config {
         do {

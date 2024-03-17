@@ -47,6 +47,7 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
         }
         .onTapGesture {
             isUrlAlertPresented = true
+            viewModel.configAlertViewModel(.inputData)
         }
     }
     

@@ -10,7 +10,6 @@ import SwiftUI
 struct SettingsView<ViewModel: SettingsViewModel>: View {
     
     @StateObject var viewModel: ViewModel
-    @State var storeInKeyChain: Bool = false
     @EnvironmentObject var router: Router
     
     var body: some View {

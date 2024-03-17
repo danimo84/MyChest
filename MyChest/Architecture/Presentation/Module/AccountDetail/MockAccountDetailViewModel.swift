@@ -10,12 +10,16 @@ import SwiftData
 
 final class MockAccountDetailViewModel: AccountDetailViewModel {
     
+    var isPresented: Bool = true
+    var isPassConfigSheetPresented: Bool = false
     var account: Account = .mock()
     var newAccount: Bool = false
     var isPasswordEditable: Bool = false
     var isPasswordSecured: Bool = false
     var config: Config = .defaultConfig()
     var isSaveButtonDisabled: Bool = false
+    var alertIsVisible: Bool = false
+    var alertViewModel: AlertViewModel = .empty()
     
     func saveNewAccount() {
         // Intentionally empty
@@ -34,6 +38,10 @@ final class MockAccountDetailViewModel: AccountDetailViewModel {
     }
     
     func paswordUpdated() {
+        // Intentionally empty
+    }
+    
+    func configAlertViewModel(_ forType: AlertType) {
         // Intentionally empty
     }
 }

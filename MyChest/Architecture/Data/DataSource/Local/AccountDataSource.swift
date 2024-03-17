@@ -19,9 +19,7 @@ final class AccountLocalDataSourceDefault {
     
     private let databaseManager = DatabaseManager.shared
     
-    init() {
-        
-    }
+    init() { }
 }
 
 extension AccountLocalDataSourceDefault: AccountLocalDataSource {

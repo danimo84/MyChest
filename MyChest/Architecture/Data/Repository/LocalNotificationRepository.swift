@@ -52,7 +52,3 @@ extension LocalNotificationRepositoryDefault: LocalNotificationRepository {
         localDataSource.removeAllNotifications()
     }
 }
-
-private extension LocalNotificationRepositoryDefault {
-    
-}

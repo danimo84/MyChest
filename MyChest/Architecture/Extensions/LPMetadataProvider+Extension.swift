@@ -12,7 +12,6 @@ import Combine
 extension LPMetadataProvider {
     
     func fetchMetadata(for url: URL) -> AnyPublisher<LinkMetadata?, Error> {
-        
         Future<LinkMetadata?, Error> { completion in
             self.startFetchingMetadata(for: url) { meta, error in
                 if let meta {

@@ -28,33 +28,17 @@ enum Strings {
         
         static let domainSectionHeader: LocalizedStringKey = "AccountDetail_DomainSection_Header"
         static let domainSectionPlaceholder: LocalizedStringKey = "AccountDetail_DomainSection_Placeholder"
-        
         static let userSectionHeader: LocalizedStringKey = "AccountDetail_UserSection_Header"
         static let userSectionPlaceholder: LocalizedStringKey = "AccountDetail_UserSection_Placeholder"
-        
         static let passwordSectionHeader: LocalizedStringKey = "AccountDetail_PasswordSection_Header"
         static let passwordSectionPlaceholder: LocalizedStringKey = "AccountDetail_PasswordSection_Placeholder"
         static let passwordSectionGenerateButton: LocalizedStringKey = "AccountDetail_PasswordSection_GenerateButton"
-        
         static let notesSectionTitle: LocalizedStringKey = "AccountDetail_NotesSection_Title"
-        
         static let rememberUpdatePasswordTitle: LocalizedStringKey = "AccountDetail_RememberUpdatePassword_Title"
         static let rememberUpdatePasswordNever: LocalizedStringKey = "AccountDetail_RememberUpdatePassword_Never"
-        
         static let newAccountDetailTitle: LocalizedStringKey = "AccountDetail_NewAccountTitle"
         static let accountDetailTitle: LocalizedStringKey = "AccountDetail_AccountTitle"
-        
         static let passwordGeneratorTitle: LocalizedStringKey = "AccountDetail_PasswordGeneratorTitle"
-        
-        static let addYourImageAlertTitle: LocalizedStringKey = "AccountDetail_AddYourImageAlertTitle"
-        static let addYourImageAlertPlaceholder: LocalizedStringKey = "AccountDetail_AddYourImageAlertPlaceholder"
-        static let addYourImageAlertAcceptButton: LocalizedStringKey = "AccountDetail_AddYourImageAlertAcceptButton"
-        static let addYourImageAlertMessage: LocalizedStringKey = "AccountDetail_AddYourImageAlertMessage"
-        
-        static let deleteAccountAlertTitle: LocalizedStringKey = "AccountDetail_DeleteAccountAlertTitle"
-        static let deleteAccountAlertAcceptButton: LocalizedStringKey = "AccountDetail_DeleteAccountAlertAcceptButton"
-        static let deleteAccountAlertMessage: LocalizedStringKey = "AccountDetail_DeleteAccountAlertMessage"
-        
         static let lastPasswordUpdatedDate: LocalizedStringKey = "AccountDetail_LastPasswrodUpdatedDate"
         
         static func rememberUpdatePasswordByMonth(monthsNumber: Int) -> LocalizedStringResource {
@@ -84,6 +68,27 @@ enum Strings {
         
         static let title: LocalizedStringKey = "Notifications_title"
         static let emptyState: LocalizedStringKey = "Notifications_EmptyState"
+    }
+    
+    enum Alert {
+        
+        static let addYourImageTitle: LocalizedStringKey = "Alert_AddYourImageTitle"
+        static let addYourImagePlaceholder: LocalizedStringKey = "Alert_AddYourImagePlaceholder"
+        static let addYourImageMessage: LocalizedStringKey = "Alert_AddYourImageMessage"
+        
+        static let deleteAccountTitle: LocalizedStringKey = "Alert_DeleteAccountTitle"
+        static let deleteAccountMessage: LocalizedStringKey = "Alert_DeleteAccountMessage"
+        
+        static let genericErrorTitle: LocalizedStringKey = "Alert_GenericErrorTitle"
+        static let genericErrorMessage: LocalizedStringKey = "Alert_GenericErrorMessage"
+    }
+    
+    enum GeneralActions {
+        
+        static let accept: LocalizedStringKey = "GeneralActions_Accept"
+        static let cancel: LocalizedStringKey = "GeneralActions_Cancel"
+        static let ok: LocalizedStringKey = "GeneralActions_Ok"
+        static let delete: LocalizedStringKey = "GeneralActions_Delete"
     }
     
     enum PasswordGenerator {

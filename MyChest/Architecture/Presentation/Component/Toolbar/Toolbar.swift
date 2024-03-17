@@ -22,10 +22,7 @@ extension View {
             toolbarForAccountScreen(action)
         case .accountDetail(let isNewAccount):
             if isNewAccount {
-                toolbarForNewAccountScreen(
-                    tralingButtonDisabled,
-                    action
-                )
+                toolbarForNewAccountScreen(tralingButtonDisabled, action)
             } else {
                 toolbarForAccountDetailScreen(action)
             }

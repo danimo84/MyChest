@@ -21,9 +21,7 @@ struct SettingsConfigurator {
         
         let configRepository = injector.instanceOf(ConfigRepository.self)
         
-        let viewModel = SettingsViewModelDefault(
-            configRepository: configRepository
-        )
+        let viewModel = SettingsViewModelDefault(configRepository: configRepository)
         
         let view: some View = SettingsView<SettingsViewModelDefault>(viewModel: viewModel)
         

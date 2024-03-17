@@ -21,9 +21,7 @@ final class LocalNotificationLocalDataSourceDefault {
     
     private let databaseManager = DatabaseManager.shared
     
-    init() {
-        
-    }
+    init() { }
 }
 
 extension LocalNotificationLocalDataSourceDefault: LocalNotificationLocalDataSource {
