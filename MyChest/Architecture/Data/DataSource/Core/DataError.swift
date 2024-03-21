@@ -9,6 +9,7 @@ import Foundation
 
 enum DataError: Error, Equatable {
     
+    case invalidUrl
     case encoding
     case unknown
 }

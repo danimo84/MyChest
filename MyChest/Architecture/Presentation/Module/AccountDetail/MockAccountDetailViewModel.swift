@@ -20,16 +20,14 @@ final class MockAccountDetailViewModel: AccountDetailViewModel {
     var isSaveButtonDisabled: Bool = false
     var alertIsVisible: Bool = false
     var alertViewModel: AlertViewModel = .empty()
+    var isMetadataLoading: Bool = false
+    var domainProtocol: DomainProtocol = .http
     
     func saveNewAccount() {
         // Intentionally empty
     }
     
     func deleteAccount() {
-        // Intentionally empty
-    }
-    
-    func fetchConfig() {
         // Intentionally empty
     }
     
@@ -42,6 +40,10 @@ final class MockAccountDetailViewModel: AccountDetailViewModel {
     }
     
     func configAlertViewModel(_ forType: AlertType) {
+        // Intentionally empty
+    }
+    
+    func updateLinkMetadata() {
         // Intentionally empty
     }
 }

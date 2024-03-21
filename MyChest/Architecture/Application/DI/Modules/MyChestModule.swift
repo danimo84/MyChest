@@ -22,10 +22,18 @@ class MyChestModule: InjectorModule {
         }
         .inObjectScope(.container)
         
+        container.register(LinkMetadataRemoteDataSource.self) { _ in
+            LinkMetadataRemoteDataSourceDefault()
+        }
+        
         container.register(AccountRepository.self) { r in
             AccountRepositoryDefault(localDataSource: r.resolve(AccountLocalDataSource.self)!)
         }
         .inObjectScope(.container)
+        
+        container.register(LinkMetadataRepository.self) { r in
+            LinkMetadataRepositoryDefault(remoteDataSource: r.resolve(LinkMetadataRemoteDataSource.self)!)
+        }
         
         container.register(PasswordGeneratorManager.self) { _ in
             PasswordGeneratorManagerDefault()

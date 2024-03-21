@@ -15,13 +15,35 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
     var body: some View {
         Section {
             HStack {
-                domainTextField
-                domainImage
+                VStack {
+                    domainPicker
+                    domainTextField
+                }
+                HStack {
+                    Spacer()
+                    domainImage
+                }
             }
         } header: {
             if !viewModel.account.domain.isEmpty {
                 header
             }
+        }
+        .onChange(of: viewModel.account.domain) {
+            viewModel.updateLinkMetadata()
+        }
+    }
+    
+    var domainPicker: some View {
+        Picker("", selection: $viewModel.domainProtocol) {
+            ForEach(Array(DomainProtocol.allCases), id: \.self) {
+                Text($0.rawValue)
+                    .tag($0)
+            }
+        }
+        .pickerStyle(.palette)
+        .onChange(of: viewModel.domainProtocol) {
+            viewModel.updateLinkMetadata()
         }
     }
     
@@ -38,11 +60,14 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
     
     var domainImage: some View {
         VStack {
-            if !viewModel.account.image.isEmpty,
-               let imageUrl = URL(string: viewModel.account.image) {
-                remoteImage(imageUrl)
+            if viewModel.isMetadataLoading {
+                ProgressView()
             } else {
-                defaultImage
+                if !viewModel.account.image.isEmpty {
+                    remoteImage(viewModel.account.image)
+                } else {
+                    defaultImage
+                }
             }
         }
         .onTapGesture {
@@ -51,23 +76,25 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
         }
     }
     
-    var defaultImage: some View {
-        Image(systemName: Assets.SystemImage.photo)
-            .resizable()
-            .frame(
-                width: Theme.AccountDetail.accountImageSize,
-                height: Theme.AccountDetail.accountImageSize
+    private var defaultImage: some View {
+        DefaultImage(
+            viewModel: .init(
+                width: Theme.AccountDetail.accountDefaultImageSize,
+                height: Theme.AccountDetail.accountDefaultImageSize
             )
+        )
     }
     
-    private func remoteImage(_ imageUrl: URL) -> some View {
-        Image.cachedURL(imageUrl)
-            .resizable()
-            .frame(
-                width: Theme.AccountDetail.accountImageSize,
-                height: Theme.AccountDetail.accountImageSize
+    private func remoteImage(_ imageUrl: String) -> some View {
+        RemoteImage(
+            viewModel: .init(
+                widht: Theme.AccountDetail.accountImageSize,
+                height: Theme.AccountDetail.accountImageSize,
+                cornerRadius: Theme.Radius.small,
+                clipedShape: true,
+                url: imageUrl
             )
-            .aspectRatio(contentMode: .fit)
+        )
     }
 }
 

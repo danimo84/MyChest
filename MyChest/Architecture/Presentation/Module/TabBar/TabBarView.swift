@@ -76,7 +76,7 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
             Image(systemName: Assets.SystemImage.lockIphone)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding(.horizontal, Theme.Spacing.large_64)
+                .padding(.horizontal, Theme.Spacing.xxLarge)
             Spacer()
             Button(Strings.MainScreen.loginButton) {
                 viewModel.tryAuthentication()

@@ -18,6 +18,7 @@ struct AccountDetailConfigurator {
         let accountRepository = injector.instanceOf(AccountRepository.self)
         let configRepository = injector.instanceOf(ConfigRepository.self)
         let notificationRepository = injector.instanceOf(LocalNotificationRepository.self)
+        let linkMetadaRepository = injector.instanceOf(LinkMetadataRepository.self)
         let passwordGenerator = injector.instanceOf(PasswordGeneratorManager.self)
         let notificationsManager = injector.instanceOf(NotificationsManager.self)
         
@@ -26,6 +27,7 @@ struct AccountDetailConfigurator {
             accountRepository: accountRepository,
             configRepository: configRepository,
             notificationRepository: notificationRepository,
+            linkMetadaRepository: linkMetadaRepository,
             passordGenerator: passwordGenerator,
             notificationsManager: notificationsManager
         )

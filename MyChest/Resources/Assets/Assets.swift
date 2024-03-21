@@ -27,5 +27,6 @@ enum Assets {
         static let eye: String = "eye"
         static let eyeSlash: String = "eye.slash"
         static let chevronRight: String = "chevron.right"
+        static let xmarkShield: String = "xmark.shield"
     }
 }

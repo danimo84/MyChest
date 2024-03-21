@@ -6,7 +6,14 @@
 //
 
 import Foundation
-import SwiftData
+//import SwiftData
+import Combine
+
+enum DomainProtocol: String, CaseIterable {
+    
+    case http = "http://"
+    case https = "https://"
+}
 
 protocol AccountDetailViewModel: ObservableObject, Alertable {
     var isPresented: Bool { get }
@@ -17,13 +24,15 @@ protocol AccountDetailViewModel: ObservableObject, Alertable {
     var isPasswordSecured: Bool { get set }
     var config: Config { get set }
     var isSaveButtonDisabled: Bool { get set }
+    var isMetadataLoading: Bool { get set }
+    var domainProtocol: DomainProtocol { get set }
     
     func saveNewAccount()
     func deleteAccount()
-    func fetchConfig()
     func generatePassword()
     func paswordUpdated()
     func configAlertViewModel(_ forType: AlertType)
+    func updateLinkMetadata()
 }
 
 final class AccountDetailViewModelDefault: AccountDetailViewModel {
@@ -48,10 +57,15 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
     @Published var isSaveButtonDisabled: Bool = true
     @Published var alertIsVisible: Bool = false
     @Published var alertViewModel: AlertViewModel = .empty()
+    @Published var isMetadataLoading: Bool = false
+    @Published var domainProtocol: DomainProtocol = .http
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     private let accountRepository: AccountRepository
     private let configRepository: ConfigRepository
     private let notificationRepository: LocalNotificationRepository
+    private let linkMetadaRepository: LinkMetadataRepository
     private let passordGenerator: PasswordGeneratorManager
     private let notificationsManager: NotificationsManager
     
@@ -60,6 +74,7 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
         accountRepository: AccountRepository,
         configRepository: ConfigRepository,
         notificationRepository: LocalNotificationRepository,
+        linkMetadaRepository: LinkMetadataRepository,
         passordGenerator: PasswordGeneratorManager,
         notificationsManager: NotificationsManager
     ) {
@@ -71,8 +86,10 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
         self.accountRepository = accountRepository
         self.configRepository = configRepository
         self.notificationRepository = notificationRepository
+        self.linkMetadaRepository = linkMetadaRepository
         self.passordGenerator = passordGenerator
         self.notificationsManager = notificationsManager
+        initDomainProtocol()
         fetchConfig()
     }
     
@@ -84,10 +101,6 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
     func deleteAccount() {
         accountRepository.removeAccount(account)
         notificationRepository.removeNotificationsWithAccountId(account.id)
-    }
-    
-    func fetchConfig() {
-        config = configRepository.fetchConfig()
     }
     
     func generatePassword() {
@@ -118,6 +131,54 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
                 self.alertIsVisible = false
             }
         )
+    }
+    
+    func updateLinkMetadata() {
+        account.domainProtocol = domainProtocol.rawValue
+        requestLinkMetada()
+    }
+}
+
+private extension AccountDetailViewModelDefault {
+    
+    func requestLinkMetada() {
+        isMetadataLoading = false
+        subscriptions.removeAll()
+        isMetadataLoading = true
+        
+        print("Account domain-> \(domainProtocol.rawValue)\(account.domain)")
+        linkMetadaRepository.getLinkMetadata(forUrl: "\(domainProtocol.rawValue)\(account.domain)")
+            .sink(
+                receiveCompletion: { completion in
+                    if case let .failure(error) = completion {
+                        self.isMetadataLoading = false
+                        self.account.image = ""
+                        
+                        print("Error-> \(error)")
+                    }
+                },
+                receiveValue: { metadata in
+                    print("Metadata-> \(metadata)")
+                    self.isMetadataLoading = false
+                    self.account.image = metadata.imageUrl ?? ""
+                }
+            )
+            .store(in: &subscriptions)
+    }
+    
+    func initDomainProtocol() {
+        if newAccount {
+            account.domainProtocol = domainProtocol.rawValue
+        } else {
+            self.domainProtocol = .init(rawValue: account.domainProtocol) ?? .http
+        }
+    }
+}
+
+private extension AccountDetailViewModelDefault {
+    
+    func fetchConfig() {
+        config = configRepository.fetchConfig()
     }
 }
 

@@ -34,7 +34,7 @@ struct NotificationsView<ViewModel: NotificationsViewModel>: View {
     }
     
     private func notificationCard(_ notification: LocalNotification) -> some View {
-        VStack(spacing: Theme.Spacing.medium_12) {
+        VStack(spacing: Theme.Spacing.small) {
             notificationTitle(notification.title)
             notificationBody(notification.body)
             notificationDatetime(notification.datetime.description)

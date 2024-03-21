@@ -11,8 +11,8 @@ import Combine
 
 extension LPMetadataProvider {
     
-    func fetchMetadata(for url: URL) -> AnyPublisher<LinkMetadata?, Error> {
-        Future<LinkMetadata?, Error> { completion in
+    func fetchMetadata(for url: URL) -> AnyPublisher<LinkMetadataEntity?, Error> {
+        Future<LinkMetadataEntity?, Error> { completion in
             self.startFetchingMetadata(for: url) { meta, error in
                 if let meta {
                     let imageMetadata = meta.value(forKey: "imageMetadata") as? AnyObject

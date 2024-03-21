@@ -15,6 +15,7 @@ class Account: ModelDefault {
     var user: String
     var password: String
     var domain: String
+    var domainProtocol: String
     var image: String
     var comment: String
     var rememberUpdateMonths: Int
@@ -25,6 +26,7 @@ class Account: ModelDefault {
         user: String,
         password: String,
         domain: String,
+        domainProtocol: String,
         image: String,
         comment: String,
         rememberUpdateMonths: Int,
@@ -35,6 +37,7 @@ class Account: ModelDefault {
         self.user = user
         self.password = password
         self.domain = domain
+        self.domainProtocol = domainProtocol
         self.image = image
         self.comment = comment
         self.rememberUpdateMonths = rememberUpdateMonths
@@ -50,6 +53,7 @@ extension Account {
             user: "",
             password: "",
             domain: "",
+            domainProtocol: DomainProtocol.http.rawValue,
             image: "",
             comment: "",
             rememberUpdateMonths: 0,
@@ -63,6 +67,7 @@ extension Account {
             user: "danimo321",
             password: "123123",
             domain: "google.com",
+            domainProtocol: DomainProtocol.http.rawValue,
             image: "",
             comment: "Cuenta para publicidad.",
             rememberUpdateMonths: 1,
@@ -77,6 +82,7 @@ extension Account {
                 user: "danimo321",
                 password: "123123",
                 domain: "google.com",
+                domainProtocol: DomainProtocol.http.rawValue,
                 image: "",
                 comment: "Cuenta para publicidad.",
                 rememberUpdateMonths: 0,
@@ -87,6 +93,7 @@ extension Account {
                 user: "danimo321",
                 password: "123123",
                 domain: "facebook.com",
+                domainProtocol: DomainProtocol.http.rawValue,
                 image: "",
                 comment: "",
                 rememberUpdateMonths: 12,
@@ -97,6 +104,7 @@ extension Account {
                 user: "danimo321",
                 password: "123123",
                 domain: "linkedin.com",
+                domainProtocol: DomainProtocol.https.rawValue,
                 image: "",
                 comment: "",
                 rememberUpdateMonths: 5,
@@ -107,6 +115,7 @@ extension Account {
                 user: "danimo321",
                 password: "123123",
                 domain: "instagram.com",
+                domainProtocol: DomainProtocol.https.rawValue,
                 image: "",
                 comment: "Cuenta personal.",
                 rememberUpdateMonths: 2,
@@ -117,6 +126,7 @@ extension Account {
                 user: "danimo321",
                 password: "123123",
                 domain: "discord.com",
+                domainProtocol: DomainProtocol.https.rawValue,
                 image: "",
                 comment: "Cuenta de trabajo."
                 ,

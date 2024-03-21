@@ -44,29 +44,30 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
     }
     
     var defaultImage: some View {
-        Image(systemName: Assets.SystemImage.photo)
-            .resizable()
-            .frame(
+        DefaultImage(
+            viewModel: .init(
                 width: Theme.Accounts.accountImageSize,
                 height: Theme.Accounts.accountImageSize
             )
+        )
     }
     
-    func remoteImage(_ imageUrl: URL) -> some View {
-        Image.cachedURL(imageUrl)
-            .resizable()
-            .frame(
-                width: Theme.Accounts.accountImageSize,
-                height: Theme.Accounts.accountImageSize
+    func remoteImage(_ imageUrl: String) -> some View {
+        RemoteImage(
+            viewModel: .init(
+                widht: Theme.Accounts.accountImageSize,
+                height: Theme.Accounts.accountImageSize,
+                cornerRadius: Theme.Radius.small,
+                clipedShape: true,
+                url: imageUrl
             )
-            .aspectRatio(contentMode: .fit)
+        )
     }
     
     func accountCard(_ account: Account) -> some View {
         HStack {
-            if !account.image.isEmpty,
-               let imageUrl = URL(string: account.image) {
-                remoteImage(imageUrl)
+            if !account.image.isEmpty {
+                remoteImage(account.image)
             } else {
                 defaultImage
             }

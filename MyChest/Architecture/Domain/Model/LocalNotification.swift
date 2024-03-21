@@ -56,8 +56,11 @@ extension LocalNotification {
         return .init(
             id: UUID().uuidString,
             accountId: account.id,
-            title: "Cambio de contraseña",
-            body: "La contraseña para el dominio \(account.domain) debe ser actualizada. Han pasado \(account.rememberUpdateMonths) meses",
+            title: Strings.NotificationsScreen.passwordUpdateTitle,
+            body: Strings.NotificationsScreen.passwordUpdateBody(
+                domain: account.domain,
+                monthsNumber: account.rememberUpdateMonths
+            ),
             datetime: date,
             repeats: false,
             createdAt: .now,

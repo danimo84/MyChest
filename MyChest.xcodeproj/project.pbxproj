@@ -71,6 +71,18 @@
 		19C4DA3E2BA3590D00E0DCC5 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA3D2BA3590D00E0DCC5 /* Alertable.swift */; };
 		19C4DA402BA359EF00E0DCC5 /* AlertViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA3F2BA359EF00E0DCC5 /* AlertViewModifier.swift */; };
 		19C4DA422BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */; };
+		19CCB2212BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2202BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift */; };
+		19CCB2242BA9AE2100043542 /* LinkMetadataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2232BA9AE2100043542 /* LinkMetadataEntity.swift */; };
+		19CCB2272BA9AE5700043542 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2262BA9AE5700043542 /* Entity.swift */; };
+		19CCB22A2BA9AFCC00043542 /* LinkMetadataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2292BA9AFCC00043542 /* LinkMetadataRepository.swift */; };
+		19CCB22C2BA9B1AB00043542 /* LinkMetadataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB22B2BA9B1AB00043542 /* LinkMetadataMapper.swift */; };
+		19CCB22F2BA9B3DE00043542 /* LinkMetadataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB22E2BA9B3DE00043542 /* LinkMetadataError.swift */; };
+		19CCB2322BA9B42E00043542 /* LinkMetadataErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2312BA9B42E00043542 /* LinkMetadataErrorMapper.swift */; };
+		19CCB2352BAB5BBC00043542 /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2342BAB5BBC00043542 /* DefaultImage.swift */; };
+		19CCB2372BAB5EF200043542 /* DefaultImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */; };
+		19CCB23B2BAC6D9000043542 /* RemoteImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */; };
+		19CCB23E2BAC6F3000043542 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23D2BAC6F3000043542 /* RemoteImage.swift */; };
+		19CCB2402BAC87D500043542 /* ImageClipShapeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23F2BAC87D500043542 /* ImageClipShapeModifier.swift */; };
 		19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D02B6ECC5900C2EB0D /* Router.swift */; };
 		19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */; };
 		19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */; };
@@ -151,6 +163,18 @@
 		19C4DA3D2BA3590D00E0DCC5 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		19C4DA3F2BA359EF00E0DCC5 /* AlertViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModifier.swift; sourceTree = "<group>"; };
 		19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedStringKey+StringValue.swift"; sourceTree = "<group>"; };
+		19CCB2202BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataRemoteDataSource.swift; sourceTree = "<group>"; };
+		19CCB2232BA9AE2100043542 /* LinkMetadataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataEntity.swift; sourceTree = "<group>"; };
+		19CCB2262BA9AE5700043542 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
+		19CCB2292BA9AFCC00043542 /* LinkMetadataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataRepository.swift; sourceTree = "<group>"; };
+		19CCB22B2BA9B1AB00043542 /* LinkMetadataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataMapper.swift; sourceTree = "<group>"; };
+		19CCB22E2BA9B3DE00043542 /* LinkMetadataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataError.swift; sourceTree = "<group>"; };
+		19CCB2312BA9B42E00043542 /* LinkMetadataErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataErrorMapper.swift; sourceTree = "<group>"; };
+		19CCB2342BAB5BBC00043542 /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
+		19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageViewModel.swift; sourceTree = "<group>"; };
+		19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageViewModel.swift; sourceTree = "<group>"; };
+		19CCB23D2BAC6F3000043542 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		19CCB23F2BAC87D500043542 /* ImageClipShapeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClipShapeModifier.swift; sourceTree = "<group>"; };
 		19D0B5D02B6ECC5900C2EB0D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayload.swift; sourceTree = "<group>"; };
@@ -205,6 +229,7 @@
 			children = (
 				19127CB82B694D0400D90170 /* Core */,
 				1903B1472B600A4000C26865 /* Local */,
+				19CCB2222BA9ADF100043542 /* Remote */,
 			);
 			path = DataSource;
 			sourceTree = "<group>";
@@ -215,6 +240,7 @@
 				1903B14B2B60378100C26865 /* AccountRepository.swift */,
 				191D17B02B64196800E2A19E /* ConfigRepository.swift */,
 				192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */,
+				19CCB2292BA9AFCC00043542 /* LinkMetadataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -242,6 +268,7 @@
 				19D90FB62B9E24210010DED2 /* Toolbar */,
 				191B06BB2BA0BEA800D5A679 /* PasswordGenerator */,
 				19C4DA3A2BA3549900E0DCC5 /* Alert */,
+				19CCB2392BAB5F2B00043542 /* Image */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -349,6 +376,7 @@
 		195425212B5EA76300B11BA1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				19FF4C622B5D62D600AD36B1 /* AppDelegate+SwfitData.swift */,
 				1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */,
 				196C39A82B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift */,
 				19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */,
@@ -514,6 +542,83 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		19CCB2222BA9ADF100043542 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB2202BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		19CCB2252BA9AE2900043542 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB2282BA9AE6800043542 /* Core */,
+				19CCB2232BA9AE2100043542 /* LinkMetadataEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		19CCB2282BA9AE6800043542 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB2262BA9AE5700043542 /* Entity.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		19CCB22D2BA9B21600043542 /* Mapper */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB22B2BA9B1AB00043542 /* LinkMetadataMapper.swift */,
+			);
+			path = Mapper;
+			sourceTree = "<group>";
+		};
+		19CCB2302BA9B3E500043542 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB22E2BA9B3DE00043542 /* LinkMetadataError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		19CCB2332BA9B43200043542 /* ErrorMapper */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB2312BA9B42E00043542 /* LinkMetadataErrorMapper.swift */,
+			);
+			path = ErrorMapper;
+			sourceTree = "<group>";
+		};
+		19CCB2382BAB5F2000043542 /* DefaultImage */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB2342BAB5BBC00043542 /* DefaultImage.swift */,
+				19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */,
+			);
+			path = DefaultImage;
+			sourceTree = "<group>";
+		};
+		19CCB2392BAB5F2B00043542 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB23F2BAC87D500043542 /* ImageClipShapeModifier.swift */,
+				19CCB2382BAB5F2000043542 /* DefaultImage */,
+				19CCB23C2BAC6EC500043542 /* RemoteImage */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		19CCB23C2BAC6EC500043542 /* RemoteImage */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */,
+				19CCB23D2BAC6F3000043542 /* RemoteImage.swift */,
+			);
+			path = RemoteImage;
+			sourceTree = "<group>";
+		};
 		19D0B5D22B70F5C000C2EB0D /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,6 +674,9 @@
 			isa = PBXGroup;
 			children = (
 				19E0DFD12B5B189F008A1AF2 /* Model */,
+				19CCB22D2BA9B21600043542 /* Mapper */,
+				19CCB2302BA9B3E500043542 /* Error */,
+				19CCB2332BA9B43200043542 /* ErrorMapper */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -576,7 +684,7 @@
 		19FF4C642B5D62DA00AD36B1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				19FF4C622B5D62D600AD36B1 /* AppDelegate+SwfitData.swift */,
+				19CCB2252BA9AE2900043542 /* Entity */,
 				1903B14D2B60378A00C26865 /* Repository */,
 				1903B1482B600A4500C26865 /* DataSource */,
 			);
@@ -674,25 +782,32 @@
 				1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */,
 				1988CB992B585F2F00D2C08F /* AccountsViewModel.swift in Sources */,
 				1988CB8A2B582A7900D2C08F /* Injector.swift in Sources */,
+				19CCB23E2BAC6F3000043542 /* RemoteImage.swift in Sources */,
 				19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */,
 				1988CB8B2B582A7900D2C08F /* InjectorModule.swift in Sources */,
 				1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */,
 				1903B1452B5FFE1300C26865 /* DatabaseManager.swift in Sources */,
 				1913A2F02B9C6E8C004FFC2F /* Strings.swift in Sources */,
 				191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */,
+				19CCB2372BAB5EF200043542 /* DefaultImageViewModel.swift in Sources */,
+				19CCB23B2BAC6D9000043542 /* RemoteImageViewModel.swift in Sources */,
 				19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */,
 				1913A2F72B9CDEF5004FFC2F /* AccountDetailDomainSection.swift in Sources */,
 				19C4DA352BA1BDB600E0DCC5 /* ToolbarStyle.swift in Sources */,
+				19CCB2212BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift in Sources */,
 				1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */,
 				19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */,
 				1988CB8C2B582A7900D2C08F /* AppDelegate+Injections.swift in Sources */,
 				1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */,
 				1913A3002B9D07B4004FFC2F /* AccountDetailNotesSection.swift in Sources */,
+				19CCB2272BA9AE5700043542 /* Entity.swift in Sources */,
+				19CCB2402BAC87D500043542 /* ImageClipShapeModifier.swift in Sources */,
 				1988CB882B582A7900D2C08F /* MyChestInjectorProvider.swift in Sources */,
 				195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */,
 				196C39AB2B8BC316001235E9 /* LinkMetadata.swift in Sources */,
 				19C4DA402BA359EF00E0DCC5 /* AlertViewModifier.swift in Sources */,
 				19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */,
+				19CCB22A2BA9AFCC00043542 /* LinkMetadataRepository.swift in Sources */,
 				19E0DFCD2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift in Sources */,
 				19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */,
 				19E0DFC22B5AF372008A1AF2 /* MockTabBarViewModel.swift in Sources */,
@@ -705,14 +820,17 @@
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
 				192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */,
 				19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */,
+				19CCB2322BA9B42E00043542 /* LinkMetadataErrorMapper.swift in Sources */,
 				19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */,
 				19D90FB82B9E243D0010DED2 /* PasswordGeneratorSettings.swift in Sources */,
 				1988CB8D2B582A7900D2C08F /* MyChestModule.swift in Sources */,
 				192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */,
 				1913A2F22B9C7B74004FFC2F /* Toolbar.swift in Sources */,
 				19127CB72B694CCE00D90170 /* DataError.swift in Sources */,
+				19CCB2242BA9AE2100043542 /* LinkMetadataEntity.swift in Sources */,
 				1913A2FE2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift in Sources */,
 				196C39A92B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift in Sources */,
+				19CCB2352BAB5BBC00043542 /* DefaultImage.swift in Sources */,
 				19C4DA3E2BA3590D00E0DCC5 /* Alertable.swift in Sources */,
 				196105CE2B876C6900EA47AE /* Theme.swift in Sources */,
 				19127CBA2B6D0DEA00D90170 /* LocalNotification.swift in Sources */,
@@ -724,11 +842,13 @@
 				195998F42B593C1D00F17512 /* TabBarViewModel.swift in Sources */,
 				19E0DFC92B5AF5B6008A1AF2 /* AccountDetailViewModel.swift in Sources */,
 				191A77142B57119600AFC37F /* MyChestApp.swift in Sources */,
+				19CCB22F2BA9B3DE00043542 /* LinkMetadataError.swift in Sources */,
 				192C77FF2B6D3A2200664B89 /* NotificationsViewModel.swift in Sources */,
 				19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */,
 				195998FC2B59443C00F17512 /* MockSettingsViewModel.swift in Sources */,
 				1913A2F52B9C84B6004FFC2F /* MainToolbar.swift in Sources */,
 				19E0DFC62B5AF59A008A1AF2 /* AccountDetailView.swift in Sources */,
+				19CCB22C2BA9B1AB00043542 /* LinkMetadataMapper.swift in Sources */,
 				192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */,
 				19C4DA3C2BA3557800E0DCC5 /* AlertViewModel.swift in Sources */,
 				195998F82B59441900F17512 /* SettingsViewModel.swift in Sources */,

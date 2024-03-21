@@ -38,13 +38,36 @@ enum Theme {
     
     enum Spacing {
         
-        static let small_4: CGFloat = 4
-        static let small_8: CGFloat = 8
-        static let medium_12: CGFloat = 12
-        static let medium_16: CGFloat = 16
-        static let medium_24: CGFloat = 24
-        static let large_32: CGFloat = 32
-        static let large_64: CGFloat = 64
+        /// 4
+        static let xxSmall: CGFloat = 4
+        /// 8
+        static let xSmall: CGFloat = 8
+        /// 12
+        static let small: CGFloat = 12
+        /// 16
+        static let medium: CGFloat = 16
+        /// 24
+        static let large: CGFloat = 24
+        /// 32
+        static let xLarge: CGFloat = 32
+        /// 64
+        static let xxLarge: CGFloat = 64
+    }
+    
+    enum Radius {
+        
+        /// 4
+        static let xSmall: CGFloat = 4
+        /// 8
+        static let small: CGFloat = 8
+        /// 12
+        static let medium: CGFloat = 12
+        /// 16
+        static let large: CGFloat = 16
+        /// 24
+        static let xLarge: CGFloat = 24
+        /// 32
+        static let xxLarge: CGFloat = 32
     }
     
     enum Tabbar {
@@ -61,7 +84,8 @@ enum Theme {
     
     enum AccountDetail {
         
-        static let accountImageSize: CGFloat = 36
+        static let accountDefaultImageSize: CGFloat = 64
+        static let accountImageSize: CGFloat = 72
         static let passwordButtonsHeight: CGFloat = 30
         static let zero: Int = 0
         static var maxAccountCommentCharacters = 156

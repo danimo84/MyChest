@@ -28,3 +28,24 @@ struct LinkMetadata: ModelDefault {
         self.imageUrl = imageUrl
     }
 }
+
+extension LinkMetadata {
+    
+    static func emtpy() -> LinkMetadata {
+        .init(
+            title: nil,
+            description: nil,
+            url: nil,
+            imageUrl: nil
+        )
+    }
+    
+    static func mock() -> LinkMetadata {
+        .init(
+            title: "Netflix",
+            description: "Streaming platform for series, films and documentaries.",
+            url: "https://www.netflix.com",
+            imageUrl: "https://cdn.icon-icons.com/icons2/3053/PNG/512/netflix_macos_bigsur_icon_189917.png"
+        )
+    }
+}

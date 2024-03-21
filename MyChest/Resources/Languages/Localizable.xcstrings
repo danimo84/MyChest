@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "(%lld/%lld)" : {
       "localizations" : {
         "en" : {
@@ -541,6 +544,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "No hay notificaciones aún"
+          }
+        }
+      }
+    },
+    "Notifications_PasswordUpdateBody" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The password for domain %1$@ may be updated. Was updated %2$lld months ago."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La contraseña para el dominio %@ debe ser actualizada. Han pasado %lld meses"
+          }
+        }
+      }
+    },
+    "Notifications_PasswordUpdateTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password update reminder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Actualizar contraseña"
           }
         }
       }

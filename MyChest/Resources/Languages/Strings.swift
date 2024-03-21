@@ -68,6 +68,16 @@ enum Strings {
         
         static let title: LocalizedStringKey = "Notifications_title"
         static let emptyState: LocalizedStringKey = "Notifications_EmptyState"
+        
+        static let passwordUpdateTitle: String = NSLocalizedString("Notifications_PasswordUpdateTitle", comment: "")
+        
+        static func passwordUpdateBody(domain: String, monthsNumber: Int) -> String {
+            String(
+                format: NSLocalizedString("Notifications_PasswordUpdateBody", comment: ""),
+                domain,
+                monthsNumber
+            )
+        }
     }
     
     enum Alert {
