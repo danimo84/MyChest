@@ -2,48 +2,28 @@
 //  LocalNotification.swift
 //  MyChest
 //
-//  Created by Daniel Moraleda on 2/2/24.
+//  Created by Daniel Moraleda on 25/3/24.
 //
 
 import Foundation
-import SwiftData
 
-@Model
-class LocalNotification: ModelDefault {
+struct LocalNotification: ModelDefault {
     
-    @Attribute(.unique) var id: String
-    var accountId: String
-    var title: String
-    var body: String
-    var datetime: Date
-    var repeats: Bool
+    let id: String
+    let accountId: String
+    let title: String
+    let body: String
+    let datetime: Date
+    let repeats: Bool
     var createdAt: Date
     var updatedAt: Date
     var isReaded: Bool
-    @Transient var isSent: Bool {
-        datetime < .now
-    }
+}
+
+extension LocalNotification {
     
-    init(
-        id: String,
-        accountId: String,
-        title: String,
-        body: String,
-        datetime: Date,
-        repeats: Bool,
-        createdAt: Date,
-        updatedAt: Date,
-        isReaded: Bool
-    ) {
-        self.id = id
-        self.accountId = accountId
-        self.title = title
-        self.body = body
-        self.datetime = datetime
-        self.repeats = repeats
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-        self.isReaded = isReaded
+    var isSent: Bool {
+        datetime < .now
     }
 }
 
@@ -68,6 +48,9 @@ extension LocalNotification {
             isReaded: false
         )
     }
+}
+
+extension LocalNotification {
     
     static func empty() -> LocalNotification {
         .init(

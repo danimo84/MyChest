@@ -2,16 +2,14 @@
 //  Account.swift
 //  MyChest
 //
-//  Created by Daniel Moraleda on 19/1/24.
+//  Created by Daniel Moraleda on 26/3/24.
 //
 
 import Foundation
-import SwiftData
 
-@Model
-class Account: ModelDefault {
+struct Account: ModelDefault {
     
-    @Attribute(.unique) var id: String
+    let id: String
     var user: String
     var password: String
     var domain: String
@@ -21,35 +19,13 @@ class Account: ModelDefault {
     var rememberUpdateMonths: Int
     var createdAt: Date
     var updatedAt: Date
-    
-    init(
-        user: String,
-        password: String,
-        domain: String,
-        domainProtocol: String,
-        image: String,
-        comment: String,
-        rememberUpdateMonths: Int,
-        createdAt: Date,
-        updatedAt: Date
-    ) {
-        self.id = UUID().uuidString
-        self.user = user
-        self.password = password
-        self.domain = domain
-        self.domainProtocol = domainProtocol
-        self.image = image
-        self.comment = comment
-        self.rememberUpdateMonths = rememberUpdateMonths
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-    }
 }
 
 extension Account {
     
     static func empty() -> Account {
         .init(
+            id: UUID().uuidString,
             user: "",
             password: "",
             domain: "",
@@ -64,6 +40,7 @@ extension Account {
 
     static func mock() -> Account {
         .init(
+            id: UUID().uuidString,
             user: "danimo321",
             password: "123123",
             domain: "google.com",
@@ -79,6 +56,7 @@ extension Account {
     static func mockList() -> [Account] {
         [
             .init(
+                id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
                 domain: "google.com",
@@ -90,6 +68,7 @@ extension Account {
                 updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
+                id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
                 domain: "facebook.com",
@@ -101,6 +80,7 @@ extension Account {
                 updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
+                id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
                 domain: "linkedin.com",
@@ -112,6 +92,7 @@ extension Account {
                 updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
+                id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
                 domain: "instagram.com",
@@ -123,6 +104,7 @@ extension Account {
                 updatedAt: Date(timeIntervalSince1970: 1000)
             ),
             .init(
+                id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
                 domain: "discord.com",

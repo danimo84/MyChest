@@ -21,9 +21,7 @@ final class TabBarViewModelDefault {
     
     private let router: Router = Router.shared
     
-    init() {
-        
-    }
+    init() { }
 }
 
 extension TabBarViewModelDefault: TabBarViewModel {

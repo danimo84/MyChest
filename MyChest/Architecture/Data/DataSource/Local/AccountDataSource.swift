@@ -6,12 +6,13 @@
 //
 
 import Foundation
-import SwiftData
+import Combine
 
 protocol AccountLocalDataSource {
-    func fetchAccounts() -> [Account]
-    func inserAccount(_ account: Account)
-    func removeAccount(_ account: Account)
+    func fetchAccounts() -> AnyPublisher<[AccountEntity], DataError>
+    func inserAccount(_ account: AccountEntity)
+    func updateAccount(_ account: AccountEntity)
+    func removeAccount(withId accountId: String)
     func removeAllAccounts()
 }
 
@@ -24,33 +25,37 @@ final class AccountLocalDataSourceDefault {
 
 extension AccountLocalDataSourceDefault: AccountLocalDataSource {
     
-    func fetchAccounts() -> [Account] {
-        do {
-            return try databaseManager.modelContext.fetch(FetchDescriptor<Account>())
-        } catch {
-            print("Error fetching Accounts")
-            return []
-        }
+    func fetchAccounts() -> AnyPublisher<[AccountEntity], DataError> {
+        Just(
+            AccountEntityCache.fetchAccounts(using: databaseManager.modelContext)
+        )
+        .setFailureType(to: DataError.self)
+        .map{ $0.map { AccountEntityMapper.map($0) } }
+        .eraseToAnyPublisher()
     }
     
-    func inserAccount(_ account: Account) {
-        databaseManager.modelContext.insert(account)
-        do {
-            try databaseManager.modelContext.save()
-        } catch {
-            print("Error inserting Account: \(account)")
-        }
+    func inserAccount(_ account: AccountEntity) {
+        AccountEntityCache.insertNotification(
+            AccountEntityMapper.mapToCache(account),
+            using: databaseManager.modelContext
+        )
     }
     
-    func removeAccount(_ account: Account) {
-        databaseManager.modelContext.delete(account)
+    func updateAccount(_ account: AccountEntity) {
+        _ = AccountEntityCache.updateAccount(
+            account,
+            using: databaseManager.modelContext
+        )
+    }
+    
+    func removeAccount(withId accountId: String) {
+        AccountEntityCache.removeAccount(
+            withId: accountId,
+            using: databaseManager.modelContext
+        )
     }
     
     func removeAllAccounts() {
-        do {
-            try databaseManager.modelContext.delete(model: Account.self)
-        } catch {
-            print("Error deleting all Accounts")
-        }
+        AccountEntityCache.removeAllAccounts(using: databaseManager.modelContext)
     }
 }

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-//import SwiftData
 import Combine
 
 enum DomainProtocol: String, CaseIterable {
@@ -47,13 +46,20 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
                 account.comment = String(account.comment.prefix(maxCommentCharacters))
             }
             isSaveButtonDisabled = account.domain.isEmpty || account.user.isEmpty || account.password.isEmpty
+            if !newAccount {
+                accountRepository.updateAccount(account)
+            }
         }
     }
     
     @Published var newAccount: Bool = false
     @Published var isPasswordEditable: Bool = false
     @Published var isPasswordSecured: Bool = true
-    @Published var config: Config = .defaultConfig()
+    @Published var config: Config = .defaultConfig() {
+        didSet {
+            configRepository.updateConfig(config)
+        }
+    }
     @Published var isSaveButtonDisabled: Bool = true
     @Published var alertIsVisible: Bool = false
     @Published var alertViewModel: AlertViewModel = .empty()
@@ -99,7 +105,7 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
     }
     
     func deleteAccount() {
-        accountRepository.removeAccount(account)
+        accountRepository.removeAccount(withId: account.id)
         notificationRepository.removeNotificationsWithAccountId(account.id)
     }
     
@@ -146,19 +152,15 @@ private extension AccountDetailViewModelDefault {
         subscriptions.removeAll()
         isMetadataLoading = true
         
-        print("Account domain-> \(domainProtocol.rawValue)\(account.domain)")
         linkMetadaRepository.getLinkMetadata(forUrl: "\(domainProtocol.rawValue)\(account.domain)")
             .sink(
                 receiveCompletion: { completion in
-                    if case let .failure(error) = completion {
+                    if case .failure(_) = completion {
                         self.isMetadataLoading = false
                         self.account.image = ""
-                        
-                        print("Error-> \(error)")
                     }
                 },
                 receiveValue: { metadata in
-                    print("Metadata-> \(metadata)")
                     self.isMetadataLoading = false
                     self.account.image = metadata.imageUrl ?? ""
                 }
@@ -178,7 +180,18 @@ private extension AccountDetailViewModelDefault {
 private extension AccountDetailViewModelDefault {
     
     func fetchConfig() {
-        config = configRepository.fetchConfig()
+        configRepository.fetchConfig()
+            .sink(
+                receiveCompletion: { completion in
+                    if case let .failure(error) = completion {
+                        print("Error: \(error)")
+                    }
+                },
+                receiveValue: {
+                    self.config = $0
+                }
+            )
+            .store(in: &subscriptions)
     }
 }
 

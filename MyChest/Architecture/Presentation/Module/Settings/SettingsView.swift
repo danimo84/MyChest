@@ -24,6 +24,7 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
                     requireSpecialCharacter: $viewModel.config.requireSpecialCharacter,
                     showHeader: true
                 )
+                defaultConfigButton
             }
             .navigationTitle(Strings.SettingsScreen.title)
             .navigationDestination(for: SettingsRoute.self, destination: {
@@ -31,6 +32,9 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
             })
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 viewModel.isNotificationsAllowed()
+            }
+            .onAppear {
+                viewModel.fetchConfig()
             }
         }
     }
@@ -57,10 +61,19 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
     }
     
     var notificationsToggle: some View {
-        Toggle(Strings.SettingsScreen.notificationsTitle, isOn: $viewModel.config.areNotificationsEnabled)
-            .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
-                viewModel.isNotificationsToogleValueChange()
-            }
+        Toggle(
+            Strings.SettingsScreen.notificationsTitle,
+            isOn: $viewModel.config.areNotificationsEnabled
+        )
+        .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
+            viewModel.isNotificationsToogleValueChange()
+        }
+    }
+    
+    var defaultConfigButton: some View {
+        Button(Strings.SettingsScreen.defaultConfigButtonTitle) {
+            viewModel.restoreDefaultConfig()
+        }
     }
     
     private func route(_ route: SettingsRoute) -> some View {

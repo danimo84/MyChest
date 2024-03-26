@@ -10,7 +10,7 @@ import SwiftData
 
 struct AccountsView<ViewModel: AccountsViewModel>: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         NavigationStack {
@@ -38,7 +38,7 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
             }
         }
         .sheet(isPresented: $viewModel.isAccountSheetPresented) {
-            AccountDetailConfigurator().view(isPresented: $viewModel.isAccountSheetPresented, originalAccount: viewModel.selectedAccount)
+            AccountDetailConfigurator().view(originalAccount: viewModel.selectedAccount)
                 .presentationDetents([.large])
         }
     }
@@ -91,6 +91,5 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
 }
 
 #Preview {
-    AccountsView<MockAccountsViewModel>()
-        .environmentObject(MockAccountsViewModel())
+    AccountsView<MockAccountsViewModel>(viewModel: MockAccountsViewModel())
 }

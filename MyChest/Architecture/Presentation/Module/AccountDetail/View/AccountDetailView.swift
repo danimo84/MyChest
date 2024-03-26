@@ -110,5 +110,5 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
 #Preview {
     AccountDetailView<MockAccountDetailViewModel>()
         .environmentObject(MockAccountDetailViewModel())
-        .modelContainer(for: Account.self)
+        .modelContainer(for: AccountEntityCache.self)
 }

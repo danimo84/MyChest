@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import SwiftData
+import Combine
 
 protocol LocalNotificationLocalDataSource {
-    func fetchNotifications() -> [LocalNotification]
-    func insertNotification(_ notification: LocalNotification)
-    func removeNotification(_ notification: LocalNotification)
+    func fetchNotifications() -> AnyPublisher<[LocalNotificationEntity], DataError>
+    func insertNotification(_ notification: LocalNotificationEntity)
+    func updateNotification(_ notification: LocalNotificationEntity)
     func removeNotificationsWithAccountId(_ accountId: String)
     func removePendingNotificationsWithAccountId(_ accountId: String)
     func removeAllNotifications()
@@ -26,54 +26,44 @@ final class LocalNotificationLocalDataSourceDefault {
 
 extension LocalNotificationLocalDataSourceDefault: LocalNotificationLocalDataSource {
     
-    func fetchNotifications() -> [LocalNotification] {
-        do {
-            return try databaseManager.modelContext.fetch(FetchDescriptor<LocalNotification>())
-        } catch {
-            print("Error fetching Notification")
-            return []
-        }
+    func fetchNotifications() -> AnyPublisher<[LocalNotificationEntity], DataError> {
+        Just(
+            LocalNotificationEntityCache.fetchNotifications(context: databaseManager.modelContext)
+        )
+        .setFailureType(to: DataError.self)
+        .map{ $0.map { LocalNotificationEntityMapper.map($0) } }
+        .eraseToAnyPublisher()
     }
     
-    func insertNotification(_ notification: LocalNotification) {
-        databaseManager.modelContext.insert(notification)
-        do {
-            try databaseManager.modelContext.save()
-        } catch {
-            print("Error inserting Notification: \(notification)")
-        }
+    func insertNotification(_ notification: LocalNotificationEntity) {
+        LocalNotificationEntityCache.insertNotification(
+            LocalNotificationEntityMapper.mapToCache(notification),
+            using: databaseManager.modelContext
+        )
     }
     
-    func removeNotification(_ notification: LocalNotification) {
-        databaseManager.modelContext.delete(notification)
+    func updateNotification(_ notification: LocalNotificationEntity) {
+        _ = LocalNotificationEntityCache.updateNotification(
+            notification,
+            using: databaseManager.modelContext
+        )
     }
     
     func removeNotificationsWithAccountId(_ accountId: String) {
-        do {
-            try databaseManager.modelContext.delete(model: LocalNotification.self, where: #Predicate { notification in
-                notification.accountId == accountId
-            })
-        } catch {
-            print("Error deleting Notificaitons for account id: \(accountId)")
-        }
+        LocalNotificationEntityCache.removeNotification(
+            withId: accountId,
+            using: databaseManager.modelContext
+        )
     }
     
     func removePendingNotificationsWithAccountId(_ accountId: String) {
-        let now: Date = .now
-        do {
-            try databaseManager.modelContext.delete(model: LocalNotification.self, where: #Predicate { notification in
-                notification.accountId == accountId && notification.datetime < now
-            })
-        } catch {
-            print("Error deleting Pending Notificaitons for account id: \(accountId)")
-        }
+        LocalNotificationEntityCache.removePendingNotification(
+            withId: accountId,
+            using: databaseManager.modelContext
+        )
     }
     
     func removeAllNotifications() {
-        do {
-            try databaseManager.modelContext.delete(model: LocalNotification.self)
-        } catch {
-            print("Error deleting all Notificaitons")
-        }
+        LocalNotificationEntityCache.removeAllNotifications(using: databaseManager.modelContext)
     }
 }

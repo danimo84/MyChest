@@ -62,6 +62,7 @@ enum Strings {
         static let notificationsTitle: LocalizedStringKey = "Settings_NotificationsTitle"
         static let generalHeader: LocalizedStringKey = "Settings_GeneralHeader"
         static let title: LocalizedStringKey = "Settings_title"
+        static let defaultConfigButtonTitle: LocalizedStringKey = "Settings_DefaultConfigButtonTitle"
     }
     
     enum NotificationsScreen {

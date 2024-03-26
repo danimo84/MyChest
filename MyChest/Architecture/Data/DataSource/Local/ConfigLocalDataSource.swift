@@ -6,10 +6,11 @@
 //
 
 import Foundation
-import SwiftData
+import Combine
 
 protocol ConfigLocalDataSource {
-    func fetchConfig() -> Config
+    func fetchConfig() -> AnyPublisher<ConfigEntity, DataError>
+    func updateConfig(_ config: ConfigEntity)
 }
 
 final class ConfigLocalDataSourceDefault: ConfigLocalDataSource {
@@ -18,29 +19,32 @@ final class ConfigLocalDataSourceDefault: ConfigLocalDataSource {
     
     init() { }
     
-    func fetchConfig() -> Config {
-        do {
-            return try databaseManager.modelContext.fetch(FetchDescriptor<Config>()).first ?? storeDefaultConfig()
-        } catch {
-            print("Error fetching Config")
+    func fetchConfig() -> AnyPublisher<ConfigEntity, DataError> {
+        Just(
+            ConfigEntityCache.fetchConfig(context: databaseManager.modelContext) ?? storeDefaultConfig()
+        )
+        .setFailureType(to: DataError.self)
+        .map {
+            ConfigEntityMapper.map($0)
         }
-        return .defaultConfig()
+        .eraseToAnyPublisher()
     }
     
-    func insertConfig(_ config: Config) {
-        databaseManager.modelContext.insert(config)
-        do {
-            try databaseManager.modelContext.save()
-        } catch {
-            print("Error inserting Config: \(config)")
-        }
+    func updateConfig(_ config: ConfigEntity) {
+        _ = ConfigEntityCache.updateConfig(
+            config,
+            using: databaseManager.modelContext
+        )
     }
 }
 
 private extension ConfigLocalDataSourceDefault {
     
-    func storeDefaultConfig() -> Config {
-        insertConfig(.defaultConfig())
+    func storeDefaultConfig() -> ConfigEntityCache {
+        ConfigEntityCache.insertConfig(
+            .defaultConfig(),
+            using: databaseManager.modelContext
+        )
         return .defaultConfig()
     }
 }

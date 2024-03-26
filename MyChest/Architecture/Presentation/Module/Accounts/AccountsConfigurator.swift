@@ -23,8 +23,7 @@ struct AccountsConfigurator {
             notificationRepository: notificationRepository
         )
         
-        let view: some View = AccountsView<AccountsViewModelDefault>()
-            .environmentObject(viewModel)
+        let view: some View = AccountsView<AccountsViewModelDefault>(viewModel: viewModel)
         
         return view
     }

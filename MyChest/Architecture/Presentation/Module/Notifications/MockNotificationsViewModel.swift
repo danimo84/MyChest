@@ -8,7 +8,7 @@
 import Foundation
 
 final class MockNotificationsViewModel: NotificationsViewModel {
-    
+   
     var notifications: [LocalNotification] = LocalNotification.mockList()
     
     func onAppear() {

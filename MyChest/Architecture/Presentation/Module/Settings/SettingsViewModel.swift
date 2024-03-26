@@ -6,11 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
-
-//enum SettingsRoute: String, Hashable {
-//    case info
-//}
+import Combine
 
 protocol SettingsViewModel: ObservableObject {
     var config: Config { get set }
@@ -19,13 +15,20 @@ protocol SettingsViewModel: ObservableObject {
     func requestNotificationsPermission()
     func isNotificationsToogleValueChange()
     func isNotificationsAllowed()
+    func restoreDefaultConfig()
     func navigateToInfo()
     func goBack()
 }
 
 final class SettingsViewModelDefault {
     
-    @Published var config: Config = .defaultConfig()
+    @Published var config: Config = .defaultConfig() {
+        didSet {
+            configRepository.updateConfig(config)
+        }
+    }
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     private let configRepository: ConfigRepository
     private let router: Router = Router.shared
@@ -34,15 +37,32 @@ final class SettingsViewModelDefault {
         configRepository: ConfigRepository
     ) {
         self.configRepository = configRepository
-        fetchConfig()
     }
 }
 
 extension SettingsViewModelDefault: SettingsViewModel {
     
     func fetchConfig() {
-        config = configRepository.fetchConfig()
+        configRepository.fetchConfig()
+            .sink(
+                receiveCompletion: { completion in
+                    if case let .failure(error) = completion {
+                        print("Error: \(error)")
+                    }
+                },
+                receiveValue: {
+                    self.config = $0
+                }
+            )
+            .store(in: &subscriptions)
         config.areNotificationsEnabled = StorageManager.shared.areNotificationsEnabled
+    }
+    
+    func restoreDefaultConfig() {
+        config = .defaultConfig(
+            id: config.id,
+            notificationsEnabled: config.areNotificationsEnabled
+        )
     }
 
     func navigateToInfo() {

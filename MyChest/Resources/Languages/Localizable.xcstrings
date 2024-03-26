@@ -692,6 +692,22 @@
         }
       }
     },
+    "Settings_DefaultConfigButtonTitle" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Default config"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración por defecto"
+          }
+        }
+      }
+    },
     "Settings_GeneralHeader" : {
       "extractionState" : "manual",
       "localizations" : {

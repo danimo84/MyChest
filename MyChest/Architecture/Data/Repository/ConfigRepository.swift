@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import Combine
 
 protocol ConfigRepository {
-    func fetchConfig() -> Config
+    func fetchConfig() -> AnyPublisher<Config, ConfigError>
+    func updateConfig(_ config: Config)
 }
 
 final class ConfigRepositoryDefault {
@@ -22,7 +24,14 @@ final class ConfigRepositoryDefault {
 
 extension ConfigRepositoryDefault: ConfigRepository {
     
-    func fetchConfig() -> Config {
+    func fetchConfig() -> AnyPublisher<Config, ConfigError> {
         localDataSource.fetchConfig()
+            .map { ConfigMapper.map($0) }
+            .mapError { ConfigErrorMapper.map($0) }
+            .eraseToAnyPublisher()
+    }
+    
+    func updateConfig(_ config: Config) {
+        localDataSource.updateConfig(ConfigMapper.mapToEntity(config))
     }
 }

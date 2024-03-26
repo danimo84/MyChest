@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol NotificationsViewModel: ObservableObject {
     var notifications: [LocalNotification] { get set }
@@ -17,6 +18,8 @@ protocol NotificationsViewModel: ObservableObject {
 final class NotificationsViewModelDefault {
     
     @Published var notifications: [LocalNotification] = []
+    
+    private var subscriptions = Set<AnyCancellable>()
     
     private let notificationRepository: LocalNotificationRepository
     
@@ -40,11 +43,25 @@ extension NotificationsViewModelDefault: NotificationsViewModel {
 private extension NotificationsViewModelDefault {
     
     func fetchNotifications() {
-        notifications = notificationRepository.fetchNotifications()
+        notificationRepository.fetchNotifications()
+            .sink(
+                receiveCompletion: { completion in
+                    if case let .failure(error) = completion {
+                        print("Error: \(error)")
+                    }
+                },
+                receiveValue: {
+                    self.notifications = $0
+                }
+            )
+            .store(in: &subscriptions)
     }
     
     func markNotificationAsReadedWithId(_ id: String) {
-        notifications.first(where: { $0.id == id } )?.isReaded = true
+        if let index = notifications.firstIndex(where: { $0.id == id }) {
+            notifications[index].isReaded = true
+            notificationRepository.updateNotification(notifications[index])
+        }
     }
     
     func navigateToAccountWithId(_ id: String) {

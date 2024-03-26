@@ -20,6 +20,10 @@ final class MockSettingsViewModel: SettingsViewModel {
         // Intentionally empty
     }
     
+    func restoreDefaultConfig() {
+        // Intentionally empty
+    }
+    
     func goBack() {
         // Intentionally empty
     }

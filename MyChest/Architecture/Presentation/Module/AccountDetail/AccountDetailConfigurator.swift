@@ -13,7 +13,7 @@ struct AccountDetailConfigurator {
         MyChestInjectorProvider.shared.injector
     }
     
-    func view(isPresented: Binding<Bool>, originalAccount: Account?) -> some View {
+    func view(originalAccount: Account?) -> some View {
         
         let accountRepository = injector.instanceOf(AccountRepository.self)
         let configRepository = injector.instanceOf(ConfigRepository.self)

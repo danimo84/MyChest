@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftData
+import Combine
 
 protocol AccountsViewModel: ObservableObject {
     var selectedAccount: Account? { get set }
@@ -24,6 +24,8 @@ final class AccountsViewModelDefault {
     @Published var accounts: [Account] = []
     @Published var isAccountSheetPresented: Bool = false
     
+    private var subscriptions = Set<AnyCancellable>()
+    
     private let accountRepository: AccountRepository
     private let notificationRepository: LocalNotificationRepository
     
@@ -40,18 +42,29 @@ final class AccountsViewModelDefault {
 extension AccountsViewModelDefault: AccountsViewModel {
     
     func fetchAccounts() {
-        accounts = accountRepository.fetchAccounts()
+        accountRepository.fetchAccounts()
+            .sink(
+                receiveCompletion: { completion in
+                    if case let .failure(error) = completion {
+                        print("Error: \(error)")
+                    }
+                },
+                receiveValue: {
+                    self.accounts = $0
+                }
+            )
+            .store(in: &subscriptions)
     }
     
     func deleteAccount(_ account: Account) {
-        accountRepository.removeAccount(account)
+        accountRepository.removeAccount(withId: account.id)
         notificationRepository.removeNotificationsWithAccountId(account.id)
-        accounts = accountRepository.fetchAccounts()
+        fetchAccounts()
     }
     
     func onAppear() {
         Task { await requestNotificationsPermissionIfneeded() }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { self.checkPendingShowAccount() }
+        checkPendingShowAccount()
     }
 }
 
