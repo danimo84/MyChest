@@ -55,7 +55,7 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
     func remoteImage(_ imageUrl: String) -> some View {
         RemoteImage(
             viewModel: .init(
-                widht: Theme.Accounts.accountImageSize,
+                width: Theme.Accounts.accountImageSize,
                 height: Theme.Accounts.accountImageSize,
                 cornerRadius: Theme.Radius.small,
                 clipedShape: true,

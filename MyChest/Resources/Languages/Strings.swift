@@ -65,6 +65,20 @@ enum Strings {
         static let defaultConfigButtonTitle: LocalizedStringKey = "Settings_DefaultConfigButtonTitle"
     }
     
+    enum ProfileScreen {
+        
+        static let profileTitle: LocalizedStringKey = "Profile_Title"
+        static let getNewUserButtonTitle: LocalizedStringKey = "Profile_GetNewUserButtonTitle"
+        static let streetPlacehoder: LocalizedStringKey = "Profile_StreetPlacehoder"
+        static let numberPlacehoder: LocalizedStringKey = "Profile_NumberPlacehoder"
+        static let postcodePlacehoder: LocalizedStringKey = "Profile_PostcodePlacehoder"
+        static let cityPlacehoder: LocalizedStringKey = "Profile_CityPlacehoder"
+        static let statePlacehoder: LocalizedStringKey = "Profile_StatePlacehoder"
+        static let countryPlacehoder: LocalizedStringKey = "Profile_CountryPlacehoder"
+        static let editAddressButtonTitle: LocalizedStringKey = "Profile_EditAddressButtonTitle"
+        static let editAddressTitle: LocalizedStringKey = "Profile_EditAddressTitle"
+    }
+    
     enum NotificationsScreen {
         
         static let title: LocalizedStringKey = "Notifications_title"

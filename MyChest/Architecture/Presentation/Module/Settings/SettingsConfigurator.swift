@@ -14,11 +14,10 @@ struct SettingsConfigurator {
     }
     
     init() {
-
+        // Intentionally empty
     }
     
     func view() -> some View {
-        
         let configRepository = injector.instanceOf(ConfigRepository.self)
         
         let viewModel = SettingsViewModelDefault(configRepository: configRepository)

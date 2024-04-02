@@ -48,9 +48,10 @@ extension Router {
     }
 }
 
-enum SettingsRoute: String, Hashable {
+enum SettingsRoute: Hashable {
     
-    case info
+    case profile
+    case map(latitude: String, longitude: String, address: String)
 }
 
 enum RoutePath: String {

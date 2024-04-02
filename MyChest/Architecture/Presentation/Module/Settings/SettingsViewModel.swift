@@ -33,9 +33,7 @@ final class SettingsViewModelDefault {
     private let configRepository: ConfigRepository
     private let router: Router = Router.shared
     
-    init(
-        configRepository: ConfigRepository
-    ) {
+    init(configRepository: ConfigRepository) {
         self.configRepository = configRepository
     }
 }
@@ -66,7 +64,7 @@ extension SettingsViewModelDefault: SettingsViewModel {
     }
 
     func navigateToInfo() {
-        router.navigateTo(route: .info, onPath: .settings)
+        router.navigateTo(route: .profile, onPath: .settings)
     }
     
     func goBack() {

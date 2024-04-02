@@ -10,6 +10,6 @@ import Foundation
 extension AppDelegate {
     
     func swiftDataStorage() {
-        print("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
+        debugPrint("Documents Directory: ", FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last ?? "Not Found!")
     }
 }

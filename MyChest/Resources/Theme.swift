@@ -91,6 +91,19 @@ enum Theme {
         static var maxAccountCommentCharacters = 156
     }
     
+    enum Profile {
+        
+        static let avatarSize: CGFloat = 150
+        static let avatarStrokeWidth: CGFloat = 5
+        static let avatarShadowRadius: CGFloat = 50
+    }
+    
+    enum Map {
+        
+        static let spanLatitudeDelta: CGFloat = 0.01
+        static let spanLongitudeDelta: CGFloat = 0.01
+    }
+    
     enum PasswordGenerator {
         
         static var letters: String = "abcdefghijklmnopqrstuvwxyz"

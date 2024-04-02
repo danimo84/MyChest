@@ -8,7 +8,12 @@
 import SwiftData
 
 enum StorageModels {
-    static var models = [AccountEntityCache.self, ConfigEntityCache.self, LocalNotificationEntityCache.self] as [any PersistentModel.Type]
+    static var models = [
+        AccountEntityCache.self,
+        ConfigEntityCache.self,
+        LocalNotificationEntityCache.self,
+        UserEntityCache.self
+    ] as [any PersistentModel.Type]
 }
 
 final class DatabaseManager {

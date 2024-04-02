@@ -28,7 +28,12 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
             }
             .navigationTitle(Strings.SettingsScreen.title)
             .navigationDestination(for: SettingsRoute.self, destination: {
-                route($0)
+                switch $0 {
+                case .profile:
+                    ProfileConfigurator().view()
+                case .map(let latitude, let longitude, let address):
+                    MapConfigurator().view(latitude: latitude, longitude: longitude, formattedAddress: address)
+                }
             })
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
                 viewModel.isNotificationsAllowed()
@@ -76,12 +81,14 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
         }
     }
     
-    private func route(_ route: SettingsRoute) -> some View {
-        switch route {
-        case .info:
-            Text("Info")
-        }
-    }
+//    private func route(_ route: SettingsRoute) -> some View {
+//        switch route {
+//        case .profile:
+//            ProfileConfigurator().view()
+//        case .map:
+//            MapConfigurator().view(latitude: "1.22222", longitude: "-1.234444")
+//        }
+//    }
 }
 
 #Preview {

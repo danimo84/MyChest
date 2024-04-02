@@ -28,5 +28,8 @@ enum Assets {
         static let eyeSlash: String = "eye.slash"
         static let chevronRight: String = "chevron.right"
         static let xmarkShield: String = "xmark.shield"
+        static let mappinAndEllipse: String = "mappin.and.ellipse"
+        static let magnifyingglass: String = "magnifyingglass"
+        static let houseFill: String = "house.fill"
     }
 }

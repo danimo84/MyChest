@@ -38,8 +38,8 @@ struct AlertViewModifier: ViewModifier {
                     isPresented: $isPresented
                 ) {
                     switch viewModel.alertType {
-                    case .genericError:
-                        genericError
+                    case .genericError, .customError(_, _):
+                        error
                     case .deleteConfirmation:
                         deleteConfirmation
                     case .inputData:
@@ -51,7 +51,7 @@ struct AlertViewModifier: ViewModifier {
         }
     }
     
-    private var genericError: some View {
+    private var error: some View {
         Button(viewModel.alertType.dismissButtonTitle, role: .cancel, action: viewModel.dismissAction)
     }
     

@@ -14,6 +14,8 @@ class MyChestModule: InjectorModule {
         configureAccounts(container)
         configureSettings(container)
         configureNotifications(container)
+        configureUser(container)
+        configureGeolocation(container)
     }
     
     private func configureAccounts(_ container: Container) {
@@ -27,12 +29,16 @@ class MyChestModule: InjectorModule {
         }
         
         container.register(AccountRepository.self) { r in
-            AccountRepositoryDefault(localDataSource: r.resolve(AccountLocalDataSource.self)!)
+            AccountRepositoryDefault(
+                localDataSource: r.resolve(AccountLocalDataSource.self)!
+            )
         }
         .inObjectScope(.container)
         
         container.register(LinkMetadataRepository.self) { r in
-            LinkMetadataRepositoryDefault(remoteDataSource: r.resolve(LinkMetadataRemoteDataSource.self)!)
+            LinkMetadataRepositoryDefault(
+                remoteDataSource: r.resolve(LinkMetadataRemoteDataSource.self)!
+            )
         }
         
         container.register(PasswordGeneratorManager.self) { _ in
@@ -48,7 +54,9 @@ class MyChestModule: InjectorModule {
         .inObjectScope(.container)
         
         container.register(ConfigRepository.self) { r in
-            ConfigRepositoryDefault(localDataSource: r.resolve(ConfigLocalDataSource.self)!)
+            ConfigRepositoryDefault(
+                localDataSource: r.resolve(ConfigLocalDataSource.self)!
+            )
         }
         .inObjectScope(.container)
     }
@@ -60,7 +68,9 @@ class MyChestModule: InjectorModule {
         .inObjectScope(.container)
         
         container.register(LocalNotificationRepository.self) { r in
-            LocalNotificationRepositoryDefault(localDataSource: r.resolve(LocalNotificationLocalDataSource.self)!)
+            LocalNotificationRepositoryDefault(
+                localDataSource: r.resolve(LocalNotificationLocalDataSource.self)!
+            )
         }
         .inObjectScope(.container)
         
@@ -68,5 +78,39 @@ class MyChestModule: InjectorModule {
             NotificationsManagerDefault()
         }
         .inObjectScope(.container)
+    }
+    
+    private func configureUser(_ container: Container) {
+        container.register(UserLocalDataSource.self) { _ in
+            UserLocalDataSourceDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(RandomUserRemoteDataSource.self) { _ in
+            RandomUserRemoteDataSourceDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(UserRepository.self) { r in
+            UserRepositoryDefault(
+                remote: r.resolve(RandomUserRemoteDataSource.self)!,
+                local: r.resolve(UserLocalDataSource.self)!
+            )
+        }
+        .inObjectScope(.container)
+    }
+    
+    private func configureGeolocation(_ container: Container) {
+        
+        container.register(GeocoderRemoteDataSource.self) { _ in
+            GeocoderRemoteDataSourceDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(GeocoderRepository.self) { r in
+            GeocoderRepositoryDefault(
+                remote: r.resolve(GeocoderRemoteDataSource.self)!
+            )
+        }
     }
 }

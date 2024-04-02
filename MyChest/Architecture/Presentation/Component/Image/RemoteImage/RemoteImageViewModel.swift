@@ -10,26 +10,45 @@ import SwiftUI
 
 final class RemoteImageViewModel: ObservableObject {
     
-    let widht: CGFloat
+    let width: CGFloat
     let height: CGFloat
-    let contentMode: ContentMode?
+    let contentMode: ContentMode
     let cornerRadius: CGFloat?
-    let clipedShape: Bool?
+    let clipedShape: Bool
+    let overlied: Bool
+    let strokeWidth: CGFloat?
+    let strokeColor: Color
+    let shadowed: Bool
+    let shadowRadius: CGFloat
+    let shadowColor: Color
     @Published var url: String
     
+    /// wi
     init(
-        widht: CGFloat,
+        width: CGFloat,
         height: CGFloat,
         contentMode: ContentMode? = nil,
         cornerRadius: CGFloat? = nil,
         clipedShape: Bool? = nil,
+        overlied: Bool? = nil,
+        strokeWidth: CGFloat? = nil,
+        strokeColor: Color? = nil,
+        shadowed: Bool? = nil,
+        shadowRadius: CGFloat? = nil,
+        shadowColor: Color? = nil,
         url: String
     ) {
-        self.widht = widht
+        self.width = width
         self.height = height
-        self.contentMode = contentMode
+        self.contentMode = contentMode ?? .fit
         self.cornerRadius = cornerRadius
-        self.clipedShape = clipedShape
+        self.clipedShape = clipedShape ?? false
+        self.overlied = overlied ?? false
+        self.strokeWidth = strokeWidth
+        self.strokeColor = strokeColor ?? .black
+        self.shadowed = shadowed ?? false
+        self.shadowRadius = shadowRadius ?? .zero
+        self.shadowColor = shadowColor ?? .black
         self.url = url
     }
 }

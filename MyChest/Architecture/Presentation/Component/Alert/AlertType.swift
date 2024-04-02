@@ -10,17 +10,30 @@ import Foundation
 enum AlertType {
     
     case genericError
-    case deleteConfirmation
-    case inputData
+    case customError(title: String? = nil, message: String)
+    case deleteConfirmation(_ type: DeleteConfirmationType)
+    case inputData(_ type: InputDataType)
     
     var title: String {
         switch self {
         case .genericError:
             Strings.Alert.genericErrorTitle.stringValue()
-        case .deleteConfirmation:
-            Strings.Alert.deleteAccountTitle.stringValue()
-        case .inputData:
-            Strings.Alert.addYourImageTitle.stringValue()
+        case .customError(let title, _):
+            if let title {
+                title
+            } else {
+                Strings.Alert.genericErrorTitle.stringValue()
+            }
+        case .deleteConfirmation(let type):
+            switch type {
+            case .account:
+                Strings.Alert.deleteAccountTitle.stringValue()
+            }
+        case .inputData(let type):
+            switch type {
+            case .domain:
+                Strings.Alert.addYourImageTitle.stringValue()
+            }
         }
     }
     
@@ -28,21 +41,27 @@ enum AlertType {
         switch self {
         case .genericError:
             Strings.Alert.genericErrorMessage.stringValue()
-        case .deleteConfirmation:
-            Strings.Alert.deleteAccountMessage.stringValue()
-        case .inputData:
-            Strings.Alert.addYourImageMessage.stringValue()
+        case .customError(_, let message):
+            message
+        case .deleteConfirmation(let type):
+            switch type {
+            case .account:
+                Strings.Alert.deleteAccountMessage.stringValue()
+            }
+        case .inputData(let type):
+            switch type {
+            case .domain:
+                Strings.Alert.addYourImageMessage.stringValue()
+            }
         }
     }
     
     var dismissButtonTitle: String {
         switch self {
-        case .genericError:
+        case .genericError, .inputData, .customError(_, _):
             Strings.GeneralActions.accept.stringValue()
         case .deleteConfirmation:
             Strings.GeneralActions.cancel.stringValue()
-        case .inputData:
-            Strings.GeneralActions.accept.stringValue()
         }
     }
     
@@ -59,10 +78,23 @@ enum AlertType {
     
     var placeholder: String {
         switch self {
-        case .inputData:
-            Strings.Alert.addYourImagePlaceholder.stringValue()
+        case .inputData(let type):
+            switch type {
+            case .domain:
+                Strings.Alert.addYourImagePlaceholder.stringValue()
+            }
         default:
             "not_key_configured"
         }
     }
+}
+
+enum DeleteConfirmationType {
+    
+    case account
+}
+
+enum InputDataType {
+    
+    case domain
 }

@@ -72,7 +72,7 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
         }
         .onTapGesture {
             isUrlAlertPresented = true
-            viewModel.configAlertViewModel(.inputData)
+            viewModel.configAlertViewModel(.inputData(.domain))
         }
     }
     
@@ -88,7 +88,7 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
     private func remoteImage(_ imageUrl: String) -> some View {
         RemoteImage(
             viewModel: .init(
-                widht: Theme.AccountDetail.accountImageSize,
+                width: Theme.AccountDetail.accountImageSize,
                 height: Theme.AccountDetail.accountImageSize,
                 cornerRadius: Theme.Radius.small,
                 clipedShape: true,

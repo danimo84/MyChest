@@ -75,6 +75,55 @@
 		19B26EBC2BB2C9EE00B6B594 /* AccountMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBB2BB2C9EE00B6B594 /* AccountMapper.swift */; };
 		19B26EBE2BB2CABE00B6B594 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBD2BB2CABE00B6B594 /* AccountError.swift */; };
 		19B26EC02BB2CAD900B6B594 /* AccountErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBF2BB2CAD900B6B594 /* AccountErrorMapper.swift */; };
+		19B26EC22BB3094D00B6B594 /* HttpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC12BB3094D00B6B594 /* HttpConstants.swift */; };
+		19B26EC52BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC42BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift */; };
+		19B26EC72BB309BB00B6B594 /* URLRequest+Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC62BB309BB00B6B594 /* URLRequest+Encoded.swift */; };
+		19B26EC92BB30A2500B6B594 /* RemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC82BB30A2500B6B594 /* RemoteDataSource.swift */; };
+		19B26ECB2BB30C5F00B6B594 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ECA2BB30C5F00B6B594 /* API.swift */; };
+		19B26ECE2BB30CD900B6B594 /* RandomUserRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ECD2BB30CD900B6B594 /* RandomUserRemoteDataSource.swift */; };
+		19B26ED02BB30D3600B6B594 /* RandomUserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ECF2BB30D3600B6B594 /* RandomUserAPI.swift */; };
+		19B26ED42BB30E7700B6B594 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ED32BB30E7700B6B594 /* UserEntity.swift */; };
+		19B26ED62BB3100400B6B594 /* UsernameEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ED52BB3100400B6B594 /* UsernameEntity.swift */; };
+		19B26ED82BB310F600B6B594 /* UserAvatarEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ED72BB310F600B6B594 /* UserAvatarEntity.swift */; };
+		19B26EDA2BB3113D00B6B594 /* UserLocationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26ED92BB3113D00B6B594 /* UserLocationEntity.swift */; };
+		19B26EDC2BB3133B00B6B594 /* UserEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EDB2BB3133B00B6B594 /* UserEntityMapper.swift */; };
+		19B26EDE2BB3148100B6B594 /* UserEntityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EDD2BB3148100B6B594 /* UserEntityCache.swift */; };
+		19B26EE02BB3244400B6B594 /* UserLocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EDF2BB3244400B6B594 /* UserLocalDataSource.swift */; };
+		19B26EE22BB3290200B6B594 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE12BB3290200B6B594 /* UserRepository.swift */; };
+		19B26EE42BB336CA00B6B594 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE32BB336CA00B6B594 /* User.swift */; };
+		19B26EE62BB3371900B6B594 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE52BB3371900B6B594 /* Username.swift */; };
+		19B26EEA2BB3378200B6B594 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE92BB3378200B6B594 /* UserLocation.swift */; };
+		19B26EEC2BB337CC00B6B594 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EEB2BB337CC00B6B594 /* UserError.swift */; };
+		19B26EEE2BB3381600B6B594 /* UserErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EED2BB3381600B6B594 /* UserErrorMapper.swift */; };
+		19B26EF02BB3388100B6B594 /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EEF2BB3388100B6B594 /* UserMapper.swift */; };
+		19B26EF22BB3490A00B6B594 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EF12BB3490A00B6B594 /* ProfileView.swift */; };
+		19B26EF42BB3491600B6B594 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EF32BB3491600B6B594 /* ProfileConfigurator.swift */; };
+		19B26EF62BB3492A00B6B594 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EF52BB3492A00B6B594 /* ProfileViewModel.swift */; };
+		19B26EF82BB3494100B6B594 /* MockProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EF72BB3494100B6B594 /* MockProfileViewModel.swift */; };
+		19B26EFB2BB4224300B6B594 /* UserDateOfBornEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EFA2BB4224300B6B594 /* UserDateOfBornEntity.swift */; };
+		19B26EFD2BB422BF00B6B594 /* UserLocationStreetEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EFC2BB422BF00B6B594 /* UserLocationStreetEntity.swift */; };
+		19B26EFF2BB4232800B6B594 /* UserLocationCoordinatesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EFE2BB4232800B6B594 /* UserLocationCoordinatesEntity.swift */; };
+		19B26F022BB4335D00B6B594 /* RandomUserResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F012BB4335D00B6B594 /* RandomUserResponseEntity.swift */; };
+		19B26F042BB43C7E00B6B594 /* UserIdEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F032BB43C7E00B6B594 /* UserIdEntity.swift */; };
+		19B26F072BB5E9BA00B6B594 /* OverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F062BB5E9BA00B6B594 /* OverlayModifier.swift */; };
+		19B26F092BB5F7D200B6B594 /* ShadowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F082BB5F7D200B6B594 /* ShadowModifier.swift */; };
+		19B26F0B2BB6D86E00B6B594 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F0A2BB6D86E00B6B594 /* MapView.swift */; };
+		19B26F0D2BB6D87B00B6B594 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F0C2BB6D87B00B6B594 /* MapViewModel.swift */; };
+		19B26F0F2BB6D88700B6B594 /* MockMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F0E2BB6D88700B6B594 /* MockMapViewModel.swift */; };
+		19B26F112BB6D89D00B6B594 /* MapConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F102BB6D89D00B6B594 /* MapConfigurator.swift */; };
+		19B26F142BB871D500B6B594 /* CLGeocoder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F132BB871D500B6B594 /* CLGeocoder+Extension.swift */; };
+		19B26F162BB8795100B6B594 /* GeocoderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F152BB8795100B6B594 /* GeocoderRepository.swift */; };
+		19B26F182BB881A100B6B594 /* UserCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F172BB881A100B6B594 /* UserCoordinates.swift */; };
+		19B26F1A2BB8821B00B6B594 /* UserCoordinateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F192BB8821B00B6B594 /* UserCoordinateMapper.swift */; };
+		19B26F1C2BB882B100B6B594 /* UserCoordinatesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1B2BB882B100B6B594 /* UserCoordinatesError.swift */; };
+		19B26F1E2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1D2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift */; };
+		19B26F202BB891C200B6B594 /* ProfileEditAddressForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1F2BB891C200B6B594 /* ProfileEditAddressForm.swift */; };
+		19B26F222BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F212BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift */; };
+		19B26F252BB9D1BA00B6B594 /* TextFieldHeadered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F242BB9D1BA00B6B594 /* TextFieldHeadered.swift */; };
+		19B26F282BBAFB8600B6B594 /* TextFieldValueHeadered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F272BBAFB8600B6B594 /* TextFieldValueHeadered.swift */; };
+		19B26F2A2BBAFBAD00B6B594 /* TextFieldHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F292BBAFBAD00B6B594 /* TextFieldHeader.swift */; };
+		19B26F2C2BBBF41200B6B594 /* GeocoderRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F2B2BBBF41200B6B594 /* GeocoderRemoteDataSource.swift */; };
+		19B26F2E2BBC043F00B6B594 /* UserLocationCoordinatesEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F2D2BBC043F00B6B594 /* UserLocationCoordinatesEntityMapper.swift */; };
 		19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */; };
 		19C4DA352BA1BDB600E0DCC5 /* ToolbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */; };
 		19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */; };
@@ -94,7 +143,7 @@
 		19CCB2372BAB5EF200043542 /* DefaultImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */; };
 		19CCB23B2BAC6D9000043542 /* RemoteImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */; };
 		19CCB23E2BAC6F3000043542 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23D2BAC6F3000043542 /* RemoteImage.swift */; };
-		19CCB2402BAC87D500043542 /* ImageClipShapeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23F2BAC87D500043542 /* ImageClipShapeModifier.swift */; };
+		19CCB2402BAC87D500043542 /* ClipShapeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23F2BAC87D500043542 /* ClipShapeModifier.swift */; };
 		19CCB2422BAC9F6F00043542 /* ConfigEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2412BAC9F6F00043542 /* ConfigEntity.swift */; };
 		19CCB2442BACA15000043542 /* ConfigEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2432BACA15000043542 /* ConfigEntityMapper.swift */; };
 		19CCB2472BACA56A00043542 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2462BACA56A00043542 /* Config.swift */; };
@@ -185,6 +234,55 @@
 		19B26EBB2BB2C9EE00B6B594 /* AccountMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMapper.swift; sourceTree = "<group>"; };
 		19B26EBD2BB2CABE00B6B594 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
 		19B26EBF2BB2CAD900B6B594 /* AccountErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountErrorMapper.swift; sourceTree = "<group>"; };
+		19B26EC12BB3094D00B6B594 /* HttpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConstants.swift; sourceTree = "<group>"; };
+		19B26EC42BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequestConvertible+URLRequest.swift"; sourceTree = "<group>"; };
+		19B26EC62BB309BB00B6B594 /* URLRequest+Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Encoded.swift"; sourceTree = "<group>"; };
+		19B26EC82BB30A2500B6B594 /* RemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataSource.swift; sourceTree = "<group>"; };
+		19B26ECA2BB30C5F00B6B594 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		19B26ECD2BB30CD900B6B594 /* RandomUserRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserRemoteDataSource.swift; sourceTree = "<group>"; };
+		19B26ECF2BB30D3600B6B594 /* RandomUserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserAPI.swift; sourceTree = "<group>"; };
+		19B26ED32BB30E7700B6B594 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		19B26ED52BB3100400B6B594 /* UsernameEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsernameEntity.swift; sourceTree = "<group>"; };
+		19B26ED72BB310F600B6B594 /* UserAvatarEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAvatarEntity.swift; sourceTree = "<group>"; };
+		19B26ED92BB3113D00B6B594 /* UserLocationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationEntity.swift; sourceTree = "<group>"; };
+		19B26EDB2BB3133B00B6B594 /* UserEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityMapper.swift; sourceTree = "<group>"; };
+		19B26EDD2BB3148100B6B594 /* UserEntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntityCache.swift; sourceTree = "<group>"; };
+		19B26EDF2BB3244400B6B594 /* UserLocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocalDataSource.swift; sourceTree = "<group>"; };
+		19B26EE12BB3290200B6B594 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		19B26EE32BB336CA00B6B594 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		19B26EE52BB3371900B6B594 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
+		19B26EE92BB3378200B6B594 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
+		19B26EEB2BB337CC00B6B594 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		19B26EED2BB3381600B6B594 /* UserErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserErrorMapper.swift; sourceTree = "<group>"; };
+		19B26EEF2BB3388100B6B594 /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
+		19B26EF12BB3490A00B6B594 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		19B26EF32BB3491600B6B594 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
+		19B26EF52BB3492A00B6B594 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		19B26EF72BB3494100B6B594 /* MockProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProfileViewModel.swift; sourceTree = "<group>"; };
+		19B26EFA2BB4224300B6B594 /* UserDateOfBornEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDateOfBornEntity.swift; sourceTree = "<group>"; };
+		19B26EFC2BB422BF00B6B594 /* UserLocationStreetEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationStreetEntity.swift; sourceTree = "<group>"; };
+		19B26EFE2BB4232800B6B594 /* UserLocationCoordinatesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationCoordinatesEntity.swift; sourceTree = "<group>"; };
+		19B26F012BB4335D00B6B594 /* RandomUserResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUserResponseEntity.swift; sourceTree = "<group>"; };
+		19B26F032BB43C7E00B6B594 /* UserIdEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserIdEntity.swift; sourceTree = "<group>"; };
+		19B26F062BB5E9BA00B6B594 /* OverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayModifier.swift; sourceTree = "<group>"; };
+		19B26F082BB5F7D200B6B594 /* ShadowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifier.swift; sourceTree = "<group>"; };
+		19B26F0A2BB6D86E00B6B594 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		19B26F0C2BB6D87B00B6B594 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		19B26F0E2BB6D88700B6B594 /* MockMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMapViewModel.swift; sourceTree = "<group>"; };
+		19B26F102BB6D89D00B6B594 /* MapConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapConfigurator.swift; sourceTree = "<group>"; };
+		19B26F132BB871D500B6B594 /* CLGeocoder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLGeocoder+Extension.swift"; sourceTree = "<group>"; };
+		19B26F152BB8795100B6B594 /* GeocoderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderRepository.swift; sourceTree = "<group>"; };
+		19B26F172BB881A100B6B594 /* UserCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinates.swift; sourceTree = "<group>"; };
+		19B26F192BB8821B00B6B594 /* UserCoordinateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinateMapper.swift; sourceTree = "<group>"; };
+		19B26F1B2BB882B100B6B594 /* UserCoordinatesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinatesError.swift; sourceTree = "<group>"; };
+		19B26F1D2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinatesErrorMapper.swift; sourceTree = "<group>"; };
+		19B26F1F2BB891C200B6B594 /* ProfileEditAddressForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditAddressForm.swift; sourceTree = "<group>"; };
+		19B26F212BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditAddressFormViewModel.swift; sourceTree = "<group>"; };
+		19B26F242BB9D1BA00B6B594 /* TextFieldHeadered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHeadered.swift; sourceTree = "<group>"; };
+		19B26F272BBAFB8600B6B594 /* TextFieldValueHeadered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldValueHeadered.swift; sourceTree = "<group>"; };
+		19B26F292BBAFBAD00B6B594 /* TextFieldHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHeader.swift; sourceTree = "<group>"; };
+		19B26F2B2BBBF41200B6B594 /* GeocoderRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderRemoteDataSource.swift; sourceTree = "<group>"; };
+		19B26F2D2BBC043F00B6B594 /* UserLocationCoordinatesEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocationCoordinatesEntityMapper.swift; sourceTree = "<group>"; };
 		19C4DA322BA1BD9100E0DCC5 /* ToolbarButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarButtonAction.swift; sourceTree = "<group>"; };
 		19C4DA342BA1BDB600E0DCC5 /* ToolbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarStyle.swift; sourceTree = "<group>"; };
 		19C4DA362BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsBuilder.swift; sourceTree = "<group>"; };
@@ -204,7 +302,7 @@
 		19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageViewModel.swift; sourceTree = "<group>"; };
 		19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageViewModel.swift; sourceTree = "<group>"; };
 		19CCB23D2BAC6F3000043542 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
-		19CCB23F2BAC87D500043542 /* ImageClipShapeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClipShapeModifier.swift; sourceTree = "<group>"; };
+		19CCB23F2BAC87D500043542 /* ClipShapeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipShapeModifier.swift; sourceTree = "<group>"; };
 		19CCB2412BAC9F6F00043542 /* ConfigEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEntity.swift; sourceTree = "<group>"; };
 		19CCB2432BACA15000043542 /* ConfigEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEntityMapper.swift; sourceTree = "<group>"; };
 		19CCB2462BACA56A00043542 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -257,6 +355,7 @@
 				1903B1492B600A7200C26865 /* AccountDataSource.swift */,
 				191D17AE2B64189500E2A19E /* ConfigLocalDataSource.swift */,
 				192C78072B6D3BCB00664B89 /* NotificationLocalDataSource.swift */,
+				19B26EDF2BB3244400B6B594 /* UserLocalDataSource.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -278,6 +377,8 @@
 				191D17B02B64196800E2A19E /* ConfigRepository.swift */,
 				192C78092B6D3E6000664B89 /* LocalNotificationRepository.swift */,
 				19CCB2292BA9AFCC00043542 /* LinkMetadataRepository.swift */,
+				19B26EE12BB3290200B6B594 /* UserRepository.swift */,
+				19B26F152BB8795100B6B594 /* GeocoderRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -306,6 +407,7 @@
 				191B06BB2BA0BEA800D5A679 /* PasswordGenerator */,
 				19C4DA3A2BA3549900E0DCC5 /* Alert */,
 				19CCB2392BAB5F2B00043542 /* Image */,
+				19B26F262BBAF9F300B6B594 /* TextField */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -417,6 +519,7 @@
 				1954251F2B5EA75F00B11BA1 /* Image+Kingfisher.swift */,
 				196C39A82B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift */,
 				19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */,
+				19B26F132BB871D500B6B594 /* CLGeocoder+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -545,6 +648,8 @@
 				19E0DFC72B5AF59F008A1AF2 /* AccountDetail */,
 				195998FD2B59444600F17512 /* Settings */,
 				192C78002B6D3A2800664B89 /* Notifications */,
+				19B26EF92BB3494D00B6B594 /* Profile */,
+				19B26F122BB6D8A400B6B594 /* Map */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -552,6 +657,7 @@
 		1988CB972B585EE400D2C08F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				19B26F052BB5E97B00B6B594 /* ViewModifier */,
 				1913A2F32B9C7B79004FFC2F /* Component */,
 				1988CB962B585EDC00D2C08F /* Module */,
 			);
@@ -574,8 +680,106 @@
 				19CCB2432BACA15000043542 /* ConfigEntityMapper.swift */,
 				19B26EAB2BB18CB000B6B594 /* LocalNotificationEntityMapper.swift */,
 				19B26EB72BB1DD3D00B6B594 /* AccountEntityMapper.swift */,
+				19B26EDB2BB3133B00B6B594 /* UserEntityMapper.swift */,
+				19B26F2D2BBC043F00B6B594 /* UserLocationCoordinatesEntityMapper.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		19B26EC32BB3097E00B6B594 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				19B26EC12BB3094D00B6B594 /* HttpConstants.swift */,
+				19B26EC42BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift */,
+				19B26EC62BB309BB00B6B594 /* URLRequest+Encoded.swift */,
+				19B26EC82BB30A2500B6B594 /* RemoteDataSource.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		19B26ECC2BB30C6400B6B594 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				19B26ED22BB30D6C00B6B594 /* Core */,
+				19B26ECF2BB30D3600B6B594 /* RandomUserAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		19B26ED22BB30D6C00B6B594 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				19B26ECA2BB30C5F00B6B594 /* API.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		19B26EF92BB3494D00B6B594 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				19B26EF12BB3490A00B6B594 /* ProfileView.swift */,
+				19B26EF32BB3491600B6B594 /* ProfileConfigurator.swift */,
+				19B26EF52BB3492A00B6B594 /* ProfileViewModel.swift */,
+				19B26EF72BB3494100B6B594 /* MockProfileViewModel.swift */,
+				19B26F232BB9D05F00B6B594 /* ProfileEditAddressForm */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		19B26F002BB4235200B6B594 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				19B26ED32BB30E7700B6B594 /* UserEntity.swift */,
+				19B26F032BB43C7E00B6B594 /* UserIdEntity.swift */,
+				19B26ED52BB3100400B6B594 /* UsernameEntity.swift */,
+				19B26EFA2BB4224300B6B594 /* UserDateOfBornEntity.swift */,
+				19B26ED72BB310F600B6B594 /* UserAvatarEntity.swift */,
+				19B26ED92BB3113D00B6B594 /* UserLocationEntity.swift */,
+				19B26EFC2BB422BF00B6B594 /* UserLocationStreetEntity.swift */,
+				19B26EFE2BB4232800B6B594 /* UserLocationCoordinatesEntity.swift */,
+				19B26F012BB4335D00B6B594 /* RandomUserResponseEntity.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		19B26F052BB5E97B00B6B594 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				19CCB23F2BAC87D500043542 /* ClipShapeModifier.swift */,
+				19B26F062BB5E9BA00B6B594 /* OverlayModifier.swift */,
+				19B26F082BB5F7D200B6B594 /* ShadowModifier.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		19B26F122BB6D8A400B6B594 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				19B26F0A2BB6D86E00B6B594 /* MapView.swift */,
+				19B26F0C2BB6D87B00B6B594 /* MapViewModel.swift */,
+				19B26F0E2BB6D88700B6B594 /* MockMapViewModel.swift */,
+				19B26F102BB6D89D00B6B594 /* MapConfigurator.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		19B26F232BB9D05F00B6B594 /* ProfileEditAddressForm */ = {
+			isa = PBXGroup;
+			children = (
+				19B26F1F2BB891C200B6B594 /* ProfileEditAddressForm.swift */,
+				19B26F212BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift */,
+			);
+			path = ProfileEditAddressForm;
+			sourceTree = "<group>";
+		};
+		19B26F262BBAF9F300B6B594 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				19B26F242BB9D1BA00B6B594 /* TextFieldHeadered.swift */,
+				19B26F272BBAFB8600B6B594 /* TextFieldValueHeadered.swift */,
+				19B26F292BBAFBAD00B6B594 /* TextFieldHeader.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		19C4DA3A2BA3549900E0DCC5 /* Alert */ = {
@@ -592,7 +796,11 @@
 		19CCB2222BA9ADF100043542 /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				19B26EC32BB3097E00B6B594 /* Core */,
+				19B26ECC2BB30C6400B6B594 /* API */,
 				19CCB2202BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift */,
+				19B26ECD2BB30CD900B6B594 /* RandomUserRemoteDataSource.swift */,
+				19B26F2B2BBBF41200B6B594 /* GeocoderRemoteDataSource.swift */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -605,6 +813,7 @@
 				19CCB2412BAC9F6F00043542 /* ConfigEntity.swift */,
 				19B26EA92BB18BF900B6B594 /* LocalNotificationEntity.swift */,
 				19B26EB52BB1DCFE00B6B594 /* AccountEntity.swift */,
+				19B26F002BB4235200B6B594 /* User */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -624,6 +833,8 @@
 				19CCB2482BACA75700043542 /* ConfigMapper.swift */,
 				19B26EB32BB1C30200B6B594 /* LocalNotificationMapper.swift */,
 				19B26EBB2BB2C9EE00B6B594 /* AccountMapper.swift */,
+				19B26EEF2BB3388100B6B594 /* UserMapper.swift */,
+				19B26F192BB8821B00B6B594 /* UserCoordinateMapper.swift */,
 			);
 			path = Mapper;
 			sourceTree = "<group>";
@@ -635,6 +846,8 @@
 				19CCB24A2BACA82700043542 /* ConfigError.swift */,
 				19B26EAF2BB1C21E00B6B594 /* LocalNotificationError.swift */,
 				19B26EBD2BB2CABE00B6B594 /* AccountError.swift */,
+				19B26EEB2BB337CC00B6B594 /* UserError.swift */,
+				19B26F1B2BB882B100B6B594 /* UserCoordinatesError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -646,6 +859,8 @@
 				19CCB24C2BACA85300043542 /* ConfigErrorMapper.swift */,
 				19B26EAD2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift */,
 				19B26EBF2BB2CAD900B6B594 /* AccountErrorMapper.swift */,
+				19B26EED2BB3381600B6B594 /* UserErrorMapper.swift */,
+				19B26F1D2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift */,
 			);
 			path = ErrorMapper;
 			sourceTree = "<group>";
@@ -662,7 +877,6 @@
 		19CCB2392BAB5F2B00043542 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				19CCB23F2BAC87D500043542 /* ImageClipShapeModifier.swift */,
 				19CCB2382BAB5F2000043542 /* DefaultImage */,
 				19CCB23C2BAC6EC500043542 /* RemoteImage */,
 			);
@@ -684,6 +898,7 @@
 				19E0DFD32B5B1902008A1AF2 /* AccountEntityCache.swift */,
 				195425252B5EF81200B11BA1 /* ConfigEntityCache.swift */,
 				19127CB92B6D0DEA00D90170 /* LocalNotificationEntityCache.swift */,
+				19B26EDD2BB3148100B6B594 /* UserEntityCache.swift */,
 			);
 			path = EntityCache;
 			sourceTree = "<group>";
@@ -735,6 +950,10 @@
 				19CCB2462BACA56A00043542 /* Config.swift */,
 				19B26EB12BB1C26C00B6B594 /* LocalNotification.swift */,
 				19B26EB92BB2C96100B6B594 /* Account.swift */,
+				19B26EE32BB336CA00B6B594 /* User.swift */,
+				19B26EE52BB3371900B6B594 /* Username.swift */,
+				19B26EE92BB3378200B6B594 /* UserLocation.swift */,
+				19B26F172BB881A100B6B594 /* UserCoordinates.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -844,24 +1063,40 @@
 			buildActionMask = 2147483647;
 			files = (
 				1913A2FA2B9CF230004FFC2F /* AccountDetailUserSection.swift in Sources */,
+				19B26EE02BB3244400B6B594 /* UserLocalDataSource.swift in Sources */,
 				191D17B12B64196800E2A19E /* ConfigRepository.swift in Sources */,
+				19B26EF02BB3388100B6B594 /* UserMapper.swift in Sources */,
+				19B26EDE2BB3148100B6B594 /* UserEntityCache.swift in Sources */,
 				195998F62B59440000F17512 /* SettingsView.swift in Sources */,
+				19B26EEA2BB3378200B6B594 /* UserLocation.swift in Sources */,
+				19B26EF42BB3491600B6B594 /* ProfileConfigurator.swift in Sources */,
 				19B26EB82BB1DD3D00B6B594 /* AccountEntityMapper.swift in Sources */,
+				19B26ED82BB310F600B6B594 /* UserAvatarEntity.swift in Sources */,
 				19B26EBE2BB2CABE00B6B594 /* AccountError.swift in Sources */,
+				19B26EE42BB336CA00B6B594 /* User.swift in Sources */,
 				191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */,
+				19B26ECE2BB30CD900B6B594 /* RandomUserRemoteDataSource.swift in Sources */,
+				19B26EF82BB3494100B6B594 /* MockProfileViewModel.swift in Sources */,
 				19E0DFD42B5B1902008A1AF2 /* AccountEntityCache.swift in Sources */,
 				195425262B5EF81200B11BA1 /* ConfigEntityCache.swift in Sources */,
 				1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */,
+				19B26EE22BB3290200B6B594 /* UserRepository.swift in Sources */,
+				19B26F0F2BB6D88700B6B594 /* MockMapViewModel.swift in Sources */,
 				1988CB992B585F2F00D2C08F /* AccountsViewModel.swift in Sources */,
 				1988CB8A2B582A7900D2C08F /* Injector.swift in Sources */,
 				19CCB23E2BAC6F3000043542 /* RemoteImage.swift in Sources */,
 				19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */,
+				19B26EC52BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift in Sources */,
 				1988CB8B2B582A7900D2C08F /* InjectorModule.swift in Sources */,
 				1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */,
+				19B26EDC2BB3133B00B6B594 /* UserEntityMapper.swift in Sources */,
+				19B26F072BB5E9BA00B6B594 /* OverlayModifier.swift in Sources */,
 				19B26EAE2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift in Sources */,
 				1903B1452B5FFE1300C26865 /* DatabaseManager.swift in Sources */,
 				1913A2F02B9C6E8C004FFC2F /* Strings.swift in Sources */,
+				19B26EFB2BB4224300B6B594 /* UserDateOfBornEntity.swift in Sources */,
 				191D17C02B657AD700E2A19E /* PermissionManager.swift in Sources */,
+				19B26F182BB881A100B6B594 /* UserCoordinates.swift in Sources */,
 				19CCB2372BAB5EF200043542 /* DefaultImageViewModel.swift in Sources */,
 				19CCB23B2BAC6D9000043542 /* RemoteImageViewModel.swift in Sources */,
 				19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */,
@@ -870,16 +1105,25 @@
 				19CCB2212BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift in Sources */,
 				1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */,
 				19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */,
+				19B26F1C2BB882B100B6B594 /* UserCoordinatesError.swift in Sources */,
 				1988CB8C2B582A7900D2C08F /* AppDelegate+Injections.swift in Sources */,
 				1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */,
+				19B26EFD2BB422BF00B6B594 /* UserLocationStreetEntity.swift in Sources */,
+				19B26F282BBAFB8600B6B594 /* TextFieldValueHeadered.swift in Sources */,
+				19B26F2C2BBBF41200B6B594 /* GeocoderRemoteDataSource.swift in Sources */,
+				19B26ED42BB30E7700B6B594 /* UserEntity.swift in Sources */,
 				1913A3002B9D07B4004FFC2F /* AccountDetailNotesSection.swift in Sources */,
 				19CCB2272BA9AE5700043542 /* Entity.swift in Sources */,
-				19CCB2402BAC87D500043542 /* ImageClipShapeModifier.swift in Sources */,
+				19CCB2402BAC87D500043542 /* ClipShapeModifier.swift in Sources */,
+				19B26F112BB6D89D00B6B594 /* MapConfigurator.swift in Sources */,
 				1988CB882B582A7900D2C08F /* MyChestInjectorProvider.swift in Sources */,
+				19B26ECB2BB30C5F00B6B594 /* API.swift in Sources */,
 				195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */,
+				19B26EEE2BB3381600B6B594 /* UserErrorMapper.swift in Sources */,
 				19CCB2442BACA15000043542 /* ConfigEntityMapper.swift in Sources */,
 				196C39AB2B8BC316001235E9 /* LinkMetadata.swift in Sources */,
 				19CCB24B2BACA82700043542 /* ConfigError.swift in Sources */,
+				19B26F2A2BBAFBAD00B6B594 /* TextFieldHeader.swift in Sources */,
 				19C4DA402BA359EF00E0DCC5 /* AlertViewModifier.swift in Sources */,
 				19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */,
 				19CCB22A2BA9AFCC00043542 /* LinkMetadataRepository.swift in Sources */,
@@ -896,36 +1140,54 @@
 				195998F12B593B8400F17512 /* TabBarView.swift in Sources */,
 				19C4DA422BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift in Sources */,
 				19B26EAC2BB18CB000B6B594 /* LocalNotificationEntityMapper.swift in Sources */,
+				19B26EDA2BB3113D00B6B594 /* UserLocationEntity.swift in Sources */,
+				19B26F092BB5F7D200B6B594 /* ShadowModifier.swift in Sources */,
+				19B26F222BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift in Sources */,
 				19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */,
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
 				192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */,
 				19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */,
+				19B26F162BB8795100B6B594 /* GeocoderRepository.swift in Sources */,
+				19B26EFF2BB4232800B6B594 /* UserLocationCoordinatesEntity.swift in Sources */,
 				19CCB2322BA9B42E00043542 /* LinkMetadataErrorMapper.swift in Sources */,
 				19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */,
+				19B26EF62BB3492A00B6B594 /* ProfileViewModel.swift in Sources */,
 				19B26EBC2BB2C9EE00B6B594 /* AccountMapper.swift in Sources */,
 				19D90FB82B9E243D0010DED2 /* PasswordGeneratorSettings.swift in Sources */,
 				1988CB8D2B582A7900D2C08F /* MyChestModule.swift in Sources */,
 				192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */,
+				19B26EC72BB309BB00B6B594 /* URLRequest+Encoded.swift in Sources */,
 				1913A2F22B9C7B74004FFC2F /* Toolbar.swift in Sources */,
 				19127CB72B694CCE00D90170 /* DataError.swift in Sources */,
 				19CCB2242BA9AE2100043542 /* LinkMetadataEntity.swift in Sources */,
 				19CCB2492BACA75700043542 /* ConfigMapper.swift in Sources */,
+				19B26EF22BB3490A00B6B594 /* ProfileView.swift in Sources */,
+				19B26F0B2BB6D86E00B6B594 /* MapView.swift in Sources */,
 				1913A2FE2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift in Sources */,
 				196C39A92B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift in Sources */,
+				19B26EEC2BB337CC00B6B594 /* UserError.swift in Sources */,
 				19CCB2352BAB5BBC00043542 /* DefaultImage.swift in Sources */,
+				19B26EC92BB30A2500B6B594 /* RemoteDataSource.swift in Sources */,
 				19CCB2422BAC9F6F00043542 /* ConfigEntity.swift in Sources */,
 				19C4DA3E2BA3590D00E0DCC5 /* Alertable.swift in Sources */,
 				19CCB24D2BACA85300043542 /* ConfigErrorMapper.swift in Sources */,
 				196105CE2B876C6900EA47AE /* Theme.swift in Sources */,
 				19B26EB62BB1DCFE00B6B594 /* AccountEntity.swift in Sources */,
+				19B26ED02BB30D3600B6B594 /* RandomUserAPI.swift in Sources */,
 				19127CBA2B6D0DEA00D90170 /* LocalNotificationEntityCache.swift in Sources */,
 				192C78082B6D3BCB00664B89 /* NotificationLocalDataSource.swift in Sources */,
+				19B26F042BB43C7E00B6B594 /* UserIdEntity.swift in Sources */,
 				192C78022B6D3A4300664B89 /* MockNotificationsViewModel.swift in Sources */,
 				1913A2FC2B9D059A004FFC2F /* AccountDetailPasswordSection.swift in Sources */,
+				19B26EC22BB3094D00B6B594 /* HttpConstants.swift in Sources */,
+				19B26F022BB4335D00B6B594 /* RandomUserResponseEntity.swift in Sources */,
 				1988CB892B582A7900D2C08F /* InjectorProvider.swift in Sources */,
 				19127CB52B694BB000D90170 /* StorageManager.swift in Sources */,
 				195998F42B593C1D00F17512 /* TabBarViewModel.swift in Sources */,
+				19B26F2E2BBC043F00B6B594 /* UserLocationCoordinatesEntityMapper.swift in Sources */,
+				19B26EE62BB3371900B6B594 /* Username.swift in Sources */,
 				19E0DFC92B5AF5B6008A1AF2 /* AccountDetailViewModel.swift in Sources */,
+				19B26F1E2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift in Sources */,
 				191A77142B57119600AFC37F /* MyChestApp.swift in Sources */,
 				19CCB22F2BA9B3DE00043542 /* LinkMetadataError.swift in Sources */,
 				19CCB2472BACA56A00043542 /* Config.swift in Sources */,
@@ -934,12 +1196,18 @@
 				195998FC2B59443C00F17512 /* MockSettingsViewModel.swift in Sources */,
 				1913A2F52B9C84B6004FFC2F /* MainToolbar.swift in Sources */,
 				19E0DFC62B5AF59A008A1AF2 /* AccountDetailView.swift in Sources */,
+				19B26F0D2BB6D87B00B6B594 /* MapViewModel.swift in Sources */,
 				19B26EC02BB2CAD900B6B594 /* AccountErrorMapper.swift in Sources */,
 				19CCB22C2BA9B1AB00043542 /* LinkMetadataMapper.swift in Sources */,
 				192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */,
 				19C4DA3C2BA3557800E0DCC5 /* AlertViewModel.swift in Sources */,
 				195998F82B59441900F17512 /* SettingsViewModel.swift in Sources */,
+				19B26F1A2BB8821B00B6B594 /* UserCoordinateMapper.swift in Sources */,
 				19E0DFCB2B5AF5C8008A1AF2 /* AccountDetailConfigurator.swift in Sources */,
+				19B26F252BB9D1BA00B6B594 /* TextFieldHeadered.swift in Sources */,
+				19B26ED62BB3100400B6B594 /* UsernameEntity.swift in Sources */,
+				19B26F142BB871D500B6B594 /* CLGeocoder+Extension.swift in Sources */,
+				19B26F202BB891C200B6B594 /* ProfileEditAddressForm.swift in Sources */,
 				191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */,
 				195998FA2B59442300F17512 /* SettingsConfigurator.swift in Sources */,
 				19B26EB02BB1C21E00B6B594 /* LocalNotificationError.swift in Sources */,

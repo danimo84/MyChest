@@ -16,13 +16,24 @@ struct RemoteImage: View {
             Image.cachedURL(imageUrl)
                 .resizable()
                 .frame(
-                    width: viewModel.widht,
+                    width: viewModel.width,
                     height: viewModel.height
                 )
-                .aspectRatio(contentMode: viewModel.contentMode ?? .fit)
+                .aspectRatio(contentMode: viewModel.contentMode)
                 .clipShapeIfNeeded(
-                    clippedShape: viewModel.clipedShape ?? false,
+                    clippedShape: viewModel.clipedShape,
                     cornerRadius: viewModel.cornerRadius
+                )
+                .overlayIfNeeded(
+                    overlaied: viewModel.overlied,
+                    strokeWidth: viewModel.strokeWidth ?? .zero,
+                    strokeColor: viewModel.strokeColor,
+                    cornerRadius: viewModel.cornerRadius
+                )
+                .shadowIfNeeded(
+                    shadowed: viewModel.shadowed,
+                    shadowRadius: viewModel.shadowRadius,
+                    shadowColor: viewModel.shadowColor
                 )
         }
     }
@@ -31,7 +42,7 @@ struct RemoteImage: View {
 #Preview {
     RemoteImage(
         viewModel: .init(
-            widht: Theme.Accounts.accountImageSize,
+            width: Theme.Accounts.accountImageSize,
             height: Theme.Accounts.accountImageSize,
             url: ""
         )

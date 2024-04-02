@@ -1,36 +1,40 @@
 //
-//  ImageClipShapeModifier.swift
+//  OverlayModifier.swift
 //  MyChest
 //
-//  Created by Daniel Moraleda on 21/3/24.
+//  Created by Daniel Moraleda on 28/3/24.
 //
 
 import Foundation
 import SwiftUI
 
-struct ImageClipShapeModifier: ViewModifier {
+struct OverlayModifier: ViewModifier {
     
-    var clippedShape: Bool
+    var overlaied: Bool
+    var strokeWidth: CGFloat
+    var strokeColor: Color
     var cornerRadius: CGFloat?
     
     func body(content: Content) -> some View {
         VStack {
-            if clippedShape {
+            if overlaied {
                 if let cornerRadius {
                     content
-                        .clipShape(
+                        .overlay {
                             RoundedRectangle(
                                 cornerSize: CGSize(
                                     width: cornerRadius,
                                     height: cornerRadius
                                 )
                             )
-                        )
+                            .stroke(strokeColor, lineWidth: strokeWidth)
+                        }
                 } else {
                     content
-                        .clipShape(
+                        .overlay {
                             Circle()
-                        )
+                                .stroke(strokeColor, lineWidth: strokeWidth)
+                        }
                 }
             } else {
                 content
@@ -41,13 +45,17 @@ struct ImageClipShapeModifier: ViewModifier {
 
 extension View {
     
-    func clipShapeIfNeeded(
-        clippedShape: Bool,
+    func overlayIfNeeded(
+        overlaied: Bool,
+        strokeWidth: CGFloat,
+        strokeColor: Color,
         cornerRadius: CGFloat? = nil
     ) -> some View {
         modifier(
-            ImageClipShapeModifier(
-                clippedShape: clippedShape,
+            OverlayModifier(
+                overlaied: overlaied,
+                strokeWidth: strokeWidth,
+                strokeColor: strokeColor,
                 cornerRadius: cornerRadius
             )
         )
