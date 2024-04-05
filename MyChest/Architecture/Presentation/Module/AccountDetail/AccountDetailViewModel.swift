@@ -134,8 +134,6 @@ private extension AccountDetailViewModelDefault {
     
     @MainActor
     func requestLinkMetada() async {
-        #warning("TODO: Try to remove islaoding = false ????")
-        isMetadataLoading = false
         subscriptions.removeAll()
         isMetadataLoading = true
         do {
@@ -163,7 +161,6 @@ private extension AccountDetailViewModelDefault {
         do {
             config = try await getConfigInteractor.execute().async()
         } catch {
-            #warning("TODO: handle error with alert")
             print("Error: \(error)")
         }
     }
