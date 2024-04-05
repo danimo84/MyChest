@@ -12,7 +12,7 @@ final class MockSettingsViewModel: SettingsViewModel {
     
     var config: Config = .defaultConfig()
     
-    func fetchConfig() {
+    func getConfig() {
         // Intentionally empty
     }
     
@@ -24,11 +24,7 @@ final class MockSettingsViewModel: SettingsViewModel {
         // Intentionally empty
     }
     
-    func goBack() {
-        // Intentionally empty
-    }
-    
-    func requestNotificationsPermission() {
+    func navigateBack() {
         // Intentionally empty
     }
     

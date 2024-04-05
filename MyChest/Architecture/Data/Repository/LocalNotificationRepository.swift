@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 protocol LocalNotificationRepository {
-    func fetchNotifications() -> AnyPublisher<[LocalNotification], LocalNotificationError>
-    func insertNotification(_ notification: LocalNotification)
-    func updateNotification(_ notification: LocalNotification)
+    func fetchNotifications() -> AnyPublisher<[LocalNotificationEntity], DataError>
+    func insertNotification(_ notification: LocalNotificationEntity)
+    func updateNotification(_ notification: LocalNotificationEntity)
     func removeNotificationsWithAccountId(_ accountId: String)
     func removePendingNotificationsWithAccountId(_ accountId: String)
     func removeAllNotifications()
@@ -28,22 +28,16 @@ final class LocalNotificationRepositoryDefault {
 
 extension LocalNotificationRepositoryDefault: LocalNotificationRepository {
     
-    func fetchNotifications() -> AnyPublisher<[LocalNotification], LocalNotificationError> {
+    func fetchNotifications() -> AnyPublisher<[LocalNotificationEntity], DataError> {
         localDataSource.fetchNotifications()
-            .map {
-                $0.map { LocalNotificationMapper.map($0) }
-                    .sorted { $0.datetime > $1.datetime }
-            }
-            .mapError { LocalNotificationErrorMapper.map($0) }
-            .eraseToAnyPublisher()
     }
     
-    func insertNotification(_ notification: LocalNotification) {
-        localDataSource.insertNotification(LocalNotificationMapper.mapToEntity(notification))
+    func insertNotification(_ notification: LocalNotificationEntity) {
+        localDataSource.insertNotification(notification)
     }
     
-    func updateNotification(_ notification: LocalNotification) {
-        localDataSource.updateNotification(LocalNotificationMapper.mapToEntity(notification))
+    func updateNotification(_ notification: LocalNotificationEntity) {
+        localDataSource.updateNotification(notification)
     }
     
     func removeNotificationsWithAccountId(_ accountId: String) {

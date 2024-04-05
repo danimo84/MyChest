@@ -30,13 +30,11 @@ protocol AccountDetailViewModel: ObservableObject, Alertable {
     func deleteAccount()
     func generatePassword()
     func paswordUpdated()
-    func configAlertViewModel(_ forType: AlertType)
+    func showAlert(_ forType: AlertType)
     func updateLinkMetadata()
 }
 
-final class AccountDetailViewModelDefault: AccountDetailViewModel {
-    
-    let maxCommentCharacters = Theme.AccountDetail.maxAccountCommentCharacters
+final class AccountDetailViewModelDefault {
     
     var isPresented: Bool = true
     @Published var isPassConfigSheetPresented: Bool = false
@@ -47,17 +45,16 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
             }
             isSaveButtonDisabled = account.domain.isEmpty || account.user.isEmpty || account.password.isEmpty
             if !newAccount {
-                accountRepository.updateAccount(account)
+                updateAccountInteractor.execute(account)
             }
         }
     }
-    
     @Published var newAccount: Bool = false
     @Published var isPasswordEditable: Bool = false
     @Published var isPasswordSecured: Bool = true
     @Published var config: Config = .defaultConfig() {
         didSet {
-            configRepository.updateConfig(config)
+            updateConfigInteractor.execute(config)
         }
     }
     @Published var isSaveButtonDisabled: Bool = true
@@ -65,60 +62,114 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
     @Published var alertViewModel: AlertViewModel = .empty()
     @Published var isMetadataLoading: Bool = false
     @Published var domainProtocol: DomainProtocol = .http
-    
     private var subscriptions = Set<AnyCancellable>()
     
-    private let accountRepository: AccountRepository
-    private let configRepository: ConfigRepository
-    private let notificationRepository: LocalNotificationRepository
-    private let linkMetadaRepository: LinkMetadataRepository
-    private let passordGenerator: PasswordGeneratorManager
-    private let notificationsManager: NotificationsManager
+    private let maxCommentCharacters = Theme.AccountDetail.maxAccountCommentCharacters
+    private let createNewAccountInteractor: CreateNewAccountInteractor
+    private let deleteAccountInteractor: DeleteAccountInteractor
+    private let updateAccountInteractor: UpdateAccountInteractor
+    private let updateRememberPasswordNotificationInteractor: UpdateRememberPasswordNotificationInteractor
+    private let getLinkMetadataInteractor: GetLinkMetadataInteractor
+    private let getConfigInteractor: GetConfigInteractor
+    private let updateConfigInteractor: UpdateConfigInteractor
+    private let generatePasswordInteractor: GeneratePasswordInteractor
     
     init(
         originalAccount: Account?,
-        accountRepository: AccountRepository,
-        configRepository: ConfigRepository,
-        notificationRepository: LocalNotificationRepository,
-        linkMetadaRepository: LinkMetadataRepository,
-        passordGenerator: PasswordGeneratorManager,
-        notificationsManager: NotificationsManager
+        createNewAccountInteractor: CreateNewAccountInteractor,
+        deleteAccountInteractor: DeleteAccountInteractor,
+        updateAccountInteractor: UpdateAccountInteractor,
+        updateRememberPasswordNotificationInteractor: UpdateRememberPasswordNotificationInteractor,
+        getLinkMetadataInteractor: GetLinkMetadataInteractor,
+        getConfigInteractor: GetConfigInteractor,
+        updateConfigInteractor: UpdateConfigInteractor,
+        generatePasswordInteractor: GeneratePasswordInteractor
     ) {
-        if let originalAccount {
-            account = originalAccount
-        }
+        if let originalAccount { account = originalAccount }
         newAccount = originalAccount == nil ? true : false
         isPasswordEditable = originalAccount == nil ? true : false
-        self.accountRepository = accountRepository
-        self.configRepository = configRepository
-        self.notificationRepository = notificationRepository
-        self.linkMetadaRepository = linkMetadaRepository
-        self.passordGenerator = passordGenerator
-        self.notificationsManager = notificationsManager
+        self.createNewAccountInteractor = createNewAccountInteractor
+        self.deleteAccountInteractor = deleteAccountInteractor
+        self.updateAccountInteractor = updateAccountInteractor
+        self.updateRememberPasswordNotificationInteractor = updateRememberPasswordNotificationInteractor
+        self.getLinkMetadataInteractor = getLinkMetadataInteractor
+        self.getConfigInteractor = getConfigInteractor
+        self.updateConfigInteractor = updateConfigInteractor
+        self.generatePasswordInteractor = generatePasswordInteractor
         initDomainProtocol()
-        fetchConfig()
+        Task { await fetchConfig() }
     }
+}
+
+extension AccountDetailViewModelDefault: AccountDetailViewModel {
     
     func saveNewAccount() {
-        accountRepository.inserAccount(account)
-        scheduleNotification()
+        createNewAccountInteractor.execute(account: account)
     }
     
     func deleteAccount() {
-        accountRepository.removeAccount(withId: account.id)
-        notificationRepository.removeNotificationsWithAccountId(account.id)
+        deleteAccountInteractor.execute(withId: account.id)
     }
     
     func generatePassword() {
-        account.password = passordGenerator.generatePasswordWithConfig(config)
+        account.password = generatePasswordInteractor.execute(config)
     }
     
     func paswordUpdated() {
         account.updatedAt = .now
-        cancelPendingNotificationForAccount()
-        notificationRepository.removePendingNotificationsWithAccountId(account.id)
-        scheduleNotification()
+        updateRememberPasswordNotificationInteractor.execute(account: account)
     }
+    
+    func showAlert(_ type: AlertType) {
+        configAlertViewModel(type)
+    }
+    
+    func updateLinkMetadata() {
+        account.domainProtocol = domainProtocol.rawValue
+        Task { await requestLinkMetada() }
+    }
+}
+
+private extension AccountDetailViewModelDefault {
+    
+    @MainActor
+    func requestLinkMetada() async {
+        #warning("TODO: Try to remove islaoding = false ????")
+        isMetadataLoading = false
+        subscriptions.removeAll()
+        isMetadataLoading = true
+        do {
+            let metadata = try await getLinkMetadataInteractor.execute(forUrl: "\(domainProtocol.rawValue)\(account.domain)").async()
+            account.image = metadata.imageUrl ?? ""
+        } catch {
+            account.image = ""
+        }
+        isMetadataLoading = false
+    }
+    
+    func initDomainProtocol() {
+        if newAccount {
+            account.domainProtocol = domainProtocol.rawValue
+        } else {
+            self.domainProtocol = .init(rawValue: account.domainProtocol) ?? .http
+        }
+    }
+}
+
+private extension AccountDetailViewModelDefault {
+    
+    @MainActor 
+    func fetchConfig() async {
+        do {
+            config = try await getConfigInteractor.execute().async()
+        } catch {
+            #warning("TODO: handle error with alert")
+            print("Error: \(error)")
+        }
+    }
+}
+
+private extension AccountDetailViewModelDefault {
     
     func configAlertViewModel(_ type: AlertType) {
         alertViewModel = AlertViewModel(
@@ -137,84 +188,5 @@ final class AccountDetailViewModelDefault: AccountDetailViewModel {
                 self.alertIsVisible = false
             }
         )
-    }
-    
-    func updateLinkMetadata() {
-        account.domainProtocol = domainProtocol.rawValue
-        requestLinkMetada()
-    }
-}
-
-private extension AccountDetailViewModelDefault {
-    
-    func requestLinkMetada() {
-        isMetadataLoading = false
-        subscriptions.removeAll()
-        isMetadataLoading = true
-        
-        linkMetadaRepository.getLinkMetadata(forUrl: "\(domainProtocol.rawValue)\(account.domain)")
-            .sink(
-                receiveCompletion: { completion in
-                    if case .failure(_) = completion {
-                        self.isMetadataLoading = false
-                        self.account.image = ""
-                    }
-                },
-                receiveValue: { metadata in
-                    self.isMetadataLoading = false
-                    self.account.image = metadata.imageUrl ?? ""
-                }
-            )
-            .store(in: &subscriptions)
-    }
-    
-    func initDomainProtocol() {
-        if newAccount {
-            account.domainProtocol = domainProtocol.rawValue
-        } else {
-            self.domainProtocol = .init(rawValue: account.domainProtocol) ?? .http
-        }
-    }
-}
-
-private extension AccountDetailViewModelDefault {
-    
-    func fetchConfig() {
-        configRepository.fetchConfig()
-            .sink(
-                receiveCompletion: { completion in
-                    if case let .failure(error) = completion {
-                        print("Error: \(error)")
-                    }
-                },
-                receiveValue: {
-                    self.config = $0
-                }
-            )
-            .store(in: &subscriptions)
-    }
-}
-
-private extension AccountDetailViewModelDefault {
-    
-    func cancelPendingNotificationForAccount() {
-        notificationsManager.cancelPendingNotificationWithAccountId(account.id)
-    }
-    
-    func scheduleNotification() {
-        guard account.rememberUpdateMonths != .zero,
-        let notification = buildNotification(account: account) else {
-            return
-        }
-        notificationsManager.scheduleNotifications([notification])
-        saveNotification(notification)
-    }
-    
-    func buildNotification(account: Account) -> LocalNotification? {
-        .buildLocalNotificationForAccount(account)
-    }
-    
-    func saveNotification(_ notification: LocalNotification) {
-        notificationRepository.insertNotification(notification)
     }
 }

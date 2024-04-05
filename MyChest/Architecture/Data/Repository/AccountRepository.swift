@@ -9,9 +9,9 @@ import Foundation
 import Combine
 
 protocol AccountRepository {
-    func fetchAccounts() -> AnyPublisher<[Account], AccountError>
-    func inserAccount(_ account: Account)
-    func updateAccount(_ account: Account)
+    func fetchAccounts() -> AnyPublisher<[AccountEntity], DataError>
+    func inserAccount(_ account: AccountEntity)
+    func updateAccount(_ account: AccountEntity)
     func removeAccount(withId accountId: String)
     func removeAllAccounts()
 }
@@ -27,24 +27,16 @@ final class AccountRepositoryDefault {
 
 extension AccountRepositoryDefault: AccountRepository {
     
-    func fetchAccounts() -> AnyPublisher<[Account], AccountError> {
+    func fetchAccounts() -> AnyPublisher<[AccountEntity], DataError> {
         localDataSource.fetchAccounts()
-            .map {
-                $0.map { AccountMapper.map($0) }
-                    .sorted { $0.domain < $1.domain }
-            }
-            .mapError {
-                AccountErrorMapper.map($0)
-            }
-            .eraseToAnyPublisher()
     }
     
-    func inserAccount(_ account: Account) {
-        localDataSource.inserAccount(AccountMapper.mapToEntity(account))
+    func inserAccount(_ account: AccountEntity) {
+        localDataSource.inserAccount(account)
     }
     
-    func updateAccount(_ account: Account) {
-        localDataSource.updateAccount(AccountMapper.mapToEntity(account))
+    func updateAccount(_ account: AccountEntity) {
+        localDataSource.updateAccount(account)
     }
     
     func removeAccount(withId accountId: String) {

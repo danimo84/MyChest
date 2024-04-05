@@ -1,5 +1,5 @@
 //
-//  UserError.swift
+//  GetUserError.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 26/3/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserError: Error, Equatable {
+enum GetUserError: Error, Equatable {
     
     case undefined
     case badRequest

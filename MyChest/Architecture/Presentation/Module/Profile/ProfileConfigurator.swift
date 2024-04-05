@@ -18,12 +18,16 @@ struct ProfileConfigurator {
     }
     
     func view() -> some View {
-        let userRepository = injector.instanceOf(UserRepository.self)
-        let geocoderRepository = injector.instanceOf(GeocoderRepository.self)
+        let getUserInteractor = injector.instanceOf(GetUserInteractor.self)
+        let updateUserInteractor = injector.instanceOf(UpdateUserInteractor.self)
+        let deleteUserInteractor = injector.instanceOf(DeleteUserInteractor.self)
+        let getUserCoordinatesInteractor = injector.instanceOf(GetUserCoordinatesInteractor.self)
         
         let viewModel = ProfileViewModelDefault(
-            userRepository: userRepository,
-            geocoderRepository: geocoderRepository
+            getUserInteractor: getUserInteractor,
+            updateUserInteractor: updateUserInteractor,
+            deleteUserInteractor: deleteUserInteractor,
+            getUserCoordinatesInteractor: getUserCoordinatesInteractor
         )
         
         let view: some View = ProfileView<ProfileViewModelDefault>()

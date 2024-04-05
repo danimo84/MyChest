@@ -8,7 +8,7 @@
 import Combine
 
 protocol LinkMetadataRepository {
-    func getLinkMetadata(forUrl url: String) -> AnyPublisher<LinkMetadata, LinkMetadataError>
+    func getLinkMetadata(forUrl url: String) -> AnyPublisher<LinkMetadataEntity, DataError>
 }
 
 final class LinkMetadataRepositoryDefault {
@@ -22,11 +22,7 @@ final class LinkMetadataRepositoryDefault {
 
 extension LinkMetadataRepositoryDefault: LinkMetadataRepository {
     
-    func getLinkMetadata(forUrl url: String) -> AnyPublisher<LinkMetadata, LinkMetadataError> {
-        remote
-            .getLinkMetadata(forUrl: url)
-            .map { LinkMetadataMapper.map($0) }
-            .mapError { LinkMetadataErrorMapper.map($0) }
-            .eraseToAnyPublisher()
+    func getLinkMetadata(forUrl url: String) -> AnyPublisher<LinkMetadataEntity, DataError> {
+        remote.getLinkMetadata(forUrl: url)
     }
 }

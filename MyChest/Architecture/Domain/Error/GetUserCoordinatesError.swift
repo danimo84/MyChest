@@ -1,5 +1,5 @@
 //
-//  UserCoordinatesError.swift
+//  GetUserCoordinatesError.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 30/3/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserCoordinatesError: Error, Equatable {
+enum GetUserCoordinatesError: Error, Equatable {
     
     case undefined
     case invalidAddress

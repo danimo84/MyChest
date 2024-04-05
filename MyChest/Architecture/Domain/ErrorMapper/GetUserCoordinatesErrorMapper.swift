@@ -1,5 +1,5 @@
 //
-//  UserCoordinatesErrorMapper.swift
+//  GetUserCoordinatesErrorMapper.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 30/3/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct UserCoordinatesErrorMapper {
+struct GetUserCoordinatesErrorMapper {
     
-    static func map(_ error: DataError) -> UserCoordinatesError {
+    static func map(_ error: DataError) -> GetUserCoordinatesError {
         switch error {
         case .invalidAddress:
             return .invalidAddress

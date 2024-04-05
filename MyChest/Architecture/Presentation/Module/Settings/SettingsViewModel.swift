@@ -11,49 +11,47 @@ import Combine
 protocol SettingsViewModel: ObservableObject {
     var config: Config { get set }
     
-    func fetchConfig()
-    func requestNotificationsPermission()
+    func getConfig()
     func isNotificationsToogleValueChange()
     func isNotificationsAllowed()
     func restoreDefaultConfig()
     func navigateToInfo()
-    func goBack()
+    func navigateBack()
 }
 
 final class SettingsViewModelDefault {
     
     @Published var config: Config = .defaultConfig() {
         didSet {
-            configRepository.updateConfig(config)
+            updateConfigInteractor.execute(config)
         }
     }
-    
     private var subscriptions = Set<AnyCancellable>()
     
-    private let configRepository: ConfigRepository
+    private let getConfigInteractor: GetConfigInteractor
+    private let updateConfigInteractor: UpdateConfigInteractor
+    private let updateNotificationPermissionInteractor: UpdateNotificationPermissionInteractor
+    private let getNotificationPermissionInteractor: GetNotificationPermissionInteractor
     private let router: Router = Router.shared
     
-    init(configRepository: ConfigRepository) {
-        self.configRepository = configRepository
+    init(
+        getConfigInteractor: GetConfigInteractor,
+        updateConfigInteractor: UpdateConfigInteractor,
+        updateNotificationPermissionInteractor: UpdateNotificationPermissionInteractor,
+        getNotificationPermissionInteractor: GetNotificationPermissionInteractor
+    ) {
+        self.getConfigInteractor = getConfigInteractor
+        self.updateConfigInteractor = updateConfigInteractor
+        self.updateNotificationPermissionInteractor = updateNotificationPermissionInteractor
+        self.getNotificationPermissionInteractor = getNotificationPermissionInteractor
     }
 }
 
 extension SettingsViewModelDefault: SettingsViewModel {
     
-    func fetchConfig() {
-        configRepository.fetchConfig()
-            .sink(
-                receiveCompletion: { completion in
-                    if case let .failure(error) = completion {
-                        print("Error: \(error)")
-                    }
-                },
-                receiveValue: {
-                    self.config = $0
-                }
-            )
-            .store(in: &subscriptions)
-        config.areNotificationsEnabled = StorageManager.shared.areNotificationsEnabled
+    func getConfig() {
+        fetchConfig()
+        setNotificationEnabledCurrentState(value: StorageManager.shared.areNotificationsEnabled)
     }
     
     func restoreDefaultConfig() {
@@ -64,49 +62,64 @@ extension SettingsViewModelDefault: SettingsViewModel {
     }
 
     func navigateToInfo() {
-        router.navigateTo(route: .profile, onPath: .settings)
+        routeToInfo()
     }
     
-    func goBack() {
-        router.pop(onPath: .settings)
-    }
-    
-    @MainActor
-    func requestNotificationsPermission() {
-        Task {
-            let permission = await PermissionsManager.isPermissionGrantedAndRequested(forType: .notifications)
-            if !permission.isAccepted {
-                config.areNotificationsEnabled = false
-                StorageManager.shared.areNotificationsEnabled = false
-                if !permission.wasRequested {
-                    PermissionsManager.openPermissionsSettings()
-                }
-            }
-            if permission.isAccepted {
-                config.areNotificationsEnabled = true
-                StorageManager.shared.areNotificationsEnabled = true
-            }
-        }
+    func navigateBack() {
+        routeToBack()
     }
     
     func isNotificationsToogleValueChange() {
-        if config.areNotificationsEnabled {
-            Task {
-                await requestNotificationsPermission()
-            }
-        } else {
-            PermissionsManager.openPermissionsSettings()
-        }
+        Task { await updateNotificationPermission() }
+    }
+    
+    func isNotificationsAllowed() {
+        Task { await getNotificationPermission() }
+    }
+}
+
+private extension SettingsViewModelDefault {
+    
+    func fetchConfig() {
+        getConfigInteractor.execute()
+            .sink(receiveCompletion: {
+                if case let .failure(error) = $0 {
+                    print("Error: \(error)")
+                }
+            }, receiveValue: {
+                self.config = $0
+            })
+            .store(in: &subscriptions)
     }
     
     @MainActor
-    func isNotificationsAllowed() {
-        Task {
-            let status = await PermissionsManager.isNotificationEnabled
-            if status != config.areNotificationsEnabled {
-                config.areNotificationsEnabled = status
-                StorageManager.shared.areNotificationsEnabled = status
-            }
+    func updateNotificationPermission() async {
+        guard let value = await updateNotificationPermissionInteractor.execute(initialValue: config.areNotificationsEnabled) else {
+            return
         }
+        config.areNotificationsEnabled = value
+    }
+    
+    @MainActor
+    func getNotificationPermission() async {
+        guard let status = await getNotificationPermissionInteractor.execute(initialValue: config.areNotificationsEnabled) else {
+            return
+        }
+        config.areNotificationsEnabled = status
+    }
+    
+    func setNotificationEnabledCurrentState(value: Bool) {
+        config.areNotificationsEnabled = value
+    }
+}
+
+private extension SettingsViewModelDefault {
+    
+    private func routeToInfo() {
+        router.navigateTo(route: .profile, onPath: .settings)
+    }
+    
+    private func routeToBack() {
+        router.pop(onPath: .settings)
     }
 }

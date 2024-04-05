@@ -8,7 +8,7 @@
 import Combine
 
 protocol GeocoderRepository {
-    func getCoordinates(forAdress address: String) -> AnyPublisher<UserCoordinates, UserCoordinatesError>
+    func getCoordinates(forAdress address: String) -> AnyPublisher<UserLocationCoordinatesEntity, DataError>
 }
 
 final class GeocoderRepositoryDefault {
@@ -22,18 +22,11 @@ final class GeocoderRepositoryDefault {
 
 extension GeocoderRepositoryDefault: GeocoderRepository {
     
-    func getCoordinates(forAdress address: String) -> AnyPublisher<UserCoordinates, UserCoordinatesError> {
+    func getCoordinates(forAdress address: String) -> AnyPublisher<UserLocationCoordinatesEntity, DataError> {
         remote.getCoordinates(forAdress: address)
-            .map {
-                guard let coordinates = $0 else {
-                    return UserCoordinates(
-                        latitude: "",
-                        longitude: ""
-                    )
-                }
-                return UserCoordinateMapper.map(coordinates)
+            .compactMap {
+                $0 ?? UserLocationCoordinatesEntity(latitude: "", longitude: "")
             }
-            .mapError { UserCoordinatesErrorMapper.map($0) }
             .eraseToAnyPublisher()
     }
 }

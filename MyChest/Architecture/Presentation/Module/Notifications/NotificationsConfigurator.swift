@@ -15,9 +15,13 @@ struct NotificationsConfigurator {
     
     func view() -> some View {
         
-        let notificationRepository = injector.instanceOf(LocalNotificationRepository.self)
+        let getLocalNotificationInteractor = injector.instanceOf(GetLocalNotificationInteractor.self)
+        let updateLocalNotificationInteractor = injector.instanceOf(UpdateLocalNotificationInteractor.self)
         
-        let viewModel = NotificationsViewModelDefault(notificationRepository: notificationRepository)
+        let viewModel = NotificationsViewModelDefault(
+            getLocalNotificationInteractor: getLocalNotificationInteractor,
+            updateLocalNotificationInteractor: updateLocalNotificationInteractor
+        )
         
         let view: some View = NotificationsView<NotificationsViewModelDefault>(viewModel: viewModel)
         

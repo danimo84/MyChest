@@ -11,11 +11,11 @@ final class MockNotificationsViewModel: NotificationsViewModel {
    
     var notifications: [LocalNotification] = LocalNotification.mockList()
     
-    func onAppear() {
+    func getNotifications() {
         // Intentionally empty
     }
     
-    func onNotificationTapppedWithId(_ id: String, accountId: String) {
+    func markNotifAsReadedAndNavigate(_ id: String, accountId: String) {
         // Intentionally empty
     }
 }

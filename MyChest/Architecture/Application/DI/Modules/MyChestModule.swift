@@ -11,11 +11,19 @@ import Swinject
 class MyChestModule: InjectorModule {
     
     override func configure(_ container: Container) {
+        configureTabbar(container)
         configureAccounts(container)
         configureSettings(container)
         configureNotifications(container)
         configureUser(container)
         configureGeolocation(container)
+    }
+    
+    private func configureTabbar(_ container: Container) {
+        container.register(TryBiometricAuthInteractor.self) { _ in
+            TryBiometricAuthInteractorDefault()
+        }
+        .inObjectScope(.container)
     }
     
     private func configureAccounts(_ container: Container) {
@@ -27,6 +35,7 @@ class MyChestModule: InjectorModule {
         container.register(LinkMetadataRemoteDataSource.self) { _ in
             LinkMetadataRemoteDataSourceDefault()
         }
+        .inObjectScope(.container)
         
         container.register(AccountRepository.self) { r in
             AccountRepositoryDefault(
@@ -40,9 +49,58 @@ class MyChestModule: InjectorModule {
                 remoteDataSource: r.resolve(LinkMetadataRemoteDataSource.self)!
             )
         }
+        .inObjectScope(.container)
+        
+        container.register(GetAccountsInteractor.self) { r in
+            GetAccountsInteractorDefault(accountRepository: r.resolve(AccountRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(CreateNewAccountInteractor.self) { r in
+            CreateNewAccountInteractorDefault(
+                accountRepository: r.resolve(AccountRepository.self)!,
+                notificationRepository: r.resolve(LocalNotificationRepository.self)!,
+                notificationsManager: r.resolve(NotificationsManager.self)!
+            )
+        }
+        .inObjectScope(.container)
+        
+        container.register(DeleteAccountInteractor.self) { r in
+            DeleteAccountInteractorDefault(
+                accountRepository: r.resolve(AccountRepository.self)!,
+                notificationRepository: r.resolve(LocalNotificationRepository.self)!
+            )
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateAccountInteractor.self) { r in
+            UpdateAccountInteractorDefault(
+                accountRepository: r.resolve(AccountRepository.self)!
+            )
+        }
+        .inObjectScope(.container)
+
+        container.register(GetLinkMetadataInteractor.self) { r in
+            GetLinkMetadataInteractorDefault(
+                linkMetadataRepository: r.resolve(LinkMetadataRepository.self)!
+            )
+        }
+        .inObjectScope(.container)
         
         container.register(PasswordGeneratorManager.self) { _ in
             PasswordGeneratorManagerDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(GeneratePasswordInteractor.self) { r in
+            GeneratePasswordInteractorDefault(
+                passwordGeneratorManager: r.resolve(PasswordGeneratorManager.self)!
+            )
+        }
+        .inObjectScope(.container)
+        
+        container.register(RequestNotificationPermissionIfNeededInteractor.self) { _ in
+            RequestNotificationPermissionIfNeededInteractorDefault(storageManager: StorageManager.shared)
         }
         .inObjectScope(.container)
     }
@@ -57,6 +115,25 @@ class MyChestModule: InjectorModule {
             ConfigRepositoryDefault(
                 localDataSource: r.resolve(ConfigLocalDataSource.self)!
             )
+        }
+        .inObjectScope(.container)
+        
+        container.register(GetConfigInteractor.self) { r in
+            GetConfigInteractorDefault(
+                configRepository: r.resolve(ConfigRepository.self)!
+            )
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateConfigInteractor.self) { r in
+            UpdateConfigInteractorDefault(
+                configRepository: r.resolve(ConfigRepository.self)!
+            )
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateNotificationPermissionInteractor.self) { _ in
+            UpdateNotificationPermissionInteractorDefault()
         }
         .inObjectScope(.container)
     }
@@ -76,6 +153,29 @@ class MyChestModule: InjectorModule {
         
         container.register(NotificationsManager.self) { _ in
             NotificationsManagerDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateRememberPasswordNotificationInteractor.self) { r in
+            UpdateRememberPasswordNotificationInteractorDefault(
+                notificationRepository: r.resolve(LocalNotificationRepository.self)!,
+                notificationsManager: r.resolve(NotificationsManager.self)!
+            )
+        }
+        .inObjectScope(.container)
+        
+        container.register(GetLocalNotificationInteractor.self) { r in
+            GetLocalNotificationInteractorDefault(notificationRepository: r.resolve(LocalNotificationRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateLocalNotificationInteractor.self) { r in
+            UpdateLocalNotificationInteractorDefault(notificationRepository: r.resolve(LocalNotificationRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(GetNotificationPermissionInteractor.self) { _ in
+            GetNotificationPermissionInteractorDefault()
         }
         .inObjectScope(.container)
     }
@@ -98,6 +198,21 @@ class MyChestModule: InjectorModule {
             )
         }
         .inObjectScope(.container)
+        
+        container.register(GetUserInteractor.self) { r in
+            GetUserInteractorDefault(userRepository: r.resolve(UserRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateUserInteractor.self) { r in
+            UpdateUserInteractorDefault(userRepository: r.resolve(UserRepository.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(DeleteUserInteractor.self) { r in
+            DeleteUserInteractorDefault(userRepository: r.resolve(UserRepository.self)!)
+        }
+        .inObjectScope(.container)
     }
     
     private func configureGeolocation(_ container: Container) {
@@ -112,5 +227,11 @@ class MyChestModule: InjectorModule {
                 remote: r.resolve(GeocoderRemoteDataSource.self)!
             )
         }
+        .inObjectScope(.container)
+        
+        container.register(GetUserCoordinatesInteractor.self) { r in
+            GetUserCoordinatesInteractorDefault(geocoderRepository: r.resolve(GeocoderRepository.self)!)
+        }
+        .inObjectScope(.container)
     }
 }

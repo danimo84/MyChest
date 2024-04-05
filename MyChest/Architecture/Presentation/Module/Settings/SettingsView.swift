@@ -39,7 +39,7 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
                 viewModel.isNotificationsAllowed()
             }
             .onAppear {
-                viewModel.fetchConfig()
+                viewModel.getConfig()
             }
         }
     }
@@ -80,15 +80,6 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
             viewModel.restoreDefaultConfig()
         }
     }
-    
-//    private func route(_ route: SettingsRoute) -> some View {
-//        switch route {
-//        case .profile:
-//            ProfileConfigurator().view()
-//        case .map:
-//            MapConfigurator().view(latitude: "1.22222", longitude: "-1.234444")
-//        }
-//    }
 }
 
 #Preview {

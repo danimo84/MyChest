@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol UserRepository {
-    func getUser() -> AnyPublisher<User, UserError>
+    func getUser() -> AnyPublisher<UserEntity, DataError>
     func updateUser(_ user: User)
     func removeAll()
 }
@@ -30,9 +30,8 @@ final class UserRepositoryDefault {
 
 extension UserRepositoryDefault: UserRepository {
     
-    func getUser() -> AnyPublisher<User, UserError> {
+    func getUser() -> AnyPublisher<UserEntity, DataError> {
         local.fetchUser()
-            .mapError { UserErrorMapper.map($0) }
             .flatMap {
                 guard let user = $0 else {
                     return self.remote.randomUser()
@@ -41,12 +40,11 @@ extension UserRepositoryDefault: UserRepository {
                                 self.local.insertUser(user)
                             }
                         })
-                        .map { UserMapper.map($0.results?.first ?? .emptyUser()) }
-                        .mapError { UserErrorMapper.map($0) }
+                        .map { $0.results?.first ?? .emptyUser() }
                         .eraseToAnyPublisher()
                 }
-                return Just(UserMapper.map(user))
-                    .setFailureType(to: UserError.self)
+                return Just(user)
+                    .setFailureType(to: DataError.self)
                     .eraseToAnyPublisher()
             }
             .eraseToAnyPublisher()

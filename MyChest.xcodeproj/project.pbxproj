@@ -63,18 +63,19 @@
 		1988CB992B585F2F00D2C08F /* AccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB982B585F2F00D2C08F /* AccountsViewModel.swift */; };
 		1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB9A2B585F4B00D2C08F /* AccountsConfigurator.swift */; };
 		1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB9C2B58604C00D2C08F /* MockAccountsViewModel.swift */; };
+		19961AC82BBC53220023B1B6 /* TryBiometricAuthInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19961AC72BBC53220023B1B6 /* TryBiometricAuthInteractor.swift */; };
 		19B26EAA2BB18BF900B6B594 /* LocalNotificationEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EA92BB18BF900B6B594 /* LocalNotificationEntity.swift */; };
 		19B26EAC2BB18CB000B6B594 /* LocalNotificationEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EAB2BB18CB000B6B594 /* LocalNotificationEntityMapper.swift */; };
-		19B26EAE2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EAD2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift */; };
-		19B26EB02BB1C21E00B6B594 /* LocalNotificationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EAF2BB1C21E00B6B594 /* LocalNotificationError.swift */; };
+		19B26EAE2BB1C20B00B6B594 /* GetLocalNotificationErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EAD2BB1C20B00B6B594 /* GetLocalNotificationErrorMapper.swift */; };
+		19B26EB02BB1C21E00B6B594 /* GetLocalNotificationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EAF2BB1C21E00B6B594 /* GetLocalNotificationError.swift */; };
 		19B26EB22BB1C26C00B6B594 /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EB12BB1C26C00B6B594 /* LocalNotification.swift */; };
 		19B26EB42BB1C30200B6B594 /* LocalNotificationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EB32BB1C30200B6B594 /* LocalNotificationMapper.swift */; };
 		19B26EB62BB1DCFE00B6B594 /* AccountEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EB52BB1DCFE00B6B594 /* AccountEntity.swift */; };
 		19B26EB82BB1DD3D00B6B594 /* AccountEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EB72BB1DD3D00B6B594 /* AccountEntityMapper.swift */; };
 		19B26EBA2BB2C96100B6B594 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EB92BB2C96100B6B594 /* Account.swift */; };
 		19B26EBC2BB2C9EE00B6B594 /* AccountMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBB2BB2C9EE00B6B594 /* AccountMapper.swift */; };
-		19B26EBE2BB2CABE00B6B594 /* AccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBD2BB2CABE00B6B594 /* AccountError.swift */; };
-		19B26EC02BB2CAD900B6B594 /* AccountErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBF2BB2CAD900B6B594 /* AccountErrorMapper.swift */; };
+		19B26EBE2BB2CABE00B6B594 /* GetAccountsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBD2BB2CABE00B6B594 /* GetAccountsError.swift */; };
+		19B26EC02BB2CAD900B6B594 /* GetAccountsErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EBF2BB2CAD900B6B594 /* GetAccountsErrorMapper.swift */; };
 		19B26EC22BB3094D00B6B594 /* HttpConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC12BB3094D00B6B594 /* HttpConstants.swift */; };
 		19B26EC52BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC42BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift */; };
 		19B26EC72BB309BB00B6B594 /* URLRequest+Encoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EC62BB309BB00B6B594 /* URLRequest+Encoded.swift */; };
@@ -93,8 +94,8 @@
 		19B26EE42BB336CA00B6B594 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE32BB336CA00B6B594 /* User.swift */; };
 		19B26EE62BB3371900B6B594 /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE52BB3371900B6B594 /* Username.swift */; };
 		19B26EEA2BB3378200B6B594 /* UserLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EE92BB3378200B6B594 /* UserLocation.swift */; };
-		19B26EEC2BB337CC00B6B594 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EEB2BB337CC00B6B594 /* UserError.swift */; };
-		19B26EEE2BB3381600B6B594 /* UserErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EED2BB3381600B6B594 /* UserErrorMapper.swift */; };
+		19B26EEC2BB337CC00B6B594 /* GetUserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EEB2BB337CC00B6B594 /* GetUserError.swift */; };
+		19B26EEE2BB3381600B6B594 /* GetUserErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EED2BB3381600B6B594 /* GetUserErrorMapper.swift */; };
 		19B26EF02BB3388100B6B594 /* UserMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EEF2BB3388100B6B594 /* UserMapper.swift */; };
 		19B26EF22BB3490A00B6B594 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EF12BB3490A00B6B594 /* ProfileView.swift */; };
 		19B26EF42BB3491600B6B594 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26EF32BB3491600B6B594 /* ProfileConfigurator.swift */; };
@@ -115,8 +116,8 @@
 		19B26F162BB8795100B6B594 /* GeocoderRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F152BB8795100B6B594 /* GeocoderRepository.swift */; };
 		19B26F182BB881A100B6B594 /* UserCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F172BB881A100B6B594 /* UserCoordinates.swift */; };
 		19B26F1A2BB8821B00B6B594 /* UserCoordinateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F192BB8821B00B6B594 /* UserCoordinateMapper.swift */; };
-		19B26F1C2BB882B100B6B594 /* UserCoordinatesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1B2BB882B100B6B594 /* UserCoordinatesError.swift */; };
-		19B26F1E2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1D2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift */; };
+		19B26F1C2BB882B100B6B594 /* GetUserCoordinatesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1B2BB882B100B6B594 /* GetUserCoordinatesError.swift */; };
+		19B26F1E2BB882E500B6B594 /* GetUserCoordinatesErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1D2BB882E500B6B594 /* GetUserCoordinatesErrorMapper.swift */; };
 		19B26F202BB891C200B6B594 /* ProfileEditAddressForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F1F2BB891C200B6B594 /* ProfileEditAddressForm.swift */; };
 		19B26F222BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F212BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift */; };
 		19B26F252BB9D1BA00B6B594 /* TextFieldHeadered.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B26F242BB9D1BA00B6B594 /* TextFieldHeadered.swift */; };
@@ -137,8 +138,8 @@
 		19CCB2272BA9AE5700043542 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2262BA9AE5700043542 /* Entity.swift */; };
 		19CCB22A2BA9AFCC00043542 /* LinkMetadataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2292BA9AFCC00043542 /* LinkMetadataRepository.swift */; };
 		19CCB22C2BA9B1AB00043542 /* LinkMetadataMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB22B2BA9B1AB00043542 /* LinkMetadataMapper.swift */; };
-		19CCB22F2BA9B3DE00043542 /* LinkMetadataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB22E2BA9B3DE00043542 /* LinkMetadataError.swift */; };
-		19CCB2322BA9B42E00043542 /* LinkMetadataErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2312BA9B42E00043542 /* LinkMetadataErrorMapper.swift */; };
+		19CCB22F2BA9B3DE00043542 /* GetLinkMetadataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB22E2BA9B3DE00043542 /* GetLinkMetadataError.swift */; };
+		19CCB2322BA9B42E00043542 /* GetLinkMetadataErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2312BA9B42E00043542 /* GetLinkMetadataErrorMapper.swift */; };
 		19CCB2352BAB5BBC00043542 /* DefaultImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2342BAB5BBC00043542 /* DefaultImage.swift */; };
 		19CCB2372BAB5EF200043542 /* DefaultImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */; };
 		19CCB23B2BAC6D9000043542 /* RemoteImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */; };
@@ -148,8 +149,8 @@
 		19CCB2442BACA15000043542 /* ConfigEntityMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2432BACA15000043542 /* ConfigEntityMapper.swift */; };
 		19CCB2472BACA56A00043542 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2462BACA56A00043542 /* Config.swift */; };
 		19CCB2492BACA75700043542 /* ConfigMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB2482BACA75700043542 /* ConfigMapper.swift */; };
-		19CCB24B2BACA82700043542 /* ConfigError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB24A2BACA82700043542 /* ConfigError.swift */; };
-		19CCB24D2BACA85300043542 /* ConfigErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB24C2BACA85300043542 /* ConfigErrorMapper.swift */; };
+		19CCB24B2BACA82700043542 /* GetConfigError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB24A2BACA82700043542 /* GetConfigError.swift */; };
+		19CCB24D2BACA85300043542 /* GetConfigErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19CCB24C2BACA85300043542 /* GetConfigErrorMapper.swift */; };
 		19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D02B6ECC5900C2EB0D /* Router.swift */; };
 		19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */; };
 		19D0B5D82B71251F00C2EB0D /* NotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */; };
@@ -162,7 +163,28 @@
 		19E0DFCD2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCC2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift */; };
 		19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFCE2B5B1879008A1AF2 /* ModelDefault.swift */; };
 		19E0DFD42B5B1902008A1AF2 /* AccountEntityCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E0DFD32B5B1902008A1AF2 /* AccountEntityCache.swift */; };
+		19EF153B2BBEDBF4004EA91F /* UpdateNotificationPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF153A2BBEDBF4004EA91F /* UpdateNotificationPermission.swift */; };
+		19EF153E2BBEE6F0004EA91F /* GetNotificationPermissionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF153D2BBEE6F0004EA91F /* GetNotificationPermissionInteractor.swift */; };
+		19EF15402BBEF311004EA91F /* GetLocalNotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF153F2BBEF311004EA91F /* GetLocalNotificationInteractor.swift */; };
+		19EF15422BBEF514004EA91F /* UpdateLocalNotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF15412BBEF514004EA91F /* UpdateLocalNotificationInteractor.swift */; };
+		19EF15442BBFFA98004EA91F /* DeleteAccountError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF15432BBFFA98004EA91F /* DeleteAccountError.swift */; };
+		19EF15462BBFFAA6004EA91F /* DeleteAccountErrorMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF15452BBFFAA6004EA91F /* DeleteAccountErrorMapper.swift */; };
+		19EF154C2BC0056A004EA91F /* GetUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF154B2BC0056A004EA91F /* GetUserInteractor.swift */; };
+		19EF154E2BC007B5004EA91F /* UpdateUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF154D2BC007B5004EA91F /* UpdateUserInteractor.swift */; };
+		19EF15502BC0080E004EA91F /* DeleteUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF154F2BC0080E004EA91F /* DeleteUserInteractor.swift */; };
+		19EF15522BC00866004EA91F /* GetUserCoordinatesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF15512BC00866004EA91F /* GetUserCoordinatesInteractor.swift */; };
 		19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF4C622B5D62D600AD36B1 /* AppDelegate+SwfitData.swift */; };
+		19FF8C4D2BBD6A8C00F6CF17 /* GetAccountsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C4C2BBD6A8C00F6CF17 /* GetAccountsInteractor.swift */; };
+		19FF8C4F2BBD6B0A00F6CF17 /* AnyPublisher+Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C4E2BBD6B0A00F6CF17 /* AnyPublisher+Async.swift */; };
+		19FF8C512BBD8DFA00F6CF17 /* DeleteAccountWithResultsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C502BBD8DFA00F6CF17 /* DeleteAccountWithResultsInteractor.swift */; };
+		19FF8C532BBD924200F6CF17 /* RequestNotificationPermissionIfNeededInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C522BBD924200F6CF17 /* RequestNotificationPermissionIfNeededInteractor.swift */; };
+		19FF8C552BBDA09D00F6CF17 /* CreateNewAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C542BBDA09D00F6CF17 /* CreateNewAccountInteractor.swift */; };
+		19FF8C572BBDA5BA00F6CF17 /* UpdateRememberPasswordNotificationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C562BBDA5BA00F6CF17 /* UpdateRememberPasswordNotificationInteractor.swift */; };
+		19FF8C592BBDD93C00F6CF17 /* UpdateAccountInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C582BBDD93C00F6CF17 /* UpdateAccountInteractor.swift */; };
+		19FF8C5B2BBDDA4700F6CF17 /* GetLInkMetadataInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C5A2BBDDA4700F6CF17 /* GetLInkMetadataInteractor.swift */; };
+		19FF8C5D2BBDE08B00F6CF17 /* GetConfigInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C5C2BBDE08B00F6CF17 /* GetConfigInteractor.swift */; };
+		19FF8C5F2BBDE19400F6CF17 /* UpdateConfigInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C5E2BBDE19400F6CF17 /* UpdateConfigInteractor.swift */; };
+		19FF8C612BBEAAF100F6CF17 /* GeneratePasswordInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19FF8C602BBEAAF100F6CF17 /* GeneratePasswordInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,18 +244,19 @@
 		1988CB982B585F2F00D2C08F /* AccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsViewModel.swift; sourceTree = "<group>"; };
 		1988CB9A2B585F4B00D2C08F /* AccountsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsConfigurator.swift; sourceTree = "<group>"; };
 		1988CB9C2B58604C00D2C08F /* MockAccountsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountsViewModel.swift; sourceTree = "<group>"; };
+		19961AC72BBC53220023B1B6 /* TryBiometricAuthInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryBiometricAuthInteractor.swift; sourceTree = "<group>"; };
 		19B26EA92BB18BF900B6B594 /* LocalNotificationEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationEntity.swift; sourceTree = "<group>"; };
 		19B26EAB2BB18CB000B6B594 /* LocalNotificationEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationEntityMapper.swift; sourceTree = "<group>"; };
-		19B26EAD2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationErrorMapper.swift; sourceTree = "<group>"; };
-		19B26EAF2BB1C21E00B6B594 /* LocalNotificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationError.swift; sourceTree = "<group>"; };
+		19B26EAD2BB1C20B00B6B594 /* GetLocalNotificationErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalNotificationErrorMapper.swift; sourceTree = "<group>"; };
+		19B26EAF2BB1C21E00B6B594 /* GetLocalNotificationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalNotificationError.swift; sourceTree = "<group>"; };
 		19B26EB12BB1C26C00B6B594 /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
 		19B26EB32BB1C30200B6B594 /* LocalNotificationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationMapper.swift; sourceTree = "<group>"; };
 		19B26EB52BB1DCFE00B6B594 /* AccountEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntity.swift; sourceTree = "<group>"; };
 		19B26EB72BB1DD3D00B6B594 /* AccountEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntityMapper.swift; sourceTree = "<group>"; };
 		19B26EB92BB2C96100B6B594 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		19B26EBB2BB2C9EE00B6B594 /* AccountMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMapper.swift; sourceTree = "<group>"; };
-		19B26EBD2BB2CABE00B6B594 /* AccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountError.swift; sourceTree = "<group>"; };
-		19B26EBF2BB2CAD900B6B594 /* AccountErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountErrorMapper.swift; sourceTree = "<group>"; };
+		19B26EBD2BB2CABE00B6B594 /* GetAccountsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountsError.swift; sourceTree = "<group>"; };
+		19B26EBF2BB2CAD900B6B594 /* GetAccountsErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountsErrorMapper.swift; sourceTree = "<group>"; };
 		19B26EC12BB3094D00B6B594 /* HttpConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpConstants.swift; sourceTree = "<group>"; };
 		19B26EC42BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequestConvertible+URLRequest.swift"; sourceTree = "<group>"; };
 		19B26EC62BB309BB00B6B594 /* URLRequest+Encoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Encoded.swift"; sourceTree = "<group>"; };
@@ -252,8 +275,8 @@
 		19B26EE32BB336CA00B6B594 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		19B26EE52BB3371900B6B594 /* Username.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		19B26EE92BB3378200B6B594 /* UserLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLocation.swift; sourceTree = "<group>"; };
-		19B26EEB2BB337CC00B6B594 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
-		19B26EED2BB3381600B6B594 /* UserErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserErrorMapper.swift; sourceTree = "<group>"; };
+		19B26EEB2BB337CC00B6B594 /* GetUserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserError.swift; sourceTree = "<group>"; };
+		19B26EED2BB3381600B6B594 /* GetUserErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserErrorMapper.swift; sourceTree = "<group>"; };
 		19B26EEF2BB3388100B6B594 /* UserMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMapper.swift; sourceTree = "<group>"; };
 		19B26EF12BB3490A00B6B594 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		19B26EF32BB3491600B6B594 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
@@ -274,8 +297,8 @@
 		19B26F152BB8795100B6B594 /* GeocoderRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderRepository.swift; sourceTree = "<group>"; };
 		19B26F172BB881A100B6B594 /* UserCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinates.swift; sourceTree = "<group>"; };
 		19B26F192BB8821B00B6B594 /* UserCoordinateMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinateMapper.swift; sourceTree = "<group>"; };
-		19B26F1B2BB882B100B6B594 /* UserCoordinatesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinatesError.swift; sourceTree = "<group>"; };
-		19B26F1D2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoordinatesErrorMapper.swift; sourceTree = "<group>"; };
+		19B26F1B2BB882B100B6B594 /* GetUserCoordinatesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserCoordinatesError.swift; sourceTree = "<group>"; };
+		19B26F1D2BB882E500B6B594 /* GetUserCoordinatesErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserCoordinatesErrorMapper.swift; sourceTree = "<group>"; };
 		19B26F1F2BB891C200B6B594 /* ProfileEditAddressForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditAddressForm.swift; sourceTree = "<group>"; };
 		19B26F212BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditAddressFormViewModel.swift; sourceTree = "<group>"; };
 		19B26F242BB9D1BA00B6B594 /* TextFieldHeadered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHeadered.swift; sourceTree = "<group>"; };
@@ -296,8 +319,8 @@
 		19CCB2262BA9AE5700043542 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		19CCB2292BA9AFCC00043542 /* LinkMetadataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataRepository.swift; sourceTree = "<group>"; };
 		19CCB22B2BA9B1AB00043542 /* LinkMetadataMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataMapper.swift; sourceTree = "<group>"; };
-		19CCB22E2BA9B3DE00043542 /* LinkMetadataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataError.swift; sourceTree = "<group>"; };
-		19CCB2312BA9B42E00043542 /* LinkMetadataErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadataErrorMapper.swift; sourceTree = "<group>"; };
+		19CCB22E2BA9B3DE00043542 /* GetLinkMetadataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLinkMetadataError.swift; sourceTree = "<group>"; };
+		19CCB2312BA9B42E00043542 /* GetLinkMetadataErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLinkMetadataErrorMapper.swift; sourceTree = "<group>"; };
 		19CCB2342BAB5BBC00043542 /* DefaultImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImage.swift; sourceTree = "<group>"; };
 		19CCB2362BAB5EF200043542 /* DefaultImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageViewModel.swift; sourceTree = "<group>"; };
 		19CCB23A2BAC6D9000043542 /* RemoteImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageViewModel.swift; sourceTree = "<group>"; };
@@ -307,8 +330,8 @@
 		19CCB2432BACA15000043542 /* ConfigEntityMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigEntityMapper.swift; sourceTree = "<group>"; };
 		19CCB2462BACA56A00043542 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		19CCB2482BACA75700043542 /* ConfigMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigMapper.swift; sourceTree = "<group>"; };
-		19CCB24A2BACA82700043542 /* ConfigError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigError.swift; sourceTree = "<group>"; };
-		19CCB24C2BACA85300043542 /* ConfigErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigErrorMapper.swift; sourceTree = "<group>"; };
+		19CCB24A2BACA82700043542 /* GetConfigError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfigError.swift; sourceTree = "<group>"; };
+		19CCB24C2BACA85300043542 /* GetConfigErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfigErrorMapper.swift; sourceTree = "<group>"; };
 		19D0B5D02B6ECC5900C2EB0D /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		19D0B5D52B710FC400C2EB0D /* AppDelegate+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Notifications.swift"; sourceTree = "<group>"; };
 		19D0B5D72B71251F00C2EB0D /* NotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayload.swift; sourceTree = "<group>"; };
@@ -321,7 +344,28 @@
 		19E0DFCC2B5AF5DA008A1AF2 /* MockAccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAccountDetailViewModel.swift; sourceTree = "<group>"; };
 		19E0DFCE2B5B1879008A1AF2 /* ModelDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDefault.swift; sourceTree = "<group>"; };
 		19E0DFD32B5B1902008A1AF2 /* AccountEntityCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountEntityCache.swift; sourceTree = "<group>"; };
+		19EF153A2BBEDBF4004EA91F /* UpdateNotificationPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateNotificationPermission.swift; sourceTree = "<group>"; };
+		19EF153D2BBEE6F0004EA91F /* GetNotificationPermissionInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNotificationPermissionInteractor.swift; sourceTree = "<group>"; };
+		19EF153F2BBEF311004EA91F /* GetLocalNotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLocalNotificationInteractor.swift; sourceTree = "<group>"; };
+		19EF15412BBEF514004EA91F /* UpdateLocalNotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocalNotificationInteractor.swift; sourceTree = "<group>"; };
+		19EF15432BBFFA98004EA91F /* DeleteAccountError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountError.swift; sourceTree = "<group>"; };
+		19EF15452BBFFAA6004EA91F /* DeleteAccountErrorMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountErrorMapper.swift; sourceTree = "<group>"; };
+		19EF154B2BC0056A004EA91F /* GetUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserInteractor.swift; sourceTree = "<group>"; };
+		19EF154D2BC007B5004EA91F /* UpdateUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInteractor.swift; sourceTree = "<group>"; };
+		19EF154F2BC0080E004EA91F /* DeleteUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteUserInteractor.swift; sourceTree = "<group>"; };
+		19EF15512BC00866004EA91F /* GetUserCoordinatesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserCoordinatesInteractor.swift; sourceTree = "<group>"; };
 		19FF4C622B5D62D600AD36B1 /* AppDelegate+SwfitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SwfitData.swift"; sourceTree = "<group>"; };
+		19FF8C4C2BBD6A8C00F6CF17 /* GetAccountsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccountsInteractor.swift; sourceTree = "<group>"; };
+		19FF8C4E2BBD6B0A00F6CF17 /* AnyPublisher+Async.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnyPublisher+Async.swift"; sourceTree = "<group>"; };
+		19FF8C502BBD8DFA00F6CF17 /* DeleteAccountWithResultsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountWithResultsInteractor.swift; sourceTree = "<group>"; };
+		19FF8C522BBD924200F6CF17 /* RequestNotificationPermissionIfNeededInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestNotificationPermissionIfNeededInteractor.swift; sourceTree = "<group>"; };
+		19FF8C542BBDA09D00F6CF17 /* CreateNewAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewAccountInteractor.swift; sourceTree = "<group>"; };
+		19FF8C562BBDA5BA00F6CF17 /* UpdateRememberPasswordNotificationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateRememberPasswordNotificationInteractor.swift; sourceTree = "<group>"; };
+		19FF8C582BBDD93C00F6CF17 /* UpdateAccountInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAccountInteractor.swift; sourceTree = "<group>"; };
+		19FF8C5A2BBDDA4700F6CF17 /* GetLInkMetadataInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLInkMetadataInteractor.swift; sourceTree = "<group>"; };
+		19FF8C5C2BBDE08B00F6CF17 /* GetConfigInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetConfigInteractor.swift; sourceTree = "<group>"; };
+		19FF8C5E2BBDE19400F6CF17 /* UpdateConfigInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateConfigInteractor.swift; sourceTree = "<group>"; };
+		19FF8C602BBEAAF100F6CF17 /* GeneratePasswordInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratePasswordInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -520,6 +564,7 @@
 				196C39A82B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift */,
 				19C4DA412BA36E8D00E0DCC5 /* LocalizedStringKey+StringValue.swift */,
 				19B26F132BB871D500B6B594 /* CLGeocoder+Extension.swift */,
+				19FF8C4E2BBD6B0A00F6CF17 /* AnyPublisher+Async.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -662,6 +707,32 @@
 				1988CB962B585EDC00D2C08F /* Module */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		19961AC92BBC562A0023B1B6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				19961AC72BBC53220023B1B6 /* TryBiometricAuthInteractor.swift */,
+				19FF8C4C2BBD6A8C00F6CF17 /* GetAccountsInteractor.swift */,
+				19FF8C502BBD8DFA00F6CF17 /* DeleteAccountWithResultsInteractor.swift */,
+				19FF8C542BBDA09D00F6CF17 /* CreateNewAccountInteractor.swift */,
+				19FF8C562BBDA5BA00F6CF17 /* UpdateRememberPasswordNotificationInteractor.swift */,
+				19FF8C582BBDD93C00F6CF17 /* UpdateAccountInteractor.swift */,
+				19FF8C5A2BBDDA4700F6CF17 /* GetLInkMetadataInteractor.swift */,
+				19FF8C5C2BBDE08B00F6CF17 /* GetConfigInteractor.swift */,
+				19FF8C5E2BBDE19400F6CF17 /* UpdateConfigInteractor.swift */,
+				19FF8C602BBEAAF100F6CF17 /* GeneratePasswordInteractor.swift */,
+				19FF8C522BBD924200F6CF17 /* RequestNotificationPermissionIfNeededInteractor.swift */,
+				19EF153A2BBEDBF4004EA91F /* UpdateNotificationPermission.swift */,
+				19EF153D2BBEE6F0004EA91F /* GetNotificationPermissionInteractor.swift */,
+				19EF153F2BBEF311004EA91F /* GetLocalNotificationInteractor.swift */,
+				19EF15412BBEF514004EA91F /* UpdateLocalNotificationInteractor.swift */,
+				19EF154B2BC0056A004EA91F /* GetUserInteractor.swift */,
+				19EF154D2BC007B5004EA91F /* UpdateUserInteractor.swift */,
+				19EF154F2BC0080E004EA91F /* DeleteUserInteractor.swift */,
+				19EF15512BC00866004EA91F /* GetUserCoordinatesInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		19986CC12B6D4A25003DC110 /* Notifications */ = {
@@ -842,12 +913,13 @@
 		19CCB2302BA9B3E500043542 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				19CCB22E2BA9B3DE00043542 /* LinkMetadataError.swift */,
-				19CCB24A2BACA82700043542 /* ConfigError.swift */,
-				19B26EAF2BB1C21E00B6B594 /* LocalNotificationError.swift */,
-				19B26EBD2BB2CABE00B6B594 /* AccountError.swift */,
-				19B26EEB2BB337CC00B6B594 /* UserError.swift */,
-				19B26F1B2BB882B100B6B594 /* UserCoordinatesError.swift */,
+				19B26EBD2BB2CABE00B6B594 /* GetAccountsError.swift */,
+				19EF15432BBFFA98004EA91F /* DeleteAccountError.swift */,
+				19CCB22E2BA9B3DE00043542 /* GetLinkMetadataError.swift */,
+				19CCB24A2BACA82700043542 /* GetConfigError.swift */,
+				19B26EAF2BB1C21E00B6B594 /* GetLocalNotificationError.swift */,
+				19B26EEB2BB337CC00B6B594 /* GetUserError.swift */,
+				19B26F1B2BB882B100B6B594 /* GetUserCoordinatesError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -855,12 +927,13 @@
 		19CCB2332BA9B43200043542 /* ErrorMapper */ = {
 			isa = PBXGroup;
 			children = (
-				19CCB2312BA9B42E00043542 /* LinkMetadataErrorMapper.swift */,
-				19CCB24C2BACA85300043542 /* ConfigErrorMapper.swift */,
-				19B26EAD2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift */,
-				19B26EBF2BB2CAD900B6B594 /* AccountErrorMapper.swift */,
-				19B26EED2BB3381600B6B594 /* UserErrorMapper.swift */,
-				19B26F1D2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift */,
+				19B26EBF2BB2CAD900B6B594 /* GetAccountsErrorMapper.swift */,
+				19EF15452BBFFAA6004EA91F /* DeleteAccountErrorMapper.swift */,
+				19CCB2312BA9B42E00043542 /* GetLinkMetadataErrorMapper.swift */,
+				19CCB24C2BACA85300043542 /* GetConfigErrorMapper.swift */,
+				19B26EAD2BB1C20B00B6B594 /* GetLocalNotificationErrorMapper.swift */,
+				19B26EED2BB3381600B6B594 /* GetUserErrorMapper.swift */,
+				19B26F1D2BB882E500B6B594 /* GetUserCoordinatesErrorMapper.swift */,
 			);
 			path = ErrorMapper;
 			sourceTree = "<group>";
@@ -965,6 +1038,7 @@
 				19CCB22D2BA9B21600043542 /* Mapper */,
 				19CCB2302BA9B3E500043542 /* Error */,
 				19CCB2332BA9B43200043542 /* ErrorMapper */,
+				19961AC92BBC562A0023B1B6 /* Interactor */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1066,18 +1140,22 @@
 				19B26EE02BB3244400B6B594 /* UserLocalDataSource.swift in Sources */,
 				191D17B12B64196800E2A19E /* ConfigRepository.swift in Sources */,
 				19B26EF02BB3388100B6B594 /* UserMapper.swift in Sources */,
+				19FF8C572BBDA5BA00F6CF17 /* UpdateRememberPasswordNotificationInteractor.swift in Sources */,
 				19B26EDE2BB3148100B6B594 /* UserEntityCache.swift in Sources */,
 				195998F62B59440000F17512 /* SettingsView.swift in Sources */,
 				19B26EEA2BB3378200B6B594 /* UserLocation.swift in Sources */,
 				19B26EF42BB3491600B6B594 /* ProfileConfigurator.swift in Sources */,
 				19B26EB82BB1DD3D00B6B594 /* AccountEntityMapper.swift in Sources */,
 				19B26ED82BB310F600B6B594 /* UserAvatarEntity.swift in Sources */,
-				19B26EBE2BB2CABE00B6B594 /* AccountError.swift in Sources */,
+				19B26EBE2BB2CABE00B6B594 /* GetAccountsError.swift in Sources */,
 				19B26EE42BB336CA00B6B594 /* User.swift in Sources */,
 				191D17AF2B64189500E2A19E /* ConfigLocalDataSource.swift in Sources */,
 				19B26ECE2BB30CD900B6B594 /* RandomUserRemoteDataSource.swift in Sources */,
 				19B26EF82BB3494100B6B594 /* MockProfileViewModel.swift in Sources */,
 				19E0DFD42B5B1902008A1AF2 /* AccountEntityCache.swift in Sources */,
+				19EF154C2BC0056A004EA91F /* GetUserInteractor.swift in Sources */,
+				19FF8C4D2BBD6A8C00F6CF17 /* GetAccountsInteractor.swift in Sources */,
+				19EF15422BBEF514004EA91F /* UpdateLocalNotificationInteractor.swift in Sources */,
 				195425262B5EF81200B11BA1 /* ConfigEntityCache.swift in Sources */,
 				1988CB9D2B58604C00D2C08F /* MockAccountsViewModel.swift in Sources */,
 				19B26EE22BB3290200B6B594 /* UserRepository.swift in Sources */,
@@ -1088,10 +1166,13 @@
 				19D0B5D62B710FC400C2EB0D /* AppDelegate+Notifications.swift in Sources */,
 				19B26EC52BB3099700B6B594 /* URLRequestConvertible+URLRequest.swift in Sources */,
 				1988CB8B2B582A7900D2C08F /* InjectorModule.swift in Sources */,
+				19EF153B2BBEDBF4004EA91F /* UpdateNotificationPermission.swift in Sources */,
+				19961AC82BBC53220023B1B6 /* TryBiometricAuthInteractor.swift in Sources */,
 				1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */,
 				19B26EDC2BB3133B00B6B594 /* UserEntityMapper.swift in Sources */,
 				19B26F072BB5E9BA00B6B594 /* OverlayModifier.swift in Sources */,
-				19B26EAE2BB1C20B00B6B594 /* LocalNotificationErrorMapper.swift in Sources */,
+				19EF15462BBFFAA6004EA91F /* DeleteAccountErrorMapper.swift in Sources */,
+				19B26EAE2BB1C20B00B6B594 /* GetLocalNotificationErrorMapper.swift in Sources */,
 				1903B1452B5FFE1300C26865 /* DatabaseManager.swift in Sources */,
 				1913A2F02B9C6E8C004FFC2F /* Strings.swift in Sources */,
 				19B26EFB2BB4224300B6B594 /* UserDateOfBornEntity.swift in Sources */,
@@ -1102,12 +1183,16 @@
 				19E0DFC42B5AF391008A1AF2 /* TabBarConfigurator.swift in Sources */,
 				1913A2F72B9CDEF5004FFC2F /* AccountDetailDomainSection.swift in Sources */,
 				19C4DA352BA1BDB600E0DCC5 /* ToolbarStyle.swift in Sources */,
+				19FF8C5F2BBDE19400F6CF17 /* UpdateConfigInteractor.swift in Sources */,
 				19CCB2212BA9AB9800043542 /* LinkMetadataRemoteDataSource.swift in Sources */,
+				19FF8C5D2BBDE08B00F6CF17 /* GetConfigInteractor.swift in Sources */,
 				1903B14A2B600A7200C26865 /* AccountDataSource.swift in Sources */,
+				19EF154E2BC007B5004EA91F /* UpdateUserInteractor.swift in Sources */,
 				19127CBC2B6D120300D90170 /* NotificationsManager.swift in Sources */,
-				19B26F1C2BB882B100B6B594 /* UserCoordinatesError.swift in Sources */,
+				19B26F1C2BB882B100B6B594 /* GetUserCoordinatesError.swift in Sources */,
 				1988CB8C2B582A7900D2C08F /* AppDelegate+Injections.swift in Sources */,
 				1988CB9B2B585F4B00D2C08F /* AccountsConfigurator.swift in Sources */,
+				19EF15442BBFFA98004EA91F /* DeleteAccountError.swift in Sources */,
 				19B26EFD2BB422BF00B6B594 /* UserLocationStreetEntity.swift in Sources */,
 				19B26F282BBAFB8600B6B594 /* TextFieldValueHeadered.swift in Sources */,
 				19B26F2C2BBBF41200B6B594 /* GeocoderRemoteDataSource.swift in Sources */,
@@ -1119,10 +1204,11 @@
 				1988CB882B582A7900D2C08F /* MyChestInjectorProvider.swift in Sources */,
 				19B26ECB2BB30C5F00B6B594 /* API.swift in Sources */,
 				195425202B5EA75F00B11BA1 /* Image+Kingfisher.swift in Sources */,
-				19B26EEE2BB3381600B6B594 /* UserErrorMapper.swift in Sources */,
+				19FF8C552BBDA09D00F6CF17 /* CreateNewAccountInteractor.swift in Sources */,
+				19B26EEE2BB3381600B6B594 /* GetUserErrorMapper.swift in Sources */,
 				19CCB2442BACA15000043542 /* ConfigEntityMapper.swift in Sources */,
 				196C39AB2B8BC316001235E9 /* LinkMetadata.swift in Sources */,
-				19CCB24B2BACA82700043542 /* ConfigError.swift in Sources */,
+				19CCB24B2BACA82700043542 /* GetConfigError.swift in Sources */,
 				19B26F2A2BBAFBAD00B6B594 /* TextFieldHeader.swift in Sources */,
 				19C4DA402BA359EF00E0DCC5 /* AlertViewModifier.swift in Sources */,
 				19E0DFCF2B5B1879008A1AF2 /* ModelDefault.swift in Sources */,
@@ -1134,6 +1220,7 @@
 				1913A2EB2B9C65DD004FFC2F /* Assets.swift in Sources */,
 				1988CB942B585EC700D2C08F /* AccountsView.swift in Sources */,
 				19C4DA392BA3549400E0DCC5 /* AlertType.swift in Sources */,
+				19FF8C512BBD8DFA00F6CF17 /* DeleteAccountWithResultsInteractor.swift in Sources */,
 				19B26EB42BB1C30200B6B594 /* LocalNotificationMapper.swift in Sources */,
 				19B26EBA2BB2C96100B6B594 /* Account.swift in Sources */,
 				19B26EAA2BB18BF900B6B594 /* LocalNotificationEntity.swift in Sources */,
@@ -1143,18 +1230,24 @@
 				19B26EDA2BB3113D00B6B594 /* UserLocationEntity.swift in Sources */,
 				19B26F092BB5F7D200B6B594 /* ShadowModifier.swift in Sources */,
 				19B26F222BB9CBA400B6B594 /* ProfileEditAddressFormViewModel.swift in Sources */,
+				19EF15502BC0080E004EA91F /* DeleteUserInteractor.swift in Sources */,
+				19FF8C612BBEAAF100F6CF17 /* GeneratePasswordInteractor.swift in Sources */,
 				19C4DA332BA1BD9100E0DCC5 /* ToolbarButtonAction.swift in Sources */,
 				1903B14C2B60378100C26865 /* AccountRepository.swift in Sources */,
+				19EF153E2BBEE6F0004EA91F /* GetNotificationPermissionInteractor.swift in Sources */,
 				192C78062B6D3A6F00664B89 /* NotificationsView.swift in Sources */,
+				19FF8C592BBDD93C00F6CF17 /* UpdateAccountInteractor.swift in Sources */,
 				19FF4C632B5D62D600AD36B1 /* AppDelegate+SwfitData.swift in Sources */,
 				19B26F162BB8795100B6B594 /* GeocoderRepository.swift in Sources */,
+				19EF15522BC00866004EA91F /* GetUserCoordinatesInteractor.swift in Sources */,
 				19B26EFF2BB4232800B6B594 /* UserLocationCoordinatesEntity.swift in Sources */,
-				19CCB2322BA9B42E00043542 /* LinkMetadataErrorMapper.swift in Sources */,
+				19CCB2322BA9B42E00043542 /* GetLinkMetadataErrorMapper.swift in Sources */,
 				19C4DA372BA1BDDC00E0DCC5 /* ToolbarItemsBuilder.swift in Sources */,
 				19B26EF62BB3492A00B6B594 /* ProfileViewModel.swift in Sources */,
 				19B26EBC2BB2C9EE00B6B594 /* AccountMapper.swift in Sources */,
 				19D90FB82B9E243D0010DED2 /* PasswordGeneratorSettings.swift in Sources */,
 				1988CB8D2B582A7900D2C08F /* MyChestModule.swift in Sources */,
+				19EF15402BBEF311004EA91F /* GetLocalNotificationInteractor.swift in Sources */,
 				192C780A2B6D3E6000664B89 /* LocalNotificationRepository.swift in Sources */,
 				19B26EC72BB309BB00B6B594 /* URLRequest+Encoded.swift in Sources */,
 				1913A2F22B9C7B74004FFC2F /* Toolbar.swift in Sources */,
@@ -1164,13 +1257,15 @@
 				19B26EF22BB3490A00B6B594 /* ProfileView.swift in Sources */,
 				19B26F0B2BB6D86E00B6B594 /* MapView.swift in Sources */,
 				1913A2FE2B9D06DD004FFC2F /* AccountDetailRememberUpdatePasswordSection.swift in Sources */,
+				19FF8C5B2BBDDA4700F6CF17 /* GetLInkMetadataInteractor.swift in Sources */,
 				196C39A92B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift in Sources */,
-				19B26EEC2BB337CC00B6B594 /* UserError.swift in Sources */,
+				19B26EEC2BB337CC00B6B594 /* GetUserError.swift in Sources */,
+				19FF8C532BBD924200F6CF17 /* RequestNotificationPermissionIfNeededInteractor.swift in Sources */,
 				19CCB2352BAB5BBC00043542 /* DefaultImage.swift in Sources */,
 				19B26EC92BB30A2500B6B594 /* RemoteDataSource.swift in Sources */,
 				19CCB2422BAC9F6F00043542 /* ConfigEntity.swift in Sources */,
 				19C4DA3E2BA3590D00E0DCC5 /* Alertable.swift in Sources */,
-				19CCB24D2BACA85300043542 /* ConfigErrorMapper.swift in Sources */,
+				19CCB24D2BACA85300043542 /* GetConfigErrorMapper.swift in Sources */,
 				196105CE2B876C6900EA47AE /* Theme.swift in Sources */,
 				19B26EB62BB1DCFE00B6B594 /* AccountEntity.swift in Sources */,
 				19B26ED02BB30D3600B6B594 /* RandomUserAPI.swift in Sources */,
@@ -1187,9 +1282,10 @@
 				19B26F2E2BBC043F00B6B594 /* UserLocationCoordinatesEntityMapper.swift in Sources */,
 				19B26EE62BB3371900B6B594 /* Username.swift in Sources */,
 				19E0DFC92B5AF5B6008A1AF2 /* AccountDetailViewModel.swift in Sources */,
-				19B26F1E2BB882E500B6B594 /* UserCoordinatesErrorMapper.swift in Sources */,
+				19B26F1E2BB882E500B6B594 /* GetUserCoordinatesErrorMapper.swift in Sources */,
 				191A77142B57119600AFC37F /* MyChestApp.swift in Sources */,
-				19CCB22F2BA9B3DE00043542 /* LinkMetadataError.swift in Sources */,
+				19CCB22F2BA9B3DE00043542 /* GetLinkMetadataError.swift in Sources */,
+				19FF8C4F2BBD6B0A00F6CF17 /* AnyPublisher+Async.swift in Sources */,
 				19CCB2472BACA56A00043542 /* Config.swift in Sources */,
 				192C77FF2B6D3A2200664B89 /* NotificationsViewModel.swift in Sources */,
 				19D0B5D12B6ECC5900C2EB0D /* Router.swift in Sources */,
@@ -1197,7 +1293,7 @@
 				1913A2F52B9C84B6004FFC2F /* MainToolbar.swift in Sources */,
 				19E0DFC62B5AF59A008A1AF2 /* AccountDetailView.swift in Sources */,
 				19B26F0D2BB6D87B00B6B594 /* MapViewModel.swift in Sources */,
-				19B26EC02BB2CAD900B6B594 /* AccountErrorMapper.swift in Sources */,
+				19B26EC02BB2CAD900B6B594 /* GetAccountsErrorMapper.swift in Sources */,
 				19CCB22C2BA9B1AB00043542 /* LinkMetadataMapper.swift in Sources */,
 				192C78042B6D3A6000664B89 /* NotificationsConfigurator.swift in Sources */,
 				19C4DA3C2BA3557800E0DCC5 /* AlertViewModel.swift in Sources */,
@@ -1210,7 +1306,7 @@
 				19B26F202BB891C200B6B594 /* ProfileEditAddressForm.swift in Sources */,
 				191D17B32B6433F700E2A19E /* PasswordGeneratorManager.swift in Sources */,
 				195998FA2B59442300F17512 /* SettingsConfigurator.swift in Sources */,
-				19B26EB02BB1C21E00B6B594 /* LocalNotificationError.swift in Sources */,
+				19B26EB02BB1C21E00B6B594 /* GetLocalNotificationError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

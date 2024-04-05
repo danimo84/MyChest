@@ -8,12 +8,12 @@
 import Foundation
 
 protocol PasswordGeneratorManager {
-    func generatePasswordWithConfig(_ config: Config) -> String
+    func generatePasswordWithConfig(_ config: ConfigEntity) -> String
 }
 
 final class PasswordGeneratorManagerDefault: PasswordGeneratorManager {
     
-    func generatePasswordWithConfig(_ config: Config) -> String {
+    func generatePasswordWithConfig(_ config: ConfigEntity) -> String {
         String((0..<config.charactersNumber).compactMap { _ in
             allowedCharacters(config).randomElement()
         })
@@ -22,7 +22,7 @@ final class PasswordGeneratorManagerDefault: PasswordGeneratorManager {
 
 private extension PasswordGeneratorManagerDefault {
     
-    func allowedCharacters(_ config: Config) -> String {
+    func allowedCharacters(_ config: ConfigEntity) -> String {
         let config = (config.requireUpper ? Theme.PasswordGenerator.letters.uppercased() : "")
             .appending(config.requireLower ? Theme.PasswordGenerator.letters : "")
             .appending(config.requireNumber ? Theme.PasswordGenerator.numbers : "")

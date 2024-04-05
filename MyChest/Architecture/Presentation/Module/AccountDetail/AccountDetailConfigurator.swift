@@ -15,21 +15,25 @@ struct AccountDetailConfigurator {
     
     func view(originalAccount: Account?) -> some View {
         
-        let accountRepository = injector.instanceOf(AccountRepository.self)
-        let configRepository = injector.instanceOf(ConfigRepository.self)
-        let notificationRepository = injector.instanceOf(LocalNotificationRepository.self)
-        let linkMetadaRepository = injector.instanceOf(LinkMetadataRepository.self)
-        let passwordGenerator = injector.instanceOf(PasswordGeneratorManager.self)
-        let notificationsManager = injector.instanceOf(NotificationsManager.self)
+        let createNewAccountInteractor = injector.instanceOf(CreateNewAccountInteractor.self)
+        let deleteAccountInteractor = injector.instanceOf(DeleteAccountInteractor.self)
+        let updateAccountInteractor = injector.instanceOf(UpdateAccountInteractor.self)
+        let updateRememberPasswordNotificationInteractor = injector.instanceOf(UpdateRememberPasswordNotificationInteractor.self)
+        let getLinkMetadataInteractor = injector.instanceOf(GetLinkMetadataInteractor.self)
+        let getConfigInteractor = injector.instanceOf(GetConfigInteractor.self)
+        let updateConfigInteractor = injector.instanceOf(UpdateConfigInteractor.self)
+        let generatePasswordInteractor = injector.instanceOf(GeneratePasswordInteractor.self)
         
         let viewModel = AccountDetailViewModelDefault(
             originalAccount: originalAccount,
-            accountRepository: accountRepository,
-            configRepository: configRepository,
-            notificationRepository: notificationRepository,
-            linkMetadaRepository: linkMetadaRepository,
-            passordGenerator: passwordGenerator,
-            notificationsManager: notificationsManager
+            createNewAccountInteractor: createNewAccountInteractor,
+            deleteAccountInteractor: deleteAccountInteractor,
+            updateAccountInteractor: updateAccountInteractor,
+            updateRememberPasswordNotificationInteractor: updateRememberPasswordNotificationInteractor,
+            getLinkMetadataInteractor: getLinkMetadataInteractor,
+            getConfigInteractor: getConfigInteractor,
+            updateConfigInteractor: updateConfigInteractor,
+            generatePasswordInteractor: generatePasswordInteractor
         )
         
         let view: some View = AccountDetailView<AccountDetailViewModelDefault>()

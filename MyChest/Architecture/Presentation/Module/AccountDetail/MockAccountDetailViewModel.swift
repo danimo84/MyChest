@@ -39,7 +39,7 @@ final class MockAccountDetailViewModel: AccountDetailViewModel {
         // Intentionally empty
     }
     
-    func configAlertViewModel(_ forType: AlertType) {
+    func showAlert(_ forType: AlertType) {
         // Intentionally empty
     }
     

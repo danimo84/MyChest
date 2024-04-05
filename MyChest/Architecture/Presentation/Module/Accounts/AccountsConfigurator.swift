@@ -15,12 +15,14 @@ struct AccountsConfigurator {
     
     func view() -> some View {
         
-        let accountRepository = injector.instanceOf(AccountRepository.self)
-        let notificationRepository = injector.instanceOf(LocalNotificationRepository.self)
+        let getAccountsInteractor = injector.instanceOf(GetAccountsInteractor.self)
+        let deleteAccountInteractor = injector.instanceOf(DeleteAccountInteractor.self)
+        let requestNotificationPermissionIfNeededInteractor = injector.instanceOf(RequestNotificationPermissionIfNeededInteractor.self)
         
         let viewModel = AccountsViewModelDefault(
-            accountRepository: accountRepository,
-            notificationRepository: notificationRepository
+            getAccountsInteractor: getAccountsInteractor,
+            deleteAccountInteractor: deleteAccountInteractor,
+            requestNotificationPermissionIfNeededInteractor: requestNotificationPermissionIfNeededInteractor
         )
         
         let view: some View = AccountsView<AccountsViewModelDefault>(viewModel: viewModel)

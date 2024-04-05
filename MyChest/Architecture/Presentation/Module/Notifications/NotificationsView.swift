@@ -28,7 +28,7 @@ struct NotificationsView<ViewModel: NotificationsViewModel>: View {
             }
             .navigationTitle(Strings.NotificationsScreen.title)
             .onAppear {
-                viewModel.onAppear()
+                viewModel.getNotifications()
             }
         }
     }
@@ -41,7 +41,7 @@ struct NotificationsView<ViewModel: NotificationsViewModel>: View {
         }
         .listRowBackground(notification.isReaded ? .clear : Color.blue)
         .onTapGesture {
-            viewModel.onNotificationTapppedWithId(notification.id, accountId: notification.accountId)
+            viewModel.markNotifAsReadedAndNavigate(notification.id, accountId: notification.accountId)
         }
     }
     

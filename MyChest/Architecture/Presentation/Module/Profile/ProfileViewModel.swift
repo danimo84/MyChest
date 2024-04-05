@@ -21,7 +21,7 @@ final class ProfileViewModelDefault {
     
     @Published var user: User = .mockUser() {
         didSet {
-            userRepository.updateUser(user)
+            updateUserInteractor.execute(user)
             setupFormattedAddress()
         }
     }
@@ -32,16 +32,22 @@ final class ProfileViewModelDefault {
     private var address: String = ""
     private var subscriptions = Set<AnyCancellable>()
     
-    private let userRepository: UserRepository
-    private let geocoderRepository: GeocoderRepository
+    private let getUserInteractor: GetUserInteractor
+    private let updateUserInteractor: UpdateUserInteractor
+    private let deleteUserInteractor: DeleteUserInteractor
+    private let getUserCoordinatesInteractor: GetUserCoordinatesInteractor
     private let router: Router = Router.shared
     
     init(
-        userRepository: UserRepository,
-        geocoderRepository: GeocoderRepository
+        getUserInteractor: GetUserInteractor,
+        updateUserInteractor: UpdateUserInteractor,
+        deleteUserInteractor: DeleteUserInteractor,
+        getUserCoordinatesInteractor: GetUserCoordinatesInteractor
     ) {
-        self.userRepository = userRepository
-        self.geocoderRepository = geocoderRepository
+        self.getUserInteractor = getUserInteractor
+        self.updateUserInteractor = updateUserInteractor
+        self.deleteUserInteractor = deleteUserInteractor
+        self.getUserCoordinatesInteractor = getUserCoordinatesInteractor
         fetchUser()
     }
 }
@@ -58,8 +64,7 @@ extension ProfileViewModelDefault: ProfileViewModel {
     }
     
     func searchLocationAndRouteToMap() {
-        print("Address to search -> \(address)")
-        fetchCoordinates(forAdress: user.location.street)
+        Task { await fetchCoordinates(forAdress: user.location.street) }
     }
 }
 
@@ -76,47 +81,47 @@ private extension ProfileViewModelDefault {
     }
     
     func removeUser() {
-        userRepository.removeAll()
+        deleteUserInteractor.execute()
     }
     
     func fetchUser() {
-        userRepository.getUser()
+        getUserInteractor.execute()
             .sink(
                 receiveCompletion: { completion in
                     if case let .failure(error) = completion {
-                        print("Error: \(error)")
                         self.configureAlertError(message: error.localizedDescription)
                     }
                 },
                 receiveValue: {
                     self.user = $0
-                    print("User: \($0)")
                 }
             )
             .store(in: &subscriptions)
     }
     
-    func fetchCoordinates(forAdress adress: String) {
-        geocoderRepository.getCoordinates(forAdress: adress)
+    func fetchCoordinates(forAdress adress: String) async {
+        getUserCoordinatesInteractor.execute(forAddress: adress)
             .sink(
-                receiveCompletion: { completion in
-                    if case let .failure(error) = completion {
-                        print("Error: \(error)")
+                receiveCompletion: {
+                    if case let .failure(error) = $0 {
                         self.configureAlertError(message: error.localizedDescription)
                     }
                 },
                 receiveValue: {
-                    print("Coordinates: Lat -> \($0.latitude) Long -> \($0.longitude)")
-                    if !$0.latitude.isEmpty, !$0.longitude.isEmpty {
-                        self.user.location.latitude = $0.latitude
-                        self.user.location.longitude = $0.longitude
-                        self.navigateToMap()
-                    } else {
-                        self.configureGenericAlertError()
-                    }
+                    self.handleFetchCoordinatesResponseWithValue($0)
                 }
             )
             .store(in: &subscriptions)
+    }
+    
+    func handleFetchCoordinatesResponseWithValue(_ coordinates: UserCoordinates) {
+        if !coordinates.latitude.isEmpty, !coordinates.longitude.isEmpty {
+            user.location.latitude = coordinates.latitude
+            user.location.longitude = coordinates.longitude
+            navigateToMap()
+        } else {
+            configureGenericAlertError()
+        }
     }
 }
 

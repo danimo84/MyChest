@@ -18,9 +18,17 @@ struct SettingsConfigurator {
     }
     
     func view() -> some View {
-        let configRepository = injector.instanceOf(ConfigRepository.self)
+        let getConfigInteractor = injector.instanceOf(GetConfigInteractor.self)
+        let updateConfigInteractor = injector.instanceOf(UpdateConfigInteractor.self)
+        let updateNotificationPermissionInteractor = injector.instanceOf(UpdateNotificationPermissionInteractor.self)
+        let getNotificationPermissionInteractor = injector.instanceOf(GetNotificationPermissionInteractor.self)
         
-        let viewModel = SettingsViewModelDefault(configRepository: configRepository)
+        let viewModel = SettingsViewModelDefault(
+            getConfigInteractor: getConfigInteractor,
+            updateConfigInteractor: updateConfigInteractor,
+            updateNotificationPermissionInteractor: updateNotificationPermissionInteractor,
+            getNotificationPermissionInteractor: getNotificationPermissionInteractor
+        )
         
         let view: some View = SettingsView<SettingsViewModelDefault>(viewModel: viewModel)
         

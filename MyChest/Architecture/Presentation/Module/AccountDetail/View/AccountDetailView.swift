@@ -96,7 +96,7 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
         case .cancel:
             dismiss()
         case .delete:
-            viewModel.configAlertViewModel(.deleteConfirmation(.account))
+            viewModel.showAlert(.deleteConfirmation(.account))
             viewModel.alertIsVisible = true
         case .save:
             viewModel.saveNewAccount()

@@ -1,5 +1,5 @@
 //
-//  UserErrorMapper.swift
+//  GetUserErrorMapper.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 26/3/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct UserErrorMapper {
+struct GetUserErrorMapper {
     
-    static func map(_ error: DataError) -> UserError {
+    static func map(_ error: DataError) -> GetUserError {
         switch error {
         case .badRequest:
             return .badRequest

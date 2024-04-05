@@ -1,5 +1,5 @@
 //
-//  LocalNotificationErrorMapper.swift
+//  GetLocalNotificationErrorMapper.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 25/3/24.
@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct LocalNotificationErrorMapper {
+struct GetLocalNotificationErrorMapper {
     
-    static func map(_ error: DataError) -> LocalNotificationError {
+    static func map(_ error: DataError) -> GetLocalNotificationError {
         switch error {
         default:
             return .undefined

@@ -11,30 +11,34 @@ import Combine
 protocol NotificationsViewModel: ObservableObject {
     var notifications: [LocalNotification] { get set }
     
-    func onAppear()
-    func onNotificationTapppedWithId(_ id: String, accountId: String)
+    func getNotifications()
+    func markNotifAsReadedAndNavigate(_ id: String, accountId: String)
 }
 
 final class NotificationsViewModelDefault {
     
     @Published var notifications: [LocalNotification] = []
-    
     private var subscriptions = Set<AnyCancellable>()
     
-    private let notificationRepository: LocalNotificationRepository
+    private let getLocalNotificationInteractor: GetLocalNotificationInteractor
+    private let updateLocalNotificationInteractor: UpdateLocalNotificationInteractor
     
-    init(notificationRepository: LocalNotificationRepository) {
-        self.notificationRepository = notificationRepository
+    init(
+        getLocalNotificationInteractor: GetLocalNotificationInteractor,
+        updateLocalNotificationInteractor: UpdateLocalNotificationInteractor
+    ) {
+        self.getLocalNotificationInteractor = getLocalNotificationInteractor
+        self.updateLocalNotificationInteractor = updateLocalNotificationInteractor
     }
 }
 
 extension NotificationsViewModelDefault: NotificationsViewModel {
     
-    func onAppear() {
-        fetchNotifications()
+    func getNotifications() {
+        Task { await fetchNotifications() }
     }
     
-    func onNotificationTapppedWithId(_ id: String, accountId: String) {
+    func markNotifAsReadedAndNavigate(_ id: String, accountId: String) {
         markNotificationAsReadedWithId(id)
         navigateToAccountWithId(accountId)
     }
@@ -42,27 +46,25 @@ extension NotificationsViewModelDefault: NotificationsViewModel {
 
 private extension NotificationsViewModelDefault {
     
-    func fetchNotifications() {
-        notificationRepository.fetchNotifications()
-            .sink(
-                receiveCompletion: { completion in
-                    if case let .failure(error) = completion {
-                        print("Error: \(error)")
-                    }
-                },
-                receiveValue: {
-                    self.notifications = $0
-                }
-            )
-            .store(in: &subscriptions)
+    @MainActor
+    func fetchNotifications() async {
+        do {
+            notifications = try await getLocalNotificationInteractor.execute().async()
+        } catch(let error) {
+            print("Error: \(error)")
+        }
     }
     
     func markNotificationAsReadedWithId(_ id: String) {
-        if let index = notifications.firstIndex(where: { $0.id == id }) {
-            notifications[index].isReaded = true
-            notificationRepository.updateNotification(notifications[index])
+        guard let index = notifications.firstIndex(where: { $0.id == id }) else {
+            return
         }
+        notifications[index].isReaded = true
+        updateLocalNotificationInteractor.execute(notifications[index])
     }
+}
+
+private extension NotificationsViewModelDefault {
     
     func navigateToAccountWithId(_ id: String) {
         Router.shared.navigateToAccountsAndStoreRoutingToId(id)

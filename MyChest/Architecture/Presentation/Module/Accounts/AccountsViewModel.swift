@@ -23,18 +23,20 @@ final class AccountsViewModelDefault {
     @Published var selectedAccount: Account?
     @Published var accounts: [Account] = []
     @Published var isAccountSheetPresented: Bool = false
-    
     private var subscriptions = Set<AnyCancellable>()
     
-    private let accountRepository: AccountRepository
-    private let notificationRepository: LocalNotificationRepository
+    private let getAccountsInteractor: GetAccountsInteractor
+    private let deleteAccountInteractor: DeleteAccountInteractor
+    private let requestNotificationPermissionIfNeededInteractor: RequestNotificationPermissionIfNeededInteractor
     
     init(
-        accountRepository: AccountRepository,
-        notificationRepository: LocalNotificationRepository
+        getAccountsInteractor: GetAccountsInteractor,
+        deleteAccountInteractor: DeleteAccountInteractor,
+        requestNotificationPermissionIfNeededInteractor: RequestNotificationPermissionIfNeededInteractor
     ) {
-        self.accountRepository = accountRepository
-        self.notificationRepository = notificationRepository
+        self.getAccountsInteractor = getAccountsInteractor
+        self.deleteAccountInteractor = deleteAccountInteractor
+        self.requestNotificationPermissionIfNeededInteractor = requestNotificationPermissionIfNeededInteractor
         fetchAccounts()
     }
 }
@@ -42,24 +44,11 @@ final class AccountsViewModelDefault {
 extension AccountsViewModelDefault: AccountsViewModel {
     
     func fetchAccounts() {
-        accountRepository.fetchAccounts()
-            .sink(
-                receiveCompletion: { completion in
-                    if case let .failure(error) = completion {
-                        print("Error: \(error)")
-                    }
-                },
-                receiveValue: {
-                    self.accounts = $0
-                }
-            )
-            .store(in: &subscriptions)
+        Task { await getAccounts() }
     }
     
     func deleteAccount(_ account: Account) {
-        accountRepository.removeAccount(withId: account.id)
-        notificationRepository.removeNotificationsWithAccountId(account.id)
-        fetchAccounts()
+        Task { await removeAccountAndRefresh(accountId: account.id) }
     }
     
     func onAppear() {
@@ -71,11 +60,8 @@ extension AccountsViewModelDefault: AccountsViewModel {
 private extension AccountsViewModelDefault {
     
     @MainActor
-    func requestNotificationsPermissionIfneeded() {
-        Task {
-            let permission = await PermissionsManager.isPermissionGrantedAndRequested(forType: .notifications)
-            StorageManager.shared.areNotificationsEnabled = permission.isAccepted
-        }
+    func requestNotificationsPermissionIfneeded() async {
+        await requestNotificationPermissionIfNeededInteractor.execute()
     }
     
     func checkPendingShowAccount() {
@@ -86,5 +72,26 @@ private extension AccountsViewModelDefault {
         }
         selectedAccount = account
         isAccountSheetPresented = true
+    }
+}
+
+private extension AccountsViewModelDefault {
+    
+    @MainActor
+    func getAccounts() async {
+        do {
+            accounts = try await getAccountsInteractor.execute().async()
+        } catch(let error) {
+            print("Error: \(error)")
+        }
+    }
+    
+    @MainActor 
+    func removeAccountAndRefresh(accountId: String) async {
+        do {
+            accounts = try await deleteAccountInteractor.executeWithResults(withId: accountId).async()
+        } catch(let error) {
+            print("Error: \(error)")
+        }
     }
 }

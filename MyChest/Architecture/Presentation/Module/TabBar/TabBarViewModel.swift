@@ -19,9 +19,12 @@ final class TabBarViewModelDefault {
     
     @Published var isAuthenticated: Bool = false
     
+    private let tryBiometricAuthInteractor: TryBiometricAuthInteractor
     private let router: Router = Router.shared
     
-    init() { }
+    init(tryBiometricAuthInteractor: TryBiometricAuthInteractor) {
+        self.tryBiometricAuthInteractor = tryBiometricAuthInteractor
+    }
 }
 
 extension TabBarViewModelDefault: TabBarViewModel {
@@ -29,7 +32,7 @@ extension TabBarViewModelDefault: TabBarViewModel {
     @MainActor
     func tryAuthentication() {
         Task {
-            isAuthenticated = await PermissionsManager.isPermissionGrantedAndRequested(forType: .biometricAuth).isAccepted
+            isAuthenticated = await tryBiometricAuthInteractor.execute()
         }
     }
 }
