@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GetAccountsInteractor {
     func execute() -> AnyPublisher<[Account], GetAccountsError>
 }

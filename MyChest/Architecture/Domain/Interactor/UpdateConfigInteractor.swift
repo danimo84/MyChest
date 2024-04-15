@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol UpdateConfigInteractor {
     func execute(_ config: Config)
 }

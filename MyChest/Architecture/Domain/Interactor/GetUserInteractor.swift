@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GetUserInteractor {
     func execute() -> AnyPublisher<User, GetUserError>
 }

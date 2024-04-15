@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GetLinkMetadataInteractor {
     func execute(forUrl url: String) -> AnyPublisher<LinkMetadata, GetLinkMetadataError>
 }

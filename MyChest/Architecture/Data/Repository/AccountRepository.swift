@@ -5,9 +5,9 @@
 //  Created by Daniel Moraleda on 23/1/24.
 //
 
-import Foundation
 import Combine
 
+// sourcery: AutoMockable
 protocol AccountRepository {
     func fetchAccounts() -> AnyPublisher<[AccountEntity], DataError>
     func inserAccount(_ account: AccountEntity)

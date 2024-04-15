@@ -1,5 +1,5 @@
 //
-//  MockAccountsViewModel.swift
+//  MockAccountsPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 17/1/24.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-final class MockAccountsViewModel: AccountsViewModel {
+final class MockAccountsPresenter: AccountsPresenter {
     
     var selectedAccount: Account?
     var accounts: [Account] = Account.mockList()

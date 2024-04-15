@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GetUserCoordinatesInteractor{
     func execute(forAddress address: String) -> AnyPublisher<UserCoordinates, GetUserCoordinatesError>
 }

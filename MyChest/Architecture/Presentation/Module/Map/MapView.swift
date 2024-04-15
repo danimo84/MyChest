@@ -8,7 +8,7 @@
 import SwiftUI
 import MapKit
 
-struct MapView<ViewModel: MapViewModel>: View {
+struct MapView<ViewModel: MapPresenter>: View {
     
     @EnvironmentObject var viewModel: ViewModel
     @State private var position: MapCameraPosition = .automatic
@@ -53,6 +53,6 @@ struct MapView<ViewModel: MapViewModel>: View {
 }
 
 #Preview {
-    MapView<MockMapViewModel>()
-        .environmentObject(MockMapViewModel())
+    MapView<MockMapPresenter>()
+        .environmentObject(MockMapPresenter())
 }

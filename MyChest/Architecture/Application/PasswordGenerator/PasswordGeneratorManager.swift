@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol PasswordGeneratorManager {
     func generatePasswordWithConfig(_ config: ConfigEntity) -> String
 }

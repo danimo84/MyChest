@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol DeleteAccountInteractor {
     func executeWithResults(withId accountId: String) -> AnyPublisher<[Account], DeleteAccountError>
     func execute(withId accountId: String)

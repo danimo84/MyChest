@@ -20,8 +20,31 @@ class MyChestModule: InjectorModule {
     }
     
     private func configureTabbar(_ container: Container) {
-        container.register(TryBiometricAuthInteractor.self) { _ in
-            TryBiometricAuthInteractorDefault()
+        container.register(PermissionsManager.self) { _ in
+            PermissionsManagerDefault()
+        }
+        .inObjectScope(.container)
+        
+        container.register(TryBiometricAuthInteractor.self) { r in
+            TryBiometricAuthInteractorDefault(permissionManager: r.resolve(PermissionsManager.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(UpdateNotificationPermissionInteractor.self) { r in
+            UpdateNotificationPermissionInteractorDefault(permissionManager: r.resolve(PermissionsManager.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(GetNotificationPermissionInteractor.self) { r in
+            GetNotificationPermissionInteractorDefault(permissionManager: r.resolve(PermissionsManager.self)!)
+        }
+        .inObjectScope(.container)
+        
+        container.register(RequestNotificationPermissionIfNeededInteractor.self) { r in
+            RequestNotificationPermissionIfNeededInteractorDefault(
+                storageManager: StorageManager.shared,
+                permissionManager: r.resolve(PermissionsManager.self)!
+            )
         }
         .inObjectScope(.container)
     }
@@ -98,11 +121,6 @@ class MyChestModule: InjectorModule {
             )
         }
         .inObjectScope(.container)
-        
-        container.register(RequestNotificationPermissionIfNeededInteractor.self) { _ in
-            RequestNotificationPermissionIfNeededInteractorDefault(storageManager: StorageManager.shared)
-        }
-        .inObjectScope(.container)
     }
     
     private func configureSettings(_ container: Container) {
@@ -129,11 +147,6 @@ class MyChestModule: InjectorModule {
             UpdateConfigInteractorDefault(
                 configRepository: r.resolve(ConfigRepository.self)!
             )
-        }
-        .inObjectScope(.container)
-        
-        container.register(UpdateNotificationPermissionInteractor.self) { _ in
-            UpdateNotificationPermissionInteractorDefault()
         }
         .inObjectScope(.container)
     }
@@ -171,11 +184,6 @@ class MyChestModule: InjectorModule {
         
         container.register(UpdateLocalNotificationInteractor.self) { r in
             UpdateLocalNotificationInteractorDefault(notificationRepository: r.resolve(LocalNotificationRepository.self)!)
-        }
-        .inObjectScope(.container)
-        
-        container.register(GetNotificationPermissionInteractor.self) { _ in
-            GetNotificationPermissionInteractorDefault()
         }
         .inObjectScope(.container)
     }

@@ -1,5 +1,5 @@
 //
-//  ProfileViewModel.swift
+//  ProfilePresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 26/3/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol ProfileViewModel: ObservableObject, Alertable {
+protocol ProfilePresenter: ObservableObject, Alertable {
     var user: User { get set }
     var isEditAddressVisible: Bool { get set }
     
@@ -17,7 +17,7 @@ protocol ProfileViewModel: ObservableObject, Alertable {
     func searchLocationAndRouteToMap()
 }
 
-final class ProfileViewModelDefault {
+final class ProfilePresenterDefault {
     
     @Published var user: User = .mockUser() {
         didSet {
@@ -52,7 +52,7 @@ final class ProfileViewModelDefault {
     }
 }
 
-extension ProfileViewModelDefault: ProfileViewModel {
+extension ProfilePresenterDefault: ProfilePresenter {
     
     func restoreUserWithRandom() {
         removeUser()
@@ -68,7 +68,7 @@ extension ProfileViewModelDefault: ProfileViewModel {
     }
 }
 
-private extension ProfileViewModelDefault {
+private extension ProfilePresenterDefault {
     
     func setupFormattedAddress() {
         address = String(
@@ -125,7 +125,7 @@ private extension ProfileViewModelDefault {
     }
 }
 
-private extension ProfileViewModelDefault {
+private extension ProfilePresenterDefault {
     
     func navigateToMap() {
         router.navigateTo(
@@ -139,7 +139,7 @@ private extension ProfileViewModelDefault {
     }
 }
 
-private extension ProfileViewModelDefault {
+private extension ProfilePresenterDefault {
     
     func configureGenericAlertError() {
         alertViewModel = AlertViewModel(

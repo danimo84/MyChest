@@ -5,9 +5,9 @@
 //  Created by Daniel Moraleda on 26/1/24.
 //
 
-import Foundation
 import Combine
 
+// sourcery: AutoMockable
 protocol ConfigRepository {
     func fetchConfig() -> AnyPublisher<ConfigEntity, DataError>
     func updateConfig(_ config: ConfigEntity)

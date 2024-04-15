@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GeocoderRepository {
     func getCoordinates(forAdress address: String) -> AnyPublisher<UserLocationCoordinatesEntity, DataError>
 }

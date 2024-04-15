@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
+struct AccountDetailDomainSection<ViewModel: AccountDetailPresenter>: View {
     
     @ObservedObject var viewModel: ViewModel
     @Binding var isUrlAlertPresented: Bool
@@ -100,7 +100,7 @@ struct AccountDetailDomainSection<ViewModel: AccountDetailViewModel>: View {
 
 #Preview {
     AccountDetailDomainSection(
-        viewModel: MockAccountDetailViewModel(),
+        viewModel: MockAccountDetailPresenter(),
         isUrlAlertPresented: .constant(false)
     )
 }

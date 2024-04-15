@@ -8,7 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-struct AccountDetailPasswordSection<ViewModel: AccountDetailViewModel>: View {
+struct AccountDetailPasswordSection<ViewModel: AccountDetailPresenter>: View {
     
     @ObservedObject var viewModel: ViewModel
     @Binding var isPresented: Bool
@@ -116,7 +116,7 @@ struct AccountDetailPasswordSection<ViewModel: AccountDetailViewModel>: View {
 
 #Preview {
     AccountDetailPasswordSection(
-        viewModel: MockAccountDetailViewModel(),
+        viewModel: MockAccountDetailPresenter(),
         isPresented: .constant(false)
     )
 }

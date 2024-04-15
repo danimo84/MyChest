@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileView<ViewModel:ProfileViewModel>: View {
+struct ProfileView<ViewModel:ProfilePresenter>: View {
     
     @EnvironmentObject var viewModel: ViewModel
     @EnvironmentObject var router: Router
@@ -114,6 +114,6 @@ struct ProfileView<ViewModel:ProfileViewModel>: View {
 }
 
 #Preview {
-    ProfileView<MockProfileViewModel>()
-        .environmentObject(MockProfileViewModel())
+    ProfileView<MockProfilePresenter>()
+        .environmentObject(MockProfilePresenter())
 }

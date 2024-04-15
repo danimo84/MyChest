@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountDetailUserSection<ViewModel: AccountDetailViewModel>: View {
+struct AccountDetailUserSection<ViewModel: AccountDetailPresenter>: View {
     
     @ObservedObject var viewModel: ViewModel
     
@@ -23,5 +23,5 @@ struct AccountDetailUserSection<ViewModel: AccountDetailViewModel>: View {
 }
 
 #Preview {
-    AccountDetailUserSection(viewModel: MockAccountDetailViewModel())
+    AccountDetailUserSection(viewModel: MockAccountDetailPresenter())
 }

@@ -7,7 +7,12 @@
 		<key>MyChest.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>1</integer>
+			<integer>0</integer>
+		</dict>
+		<key>MyChestUnitTests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
 		</dict>
 		<key>Sample-iOS (Playground) 1.xcscheme</key>
 		<dict>
@@ -34,6 +39,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>191A770F2B57119600AFC37F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19B1DF632BC3F2B60014AB14</key>
 		<dict>
 			<key>primary</key>
 			<true/>

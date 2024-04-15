@@ -1,5 +1,5 @@
 //
-//  MockNotificationsViewModel.swift
+//  MockNotificationsPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 2/2/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MockNotificationsViewModel: NotificationsViewModel {
+final class MockNotificationsPresenter: NotificationsPresenter {
    
     var notifications: [LocalNotification] = LocalNotification.mockList()
     

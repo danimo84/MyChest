@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol UpdateRememberPasswordNotificationInteractor {
     func execute(account: Account)
 }

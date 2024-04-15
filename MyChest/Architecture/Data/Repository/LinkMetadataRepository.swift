@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol LinkMetadataRepository {
     func getLinkMetadata(forUrl url: String) -> AnyPublisher<LinkMetadataEntity, DataError>
 }

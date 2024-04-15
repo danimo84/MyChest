@@ -5,9 +5,9 @@
 //  Created by Daniel Moraleda on 2/2/24.
 //
 
-import Foundation
 import Combine
 
+// sourcery: AutoMockable
 protocol LocalNotificationRepository {
     func fetchNotifications() -> AnyPublisher<[LocalNotificationEntity], DataError>
     func insertNotification(_ notification: LocalNotificationEntity)

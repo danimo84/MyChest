@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabBarView<ViewModel: TabBarViewModel>: View {
+struct TabBarView<ViewModel: TabBarPresenter>: View {
     
     @StateObject var viewModel: ViewModel
     @EnvironmentObject var router: Router
@@ -87,6 +87,6 @@ struct TabBarView<ViewModel: TabBarViewModel>: View {
 }
 
 #Preview {
-    TabBarView<MockTabBarViewModel>(viewModel: MockTabBarViewModel())
-        .environmentObject(MockTabBarViewModel())
+    TabBarView<MockTabBarPresenter>(viewModel: MockTabBarPresenter())
+        .environmentObject(MockTabBarPresenter())
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SettingsView<ViewModel: SettingsViewModel>: View {
+struct SettingsView<ViewModel: SettingsPresenter>: View {
     
     @StateObject var viewModel: ViewModel
     @EnvironmentObject var router: Router
@@ -83,6 +83,6 @@ struct SettingsView<ViewModel: SettingsViewModel>: View {
 }
 
 #Preview {
-    SettingsView<MockSettingsViewModel>(viewModel: MockSettingsViewModel())
-        .environmentObject(MockSettingsViewModel())
+    SettingsView<MockSettingsPresenter>(viewModel: MockSettingsPresenter())
+        .environmentObject(MockSettingsPresenter())
 }

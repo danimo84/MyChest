@@ -24,7 +24,7 @@ struct AccountDetailConfigurator {
         let updateConfigInteractor = injector.instanceOf(UpdateConfigInteractor.self)
         let generatePasswordInteractor = injector.instanceOf(GeneratePasswordInteractor.self)
         
-        let viewModel = AccountDetailViewModelDefault(
+        let viewModel = AccountDetailPresenterDefault(
             originalAccount: originalAccount,
             createNewAccountInteractor: createNewAccountInteractor,
             deleteAccountInteractor: deleteAccountInteractor,
@@ -36,7 +36,7 @@ struct AccountDetailConfigurator {
             generatePasswordInteractor: generatePasswordInteractor
         )
         
-        let view: some View = AccountDetailView<AccountDetailViewModelDefault>()
+        let view: some View = AccountDetailView<AccountDetailPresenterDefault>()
             .environmentObject(viewModel)
         
         return view

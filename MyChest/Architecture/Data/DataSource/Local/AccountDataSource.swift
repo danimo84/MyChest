@@ -35,7 +35,7 @@ extension AccountLocalDataSourceDefault: AccountLocalDataSource {
     }
     
     func inserAccount(_ account: AccountEntity) {
-        AccountEntityCache.insertNotification(
+        AccountEntityCache.insertAccount(
             AccountEntityMapper.mapToCache(account),
             using: databaseManager.modelContext
         )

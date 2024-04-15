@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AccountDetailRememberUpdatePasswordSection<ViewModel: AccountDetailViewModel>: View {
+struct AccountDetailRememberUpdatePasswordSection<ViewModel: AccountDetailPresenter>: View {
     
     @ObservedObject var viewModel: ViewModel
     
@@ -37,5 +37,5 @@ struct AccountDetailRememberUpdatePasswordSection<ViewModel: AccountDetailViewMo
 }
 
 #Preview {
-    AccountDetailRememberUpdatePasswordSection(viewModel: MockAccountDetailViewModel())
+    AccountDetailRememberUpdatePasswordSection(viewModel: MockAccountDetailPresenter())
 }

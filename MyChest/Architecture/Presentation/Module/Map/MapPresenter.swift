@@ -1,5 +1,5 @@
 //
-//  MapViewModel.swift
+//  MapPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 29/3/24.
@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol MapViewModel: ObservableObject {
+protocol MapPresenter: ObservableObject {
     var latitude: Double { get set }
     var longitude: Double { get set }
     var formattedAddress: String { get set }
 }
 
-final class MapViewModelDefault {
+final class MapPresenterDefault {
     
     @Published var latitude: Double
     @Published var longitude: Double
@@ -30,6 +30,6 @@ final class MapViewModelDefault {
     }
 }
 
-extension MapViewModelDefault: MapViewModel {
+extension MapPresenterDefault: MapPresenter {
 
 }

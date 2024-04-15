@@ -1,5 +1,5 @@
 //
-//  SettingsViewModel.swift
+//  SettingsPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 18/1/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol SettingsViewModel: ObservableObject {
+protocol SettingsPresenter: ObservableObject {
     var config: Config { get set }
     
     func getConfig()
@@ -19,7 +19,7 @@ protocol SettingsViewModel: ObservableObject {
     func navigateBack()
 }
 
-final class SettingsViewModelDefault {
+final class SettingsPresenterDefault {
     
     @Published var config: Config = .defaultConfig() {
         didSet {
@@ -47,7 +47,7 @@ final class SettingsViewModelDefault {
     }
 }
 
-extension SettingsViewModelDefault: SettingsViewModel {
+extension SettingsPresenterDefault: SettingsPresenter {
     
     func getConfig() {
         fetchConfig()
@@ -78,7 +78,7 @@ extension SettingsViewModelDefault: SettingsViewModel {
     }
 }
 
-private extension SettingsViewModelDefault {
+private extension SettingsPresenterDefault {
     
     func fetchConfig() {
         getConfigInteractor.execute()
@@ -113,7 +113,7 @@ private extension SettingsViewModelDefault {
     }
 }
 
-private extension SettingsViewModelDefault {
+private extension SettingsPresenterDefault {
     
     private func routeToInfo() {
         router.navigateTo(route: .profile, onPath: .settings)

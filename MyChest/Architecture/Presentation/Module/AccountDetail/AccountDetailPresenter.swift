@@ -1,5 +1,5 @@
 //
-//  AccountDetailViewModel.swift
+//  AccountDetailPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 19/1/24.
@@ -14,7 +14,7 @@ enum DomainProtocol: String, CaseIterable {
     case https = "https://"
 }
 
-protocol AccountDetailViewModel: ObservableObject, Alertable {
+protocol AccountDetailPresenter: ObservableObject, Alertable {
     var isPresented: Bool { get }
     var isPassConfigSheetPresented: Bool { get set }
     var account: Account { get set }
@@ -34,7 +34,7 @@ protocol AccountDetailViewModel: ObservableObject, Alertable {
     func updateLinkMetadata()
 }
 
-final class AccountDetailViewModelDefault {
+final class AccountDetailPresenterDefault {
     
     var isPresented: Bool = true
     @Published var isPassConfigSheetPresented: Bool = false
@@ -101,7 +101,7 @@ final class AccountDetailViewModelDefault {
     }
 }
 
-extension AccountDetailViewModelDefault: AccountDetailViewModel {
+extension AccountDetailPresenterDefault: AccountDetailPresenter {
     
     func saveNewAccount() {
         createNewAccountInteractor.execute(account: account)
@@ -130,7 +130,7 @@ extension AccountDetailViewModelDefault: AccountDetailViewModel {
     }
 }
 
-private extension AccountDetailViewModelDefault {
+private extension AccountDetailPresenterDefault {
     
     @MainActor
     func requestLinkMetada() async {
@@ -138,7 +138,7 @@ private extension AccountDetailViewModelDefault {
         isMetadataLoading = true
         do {
             let metadata = try await getLinkMetadataInteractor.execute(forUrl: "\(domainProtocol.rawValue)\(account.domain)").async()
-            account.image = metadata.imageUrl ?? ""
+            account.image = metadata.imageUrl
         } catch {
             account.image = ""
         }
@@ -154,7 +154,7 @@ private extension AccountDetailViewModelDefault {
     }
 }
 
-private extension AccountDetailViewModelDefault {
+private extension AccountDetailPresenterDefault {
     
     @MainActor 
     func fetchConfig() async {
@@ -166,7 +166,7 @@ private extension AccountDetailViewModelDefault {
     }
 }
 
-private extension AccountDetailViewModelDefault {
+private extension AccountDetailPresenterDefault {
     
     func configAlertViewModel(_ type: AlertType) {
         alertViewModel = AlertViewModel(

@@ -11,10 +11,10 @@ struct LinkMetadataMapper {
     
     static func map(_ entity: LinkMetadataEntity) -> LinkMetadata {
         .init(
-            title: entity.title,
-            description: entity.description,
-            url: entity.url,
-            imageUrl: entity.imageUrl
+            title: entity.title ?? "",
+            description: entity.description ?? "",
+            url: entity.url ?? "",
+            imageUrl: entity.imageUrl ?? ""
         )
     }
 }

@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol UpdateAccountInteractor {
     func execute(_ account: Account)
 }

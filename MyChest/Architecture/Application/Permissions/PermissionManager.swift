@@ -22,10 +22,29 @@ struct Permission {
     let wasRequested: Bool
 }
 
-enum PermissionsManager {
-    
+// sourcery: AutoMockable
+protocol PermissionsManager {
+    /// Only return notifications auth status
+    var isNotificationEnabled: Bool { get async }
     /// If the permission is not determined, it automatically asks for it and retrieve result if permission is requested during proccess
-    static func isPermissionGrantedAndRequested(forType type: PermissionType) async -> Permission {
+    func isPermissionGrantedAndRequested(forType type: PermissionType) async -> Permission
+    /// Request open device app settings
+    func openPermissionsSettings()
+}
+
+final class PermissionsManagerDefault {
+    
+}
+
+extension PermissionsManagerDefault: PermissionsManager {
+
+    var isNotificationEnabled: Bool {
+        get async {
+            return await Notifications.isNotificationsPermissionGranted
+        }
+    }
+    
+    func isPermissionGrantedAndRequested(forType type: PermissionType) async -> Permission {
         switch type {
         case .biometricAuth:
             return await BiometricAuth.isPermissionGrantedAndRequested
@@ -34,15 +53,17 @@ enum PermissionsManager {
         }
     }
     
-    /// Only return notifications auth status
-    static var isNotificationEnabled: Bool {
-        get async {
-            return await Notifications.isNotificationsPermissionGranted
+    func openPermissionsSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl)
         }
     }
 }
 
-private extension PermissionsManager {
+private extension PermissionsManagerDefault {
     
     enum BiometricAuth {
         
@@ -137,18 +158,6 @@ private extension PermissionsManager {
                     promise(.success(granted))
                 }
             }
-        }
-    }
-}
-
-extension PermissionsManager {
-    
-    static func openPermissionsSettings() {
-        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-            return
-        }
-        if UIApplication.shared.canOpenURL(settingsUrl) {
-            UIApplication.shared.open(settingsUrl)
         }
     }
 }

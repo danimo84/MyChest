@@ -60,7 +60,7 @@ extension AccountEntityCache {
         (try? context.fetch(fetchByIdDescriptor(id)))?.first
     }
     
-    static func insertNotification(
+    static func insertAccount(
         _ account: AccountEntityCache,
         using context: ModelContext
     ) {

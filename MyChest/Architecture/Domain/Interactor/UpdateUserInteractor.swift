@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol UpdateUserInteractor {
     func execute(_ user: User)
 }

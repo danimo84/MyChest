@@ -7,23 +7,29 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol RequestNotificationPermissionIfNeededInteractor {
     func execute() async
 }
 
 final class RequestNotificationPermissionIfNeededInteractorDefault {
     
-    let storageManager: StorageManager
+    private let storageManager: StorageManager
+    private let permissionManager: PermissionsManager
     
-    init(storageManager: StorageManager) {
+    init(
+        storageManager: StorageManager,
+        permissionManager: PermissionsManager
+    ) {
         self.storageManager = storageManager
+        self.permissionManager = permissionManager
     }
 }
 
 extension RequestNotificationPermissionIfNeededInteractorDefault: RequestNotificationPermissionIfNeededInteractor {
     
     func execute() async {
-        let permission = await PermissionsManager.isPermissionGrantedAndRequested(forType: .notifications)
-        StorageManager.shared.areNotificationsEnabled = permission.isAccepted
+        let permission = await permissionManager.isPermissionGrantedAndRequested(forType: .notifications)
+        storageManager.areNotificationsEnabled = permission.isAccepted
     }
 }

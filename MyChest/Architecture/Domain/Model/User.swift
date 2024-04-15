@@ -46,4 +46,31 @@ extension User {
             )
         )
     }
+    
+    static func empty() -> User {
+        .init(
+            id: "",
+            username: Username(
+                id: "",
+                title: "",
+                first: "",
+                last: ""
+            ),
+            email: "",
+            dateOfBorn: "",
+            phone: "",
+            avatar: "",
+            location: UserLocation(
+                id: "",
+                street: "",
+                number: 0,
+                city: "",
+                state: "",
+                country: "",
+                postcode: 0,
+                latitude: "",
+                longitude: ""
+            )
+        )
+    }
 }

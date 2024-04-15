@@ -1,5 +1,5 @@
 //
-//  AccountsViewModel.swift
+//  AccountsPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 17/1/24.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-protocol AccountsViewModel: ObservableObject {
+protocol AccountsPresenter: ObservableObject {
     var selectedAccount: Account? { get set }
     var accounts: [Account] { get set }
     var isAccountSheetPresented: Bool { get set }
@@ -18,7 +18,7 @@ protocol AccountsViewModel: ObservableObject {
     func onAppear()
 }
 
-final class AccountsViewModelDefault {
+final class AccountsPresenterDefault {
     
     @Published var selectedAccount: Account?
     @Published var accounts: [Account] = []
@@ -41,7 +41,7 @@ final class AccountsViewModelDefault {
     }
 }
 
-extension AccountsViewModelDefault: AccountsViewModel {
+extension AccountsPresenterDefault: AccountsPresenter {
     
     func fetchAccounts() {
         Task { await getAccounts() }
@@ -57,7 +57,7 @@ extension AccountsViewModelDefault: AccountsViewModel {
     }
 }
 
-private extension AccountsViewModelDefault {
+private extension AccountsPresenterDefault {
     
     @MainActor
     func requestNotificationsPermissionIfneeded() async {
@@ -75,7 +75,7 @@ private extension AccountsViewModelDefault {
     }
 }
 
-private extension AccountsViewModelDefault {
+private extension AccountsPresenterDefault {
     
     @MainActor
     func getAccounts() async {

@@ -10,16 +10,16 @@ import Foundation
 struct LinkMetadata: ModelDefault {
     
     let id: String
-    let title: String?
-    let description: String?
-    let url: String?
-    let imageUrl: String?
+    let title: String
+    let description: String
+    let url: String
+    let imageUrl: String
     
     init(
-        title: String?,
-        description: String?,
-        url: String?,
-        imageUrl: String?
+        title: String,
+        description: String,
+        url: String,
+        imageUrl: String
     ) {
         id = UUID().uuidString
         self.title = title
@@ -33,10 +33,10 @@ extension LinkMetadata {
     
     static func emtpy() -> LinkMetadata {
         .init(
-            title: nil,
-            description: nil,
-            url: nil,
-            imageUrl: nil
+            title: "",
+            description: "",
+            url: "",
+            imageUrl: ""
         )
     }
     

@@ -1,5 +1,5 @@
 //
-//  MockAccountDetailViewModel.swift
+//  MockAccountDetailPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 19/1/24.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-final class MockAccountDetailViewModel: AccountDetailViewModel {
+final class MockAccountDetailPresenter: AccountDetailPresenter {
     
     var isPresented: Bool = true
     var isPassConfigSheetPresented: Bool = false

@@ -1,5 +1,5 @@
 //
-//  MockSettingsViewModel.swift
+//  MockSettingsPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 18/1/24.
@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class MockSettingsViewModel: SettingsViewModel {
+final class MockSettingsPresenter: SettingsPresenter {
     
     var config: Config = .defaultConfig()
     

@@ -1,5 +1,5 @@
 //
-//  NotificationsViewModel.swift
+//  NotificationsPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 2/2/24.
@@ -8,14 +8,14 @@
 import Foundation
 import Combine
 
-protocol NotificationsViewModel: ObservableObject {
+protocol NotificationsPresenter: ObservableObject {
     var notifications: [LocalNotification] { get set }
     
     func getNotifications()
     func markNotifAsReadedAndNavigate(_ id: String, accountId: String)
 }
 
-final class NotificationsViewModelDefault {
+final class NotificationsPresenterDefault {
     
     @Published var notifications: [LocalNotification] = []
     private var subscriptions = Set<AnyCancellable>()
@@ -32,7 +32,7 @@ final class NotificationsViewModelDefault {
     }
 }
 
-extension NotificationsViewModelDefault: NotificationsViewModel {
+extension NotificationsPresenterDefault: NotificationsPresenter {
     
     func getNotifications() {
         Task { await fetchNotifications() }
@@ -44,7 +44,7 @@ extension NotificationsViewModelDefault: NotificationsViewModel {
     }
 }
 
-private extension NotificationsViewModelDefault {
+private extension NotificationsPresenterDefault {
     
     @MainActor
     func fetchNotifications() async {
@@ -64,7 +64,7 @@ private extension NotificationsViewModelDefault {
     }
 }
 
-private extension NotificationsViewModelDefault {
+private extension NotificationsPresenterDefault {
     
     func navigateToAccountWithId(_ id: String) {
         Router.shared.navigateToAccountsAndStoreRoutingToId(id)

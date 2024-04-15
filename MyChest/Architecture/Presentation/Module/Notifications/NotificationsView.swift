@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NotificationsView<ViewModel: NotificationsViewModel>: View {
+struct NotificationsView<ViewModel: NotificationsPresenter>: View {
     
     @StateObject var viewModel: ViewModel
     
@@ -71,6 +71,6 @@ struct NotificationsView<ViewModel: NotificationsViewModel>: View {
 }
 
 #Preview {
-    NotificationsView<MockNotificationsViewModel>(viewModel: MockNotificationsViewModel())
-        .environmentObject(MockNotificationsViewModel())
+    NotificationsView<MockNotificationsPresenter>(viewModel: MockNotificationsPresenter())
+        .environmentObject(MockNotificationsPresenter())
 }

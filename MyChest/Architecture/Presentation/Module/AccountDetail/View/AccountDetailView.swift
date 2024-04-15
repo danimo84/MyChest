@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
+struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
     
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var viewModel: ViewModel
@@ -108,7 +108,7 @@ struct AccountDetailView<ViewModel: AccountDetailViewModel>: View {
 }
 
 #Preview {
-    AccountDetailView<MockAccountDetailViewModel>()
-        .environmentObject(MockAccountDetailViewModel())
+    AccountDetailView<MockAccountDetailPresenter>()
+        .environmentObject(MockAccountDetailPresenter())
         .modelContainer(for: AccountEntityCache.self)
 }

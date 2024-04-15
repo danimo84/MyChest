@@ -5,9 +5,9 @@
 //  Created by Daniel Moraleda on 26/3/24.
 //
 
-import Foundation
 import Combine
 
+// sourcery: AutoMockable
 protocol UserRepository {
     func getUser() -> AnyPublisher<UserEntity, DataError>
     func updateUser(_ user: User)

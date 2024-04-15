@@ -2,11 +2,12 @@
 //  GetLocalNotificationInteractor.swift
 //  MyChest
 //
-//  Created by Daniel Moraleda on 4/4/24.
+//  Created by Daniel Moraleda on 8/4/24.
 //
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GetLocalNotificationInteractor {
     func execute() -> AnyPublisher<[LocalNotification], GetLocalNotificationError>
 }

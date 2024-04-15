@@ -7,6 +7,7 @@
 
 import Foundation
 
+// sourcery: AutoMockable
 protocol GeneratePasswordInteractor {
     func execute(_ config: Config) -> String
 }

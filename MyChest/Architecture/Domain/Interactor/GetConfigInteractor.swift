@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol GetConfigInteractor {
     func execute() -> AnyPublisher<Config, GetConfigError>
 }

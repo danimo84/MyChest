@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct AccountsView<ViewModel: AccountsViewModel>: View {
+struct AccountsView<ViewModel: AccountsPresenter>: View {
     
     @StateObject var viewModel: ViewModel
     
@@ -91,5 +91,5 @@ struct AccountsView<ViewModel: AccountsViewModel>: View {
 }
 
 #Preview {
-    AccountsView<MockAccountsViewModel>(viewModel: MockAccountsViewModel())
+    AccountsView<MockAccountsPresenter>(viewModel: MockAccountsPresenter())
 }

@@ -7,6 +7,7 @@
 
 import Combine
 
+// sourcery: AutoMockable
 protocol UpdateLocalNotificationInteractor {
     func execute(_ notification: LocalNotification)
 }

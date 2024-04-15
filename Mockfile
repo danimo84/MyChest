@@ -1,0 +1,14 @@
+sourceryCommand: null
+sourceryTemplate: null
+MyChestUnitTests:
+  sources:
+    include:
+    - ./MyChest/Architecture
+  output: ./MyChestUnitTests/Mock/Mock.generated.swift
+  targets:
+  - MyChestUnitTests
+  testable:
+  - MyChest
+  import:
+  - Foundation
+  - Combine

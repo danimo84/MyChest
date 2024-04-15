@@ -1,5 +1,5 @@
 //
-//  MockProfileViewModel.swift
+//  MockProfilePresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 26/3/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MockProfileViewModel: ProfileViewModel {
+final class MockProfilePresenter: ProfilePresenter {
     
     var user: User = .mockUser()
     var isEditAddressVisible: Bool = false

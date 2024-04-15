@@ -1,0 +1,12 @@
+sources:
+  include:
+  - ../MyChest
+templates:
+- /Users/danielmoraleda/Documents/repositories/MyChest/.mocky6655B123-CD76-46A6-B516-9AE20DD2727D/.template.swifttemplate
+output: /Users/danielmoraleda/Documents/repositories/MyChest/.mocky6655B123-CD76-46A6-B516-9AE20DD2727D/types.yaml
+args:
+  swiftyMocky:
+    import:
+    - Foundation
+    testable:
+    - MyChest

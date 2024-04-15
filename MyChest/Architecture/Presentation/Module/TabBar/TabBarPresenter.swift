@@ -1,5 +1,5 @@
 //
-//  TabBarViewModel.swift
+//  TabBarPresenter.swift
 //  MyChest
 //
 //  Created by Daniel Moraleda on 18/1/24.
@@ -8,14 +8,14 @@
 import Foundation
 import SwiftUI
 
-protocol TabBarViewModel: ObservableObject {
+protocol TabBarPresenter: ObservableObject {
     
     var isAuthenticated: Bool { get set }
     
     func tryAuthentication()
 }
 
-final class TabBarViewModelDefault {
+final class TabBarPresenterDefault {
     
     @Published var isAuthenticated: Bool = false
     
@@ -27,7 +27,7 @@ final class TabBarViewModelDefault {
     }
 }
 
-extension TabBarViewModelDefault: TabBarViewModel {
+extension TabBarPresenterDefault: TabBarPresenter {
  
     @MainActor
     func tryAuthentication() {

@@ -56,8 +56,8 @@ extension LocalNotification {
         .init(
             id: UUID().uuidString,
             accountId: UUID().uuidString,
-            title: "Recordatorio",
-            body: "Actualiza la contraseña de Netflix.com",
+            title: "",
+            body: "",
             datetime: Date(timeIntervalSince1970: 1000),
             repeats: false,
             createdAt: .now,
