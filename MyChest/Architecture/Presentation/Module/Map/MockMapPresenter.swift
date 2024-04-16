@@ -10,7 +10,7 @@ import CoreLocation
 
 final class MockMapPresenter: MapPresenter {
     
-    var latitude: Double = Double("40.3091556") ?? .zero
-    var longitude: Double = Double("-3.7303882") ?? .zero
-    var formattedAddress: String = "Calle Velasco 23, Getafe Madrid"
+    @Published var latitude: Double = .zero
+    @Published var longitude: Double = .zero
+    @Published var formattedAddress: String = ""
 }

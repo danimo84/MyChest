@@ -9,10 +9,10 @@ import Foundation
 
 final class MockProfilePresenter: ProfilePresenter {
     
-    var user: User = .mockUser()
-    var isEditAddressVisible: Bool = false
-    var alertIsVisible: Bool = false
-    var alertViewModel: AlertViewModel = .empty()
+    @Published var user: User = .empty()
+    @Published var isEditAddressVisible: Bool = false
+    @Published var alertIsVisible: Bool = false
+    @Published var alertViewModel: AlertViewModel = .empty()
     
     func restoreUserWithRandom() {
         // Intentionally empty
@@ -21,7 +21,7 @@ final class MockProfilePresenter: ProfilePresenter {
     func routeToMap() {
         // Intentionally empty
     }
-    
+
     func searchLocationAndRouteToMap() {
         // Intentionally empty
     }

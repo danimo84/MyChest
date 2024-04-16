@@ -23,15 +23,14 @@ struct ProfileConfigurator {
         let deleteUserInteractor = injector.instanceOf(DeleteUserInteractor.self)
         let getUserCoordinatesInteractor = injector.instanceOf(GetUserCoordinatesInteractor.self)
         
-        let viewModel = ProfilePresenterDefault(
+        let presenter = ProfilePresenterDefault(
             getUserInteractor: getUserInteractor,
             updateUserInteractor: updateUserInteractor,
             deleteUserInteractor: deleteUserInteractor,
             getUserCoordinatesInteractor: getUserCoordinatesInteractor
         )
         
-        let view: some View = ProfileView<ProfilePresenterDefault>()
-            .environmentObject(viewModel)
+        let view: some View = ProfileView<ProfilePresenterDefault>(presenter: presenter)
         
         return view
     }

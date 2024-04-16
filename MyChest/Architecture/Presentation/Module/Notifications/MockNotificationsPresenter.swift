@@ -9,7 +9,7 @@ import Foundation
 
 final class MockNotificationsPresenter: NotificationsPresenter {
    
-    var notifications: [LocalNotification] = LocalNotification.mockList()
+    @Published var notifications: [LocalNotification] = []
     
     func getNotifications() {
         // Intentionally empty

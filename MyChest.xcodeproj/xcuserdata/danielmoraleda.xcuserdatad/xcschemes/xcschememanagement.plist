@@ -9,10 +9,15 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MyChestUITests.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>MyChestUnitTests.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>1</integer>
 		</dict>
 		<key>Sample-iOS (Playground) 1.xcscheme</key>
 		<dict>
@@ -44,6 +49,11 @@
 			<true/>
 		</dict>
 		<key>19B1DF632BC3F2B60014AB14</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19CEC5582BCD484000EC906F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

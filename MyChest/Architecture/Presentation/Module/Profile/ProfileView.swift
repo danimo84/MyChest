@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct ProfileView<ViewModel:ProfilePresenter>: View {
+struct ProfileView<Presenter:ProfilePresenter>: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var presenter: Presenter
     @EnvironmentObject var router: Router
     
     var body: some View {
@@ -25,19 +25,19 @@ struct ProfileView<ViewModel:ProfilePresenter>: View {
         .toolbar(.hidden, for: .tabBar)
         .navigationTitle(Strings.ProfileScreen.profileTitle)
         .navigationBarTitleDisplayMode(.inline)
-        .sheet(isPresented: $viewModel.isEditAddressVisible) {
+        .sheet(isPresented: $presenter.isEditAddressVisible) {
             ProfileEditAddressForm(viewModel: ProfileEditAddressFormViewModel(
-                street: $viewModel.user.location.street,
-                number: $viewModel.user.location.number,
-                postcode: $viewModel.user.location.postcode,
-                city: $viewModel.user.location.city,
-                state: $viewModel.user.location.state,
-                country: $viewModel.user.location.country
+                street: $presenter.user.location.street,
+                number: $presenter.user.location.number,
+                postcode: $presenter.user.location.postcode,
+                city: $presenter.user.location.city,
+                state: $presenter.user.location.state,
+                country: $presenter.user.location.country
             ))
         }
         .alert(
-            isPresented: $viewModel.alertIsVisible,
-            viewModel: $viewModel.alertViewModel
+            isPresented: $presenter.alertIsVisible,
+            viewModel: $presenter.alertViewModel
         )
     }
     
@@ -52,21 +52,21 @@ struct ProfileView<ViewModel:ProfilePresenter>: View {
             shadowed: true,
             shadowRadius: Theme.Profile.avatarShadowRadius,
             shadowColor: .black,
-            url: viewModel.user.avatar
+            url: presenter.user.avatar
         ))
     }
 
     private var addressInfo: some View {
         VStack(spacing: Theme.Spacing.xSmall) {
-            Text("\(viewModel.user.username.title) \(viewModel.user.username.first) \(viewModel.user.username.last)")
+            Text("\(presenter.user.username.title) \(presenter.user.username.first) \(presenter.user.username.last)")
                 .font(Theme.Font.titleBold)
-            Text(viewModel.user.email)
+            Text(presenter.user.email)
                 .font(Theme.Font.bodyBold)
-            Text(viewModel.user.phone)
+            Text(presenter.user.phone)
                 .font(Theme.Font.bodyBold)
-            Text("\(viewModel.user.location.street), \(viewModel.user.location.number) (\(viewModel.user.location.city))")
+            Text("\(presenter.user.location.street), \(presenter.user.location.number) (\(presenter.user.location.city))")
                 .font(Theme.Font.bodyBold)
-            Text("\(viewModel.user.location.state) - \(viewModel.user.location.country)")
+            Text("\(presenter.user.location.state) - \(presenter.user.location.country)")
                 .font(Theme.Font.headlineBold)
         }
         .padding(Theme.Spacing.large)
@@ -78,14 +78,14 @@ struct ProfileView<ViewModel:ProfilePresenter>: View {
     private var locationButtons: some View {
         HStack {
             Button(action: {
-                viewModel.routeToMap()
+                presenter.routeToMap()
             }, label: {
                 Image(systemName: Assets.SystemImage.mappinAndEllipse)
             })
             .buttonStyle(.borderedProminent)
             .shadow(color: .black, radius: Theme.Radius.medium)
             Button(action: {
-                viewModel.searchLocationAndRouteToMap()
+                presenter.searchLocationAndRouteToMap()
             }, label: {
                 Image(systemName: Assets.SystemImage.magnifyingglass)
                 Image(systemName: Assets.SystemImage.mappinAndEllipse)
@@ -97,7 +97,7 @@ struct ProfileView<ViewModel:ProfilePresenter>: View {
     
     private var editLocationButton: some View {
         Button(Strings.ProfileScreen.editAddressButtonTitle) {
-            viewModel.isEditAddressVisible = true
+            presenter.isEditAddressVisible = true
         }
         .buttonStyle(.borderedProminent)
         .shadow(color: .black, radius: Theme.Radius.medium)
@@ -105,7 +105,7 @@ struct ProfileView<ViewModel:ProfilePresenter>: View {
     
     private var newProfileDataButton: some View {
         Button(Strings.ProfileScreen.getNewUserButtonTitle) {
-            viewModel.restoreUserWithRandom()
+            presenter.restoreUserWithRandom()
         }
         .buttonStyle(.borderedProminent)
         .shadow(color: .black, radius: Theme.Radius.medium)
@@ -114,6 +114,6 @@ struct ProfileView<ViewModel:ProfilePresenter>: View {
 }
 
 #Preview {
-    ProfileView<MockProfilePresenter>()
+    ProfileView<MockProfilePresenter>(presenter: MockProfilePresenter())
         .environmentObject(MockProfilePresenter())
 }

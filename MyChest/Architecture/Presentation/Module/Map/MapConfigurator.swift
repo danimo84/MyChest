@@ -23,13 +23,12 @@ struct MapConfigurator {
         longitude: String,
         formattedAddress: String
     ) -> some View {
-        let viewModel = MapPresenterDefault(
+        let presenter = MapPresenterDefault(
             latitude: latitude,
             longitude: longitude,
             formattedAddress: formattedAddress
         )
-        let view: some View = MapView<MapPresenterDefault>()
-            .environmentObject(viewModel)
+        let view: some View = MapView<MapPresenterDefault>(presenter: presenter)
         
         return view
     }

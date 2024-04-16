@@ -11,17 +11,17 @@ import SwiftData
 final class MockAccountDetailPresenter: AccountDetailPresenter {
     
     var isPresented: Bool = true
-    var isPassConfigSheetPresented: Bool = false
-    var account: Account = .mock()
-    var newAccount: Bool = false
-    var isPasswordEditable: Bool = false
-    var isPasswordSecured: Bool = false
-    var config: Config = .defaultConfig()
-    var isSaveButtonDisabled: Bool = false
-    var alertIsVisible: Bool = false
-    var alertViewModel: AlertViewModel = .empty()
-    var isMetadataLoading: Bool = false
-    var domainProtocol: DomainProtocol = .http
+    @Published var isPassConfigSheetPresented: Bool = false
+    @Published var account: Account = .emptyMock()
+    @Published var newAccount: Bool = false
+    @Published var isPasswordEditable: Bool = false
+    @Published var isPasswordSecured: Bool = false
+    @Published var config: Config = .defaultConfig()
+    @Published var isSaveButtonDisabled: Bool = false
+    @Published var alertIsVisible: Bool = false
+    @Published var alertViewModel: AlertViewModel = .empty()
+    @Published var isMetadataLoading: Bool = false
+    @Published var domainProtocol: DomainProtocol = .http
     
     func saveNewAccount() {
         // Intentionally empty

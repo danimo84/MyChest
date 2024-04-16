@@ -10,7 +10,7 @@ import SwiftUI
 
 final class MockTabBarPresenter: TabBarPresenter {
     
-    var isAuthenticated: Bool = false
+    @Published var isAuthenticated: Bool = false
     
     func tryAuthentication() {
         // Intentionally empty

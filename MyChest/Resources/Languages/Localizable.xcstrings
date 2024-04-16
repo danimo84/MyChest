@@ -351,6 +351,22 @@
         }
       }
     },
+    "Accounts_EmptyStateMessage" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "There aren't accounts yet. Tap on plus button and create first one!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No hay cuentas aún. Pulsa sobre el botón más y crea la primera!"
+          }
+        }
+      }
+    },
     "Accounts_NavigationTitle" : {
       "localizations" : {
         "en" : {

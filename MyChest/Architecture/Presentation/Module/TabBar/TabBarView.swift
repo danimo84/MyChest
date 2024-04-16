@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct TabBarView<ViewModel: TabBarPresenter>: View {
+struct TabBarView<Presenter: TabBarPresenter>: View {
     
-    @StateObject var viewModel: ViewModel
+    @StateObject var presenter: Presenter
     @EnvironmentObject var router: Router
     
     var body: some View {
-        if viewModel.isAuthenticated {
+        if presenter.isAuthenticated {
             tabView
         } else {
             lockedStateView
@@ -79,7 +79,7 @@ struct TabBarView<ViewModel: TabBarPresenter>: View {
                 .padding(.horizontal, Theme.Spacing.xxLarge)
             Spacer()
             Button(Strings.MainScreen.loginButton) {
-                viewModel.tryAuthentication()
+                presenter.tryAuthentication()
             }
             .buttonStyle(.bordered)
         }
@@ -87,6 +87,6 @@ struct TabBarView<ViewModel: TabBarPresenter>: View {
 }
 
 #Preview {
-    TabBarView<MockTabBarPresenter>(viewModel: MockTabBarPresenter())
+    TabBarView<MockTabBarPresenter>(presenter: MockTabBarPresenter())
         .environmentObject(MockTabBarPresenter())
 }

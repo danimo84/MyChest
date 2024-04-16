@@ -8,15 +8,19 @@
 import SwiftUI
 import SwiftData
 
-struct AccountsView<ViewModel: AccountsPresenter>: View {
+struct AccountsView<Presenter: AccountsPresenter>: View {
     
-    @StateObject var viewModel: ViewModel
+    @StateObject var presenter: Presenter
     
     var body: some View {
         NavigationStack {
             List {
-                ForEach(viewModel.accounts) {
-                    accountCard($0)
+                if presenter.accounts.isEmpty {
+                    Text(Strings.AccountsScreen.emptyStateMessage)
+                } else {
+                    ForEach(presenter.accounts) {
+                        accountCard($0)
+                    }
                 }
             }
             .navigationTitle(Strings.AccountsScreen.title)
@@ -24,21 +28,21 @@ struct AccountsView<ViewModel: AccountsPresenter>: View {
                 .accounts,
                 action: {
                     if $0 == .add {
-                        viewModel.selectedAccount = nil
-                        viewModel.isAccountSheetPresented = true
+                        presenter.selectedAccount = nil
+                        presenter.isAccountSheetPresented = true
                     }
                 })
-            .onChange(of: viewModel.isAccountSheetPresented) {
-                if !viewModel.isAccountSheetPresented {
-                    viewModel.fetchAccounts()
+            .onChange(of: presenter.isAccountSheetPresented) {
+                if !presenter.isAccountSheetPresented {
+                    presenter.fetchAccounts()
                 }
             }
             .onAppear {
-                viewModel.onAppear()
+                presenter.onAppear()
             }
         }
-        .sheet(isPresented: $viewModel.isAccountSheetPresented) {
-            AccountDetailConfigurator().view(originalAccount: viewModel.selectedAccount)
+        .sheet(isPresented: $presenter.isAccountSheetPresented) {
+            AccountDetailConfigurator().view(originalAccount: presenter.selectedAccount)
                 .presentationDetents([.large])
         }
     }
@@ -76,20 +80,20 @@ struct AccountsView<ViewModel: AccountsPresenter>: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            viewModel.selectedAccount = account
-            viewModel.isAccountSheetPresented = true
+            presenter.selectedAccount = account
+            presenter.isAccountSheetPresented = true
         }
         .swipeActions {
             Button(
                 Strings.AccountsScreen.deletableButton,
                 role: .destructive
             ) {
-                viewModel.deleteAccount(account)
+                presenter.deleteAccount(account)
             }
         }
     }
 }
 
 #Preview {
-    AccountsView<MockAccountsPresenter>(viewModel: MockAccountsPresenter())
+    AccountsView<MockAccountsPresenter>(presenter: MockAccountsPresenter())
 }

@@ -19,13 +19,13 @@ struct AccountsConfigurator {
         let deleteAccountInteractor = injector.instanceOf(DeleteAccountInteractor.self)
         let requestNotificationPermissionIfNeededInteractor = injector.instanceOf(RequestNotificationPermissionIfNeededInteractor.self)
         
-        let viewModel = AccountsPresenterDefault(
+        let presenter = AccountsPresenterDefault(
             getAccountsInteractor: getAccountsInteractor,
             deleteAccountInteractor: deleteAccountInteractor,
             requestNotificationPermissionIfNeededInteractor: requestNotificationPermissionIfNeededInteractor
         )
         
-        let view: some View = AccountsView<AccountsPresenterDefault>(viewModel: viewModel)
+        let view: some View = AccountsView<AccountsPresenterDefault>(presenter: presenter)
         
         return view
     }

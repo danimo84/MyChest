@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct NotificationsView<ViewModel: NotificationsPresenter>: View {
+struct NotificationsView<Presenter: NotificationsPresenter>: View {
     
-    @StateObject var viewModel: ViewModel
+    @StateObject var presenter: Presenter
     
     var body: some View {
         NavigationStack {
             VStack {
-                if !viewModel.notifications.isEmpty {
+                if !presenter.notifications.isEmpty {
                     List {
-                        ForEach(viewModel.notifications) {
+                        ForEach(presenter.notifications) {
                             if $0.isSent {
                                 notificationCard($0)
                             }
@@ -28,7 +28,7 @@ struct NotificationsView<ViewModel: NotificationsPresenter>: View {
             }
             .navigationTitle(Strings.NotificationsScreen.title)
             .onAppear {
-                viewModel.getNotifications()
+                presenter.getNotifications()
             }
         }
     }
@@ -41,7 +41,7 @@ struct NotificationsView<ViewModel: NotificationsPresenter>: View {
         }
         .listRowBackground(notification.isReaded ? .clear : Color.blue)
         .onTapGesture {
-            viewModel.markNotifAsReadedAndNavigate(notification.id, accountId: notification.accountId)
+            presenter.markNotifAsReadedAndNavigate(notification.id, accountId: notification.accountId)
         }
     }
     
@@ -71,6 +71,6 @@ struct NotificationsView<ViewModel: NotificationsPresenter>: View {
 }
 
 #Preview {
-    NotificationsView<MockNotificationsPresenter>(viewModel: MockNotificationsPresenter())
+    NotificationsView<MockNotificationsPresenter>(presenter: MockNotificationsPresenter())
         .environmentObject(MockNotificationsPresenter())
 }

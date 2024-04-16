@@ -10,7 +10,7 @@ import SwiftUI
 
 final class MockSettingsPresenter: SettingsPresenter {
     
-    var config: Config = .defaultConfig()
+    @Published var config: Config = .defaultConfig()
     
     func getConfig() {
         // Intentionally empty

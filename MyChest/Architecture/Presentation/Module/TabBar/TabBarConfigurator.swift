@@ -16,9 +16,9 @@ struct TabBarConfigurator {
     func view() -> some View {
         let tryBiometricAuthInteractor = injector.instanceOf(TryBiometricAuthInteractor.self)
         
-        let viewModel = TabBarPresenterDefault(tryBiometricAuthInteractor: tryBiometricAuthInteractor)
+        let presenter = TabBarPresenterDefault(tryBiometricAuthInteractor: tryBiometricAuthInteractor)
         
-        let view: some View = TabBarView<TabBarPresenterDefault>(viewModel: viewModel)
+        let view: some View = TabBarView<TabBarPresenterDefault>(presenter: presenter)
         
         return view
     }

@@ -22,6 +22,7 @@ enum Strings {
         
         static let title: LocalizedStringKey = "Accounts_NavigationTitle"
         static let deletableButton: LocalizedStringKey = "Accounts_DeletableButton"
+        static let emptyStateMessage: LocalizedStringKey = "Accounts_EmptyStateMessage"
     }
     
     enum AccountDetailScreen {

@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-struct SettingsView<ViewModel: SettingsPresenter>: View {
+struct SettingsView<Presenter: SettingsPresenter>: View {
     
-    @StateObject var viewModel: ViewModel
+    @StateObject var presenter: Presenter
     @EnvironmentObject var router: Router
     
     var body: some View {
@@ -17,11 +17,11 @@ struct SettingsView<ViewModel: SettingsPresenter>: View {
             List {
                 generalSection
                 PasswordGeneratorSettings(
-                    charactersNumber: $viewModel.config.charactersNumber,
-                    requireUpper: $viewModel.config.requireUpper,
-                    requireLower: $viewModel.config.requireLower,
-                    requireNumber: $viewModel.config.requireNumber,
-                    requireSpecialCharacter: $viewModel.config.requireSpecialCharacter,
+                    charactersNumber: $presenter.config.charactersNumber,
+                    requireUpper: $presenter.config.requireUpper,
+                    requireLower: $presenter.config.requireLower,
+                    requireNumber: $presenter.config.requireNumber,
+                    requireSpecialCharacter: $presenter.config.requireSpecialCharacter,
                     showHeader: true
                 )
                 defaultConfigButton
@@ -36,10 +36,10 @@ struct SettingsView<ViewModel: SettingsPresenter>: View {
                 }
             })
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
-                viewModel.isNotificationsAllowed()
+                presenter.isNotificationsAllowed()
             }
             .onAppear {
-                viewModel.getConfig()
+                presenter.getConfig()
             }
         }
     }
@@ -61,28 +61,28 @@ struct SettingsView<ViewModel: SettingsPresenter>: View {
         }
         .contentShape(Rectangle())
         .onTapGesture {
-            viewModel.navigateToInfo()
+            presenter.navigateToInfo()
         }
     }
     
     var notificationsToggle: some View {
         Toggle(
             Strings.SettingsScreen.notificationsTitle,
-            isOn: $viewModel.config.areNotificationsEnabled
+            isOn: $presenter.config.areNotificationsEnabled
         )
-        .onChange(of: viewModel.config.areNotificationsEnabled) { _, _ in
-            viewModel.isNotificationsToogleValueChange()
+        .onChange(of: presenter.config.areNotificationsEnabled) { _, _ in
+            presenter.isNotificationsToogleValueChange()
         }
     }
     
     var defaultConfigButton: some View {
         Button(Strings.SettingsScreen.defaultConfigButtonTitle) {
-            viewModel.restoreDefaultConfig()
+            presenter.restoreDefaultConfig()
         }
     }
 }
 
 #Preview {
-    SettingsView<MockSettingsPresenter>(viewModel: MockSettingsPresenter())
+    SettingsView<MockSettingsPresenter>(presenter: MockSettingsPresenter())
         .environmentObject(MockSettingsPresenter())
 }

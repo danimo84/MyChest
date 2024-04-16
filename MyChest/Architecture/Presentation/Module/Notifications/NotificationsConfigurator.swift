@@ -18,12 +18,12 @@ struct NotificationsConfigurator {
         let getLocalNotificationInteractor = injector.instanceOf(GetLocalNotificationInteractor.self)
         let updateLocalNotificationInteractor = injector.instanceOf(UpdateLocalNotificationInteractor.self)
         
-        let viewModel = NotificationsPresenterDefault(
+        let presenter = NotificationsPresenterDefault(
             getLocalNotificationInteractor: getLocalNotificationInteractor,
             updateLocalNotificationInteractor: updateLocalNotificationInteractor
         )
         
-        let view: some View = NotificationsView<NotificationsPresenterDefault>(viewModel: viewModel)
+        let view: some View = NotificationsView<NotificationsPresenterDefault>(presenter: presenter)
         
         return view
     }

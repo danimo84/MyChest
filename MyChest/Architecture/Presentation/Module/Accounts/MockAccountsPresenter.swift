@@ -10,9 +10,9 @@ import SwiftData
 
 final class MockAccountsPresenter: AccountsPresenter {
     
-    var selectedAccount: Account?
-    var accounts: [Account] = Account.mockList()
-    var isAccountSheetPresented: Bool = false
+    @Published var selectedAccount: Account?
+    @Published var accounts: [Account] = []
+    @Published var isAccountSheetPresented: Bool = false
     
     func deleteAccount(_ account: Account) {
         // Intentionally empty

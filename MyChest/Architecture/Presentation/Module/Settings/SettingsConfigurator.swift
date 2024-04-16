@@ -23,14 +23,14 @@ struct SettingsConfigurator {
         let updateNotificationPermissionInteractor = injector.instanceOf(UpdateNotificationPermissionInteractor.self)
         let getNotificationPermissionInteractor = injector.instanceOf(GetNotificationPermissionInteractor.self)
         
-        let viewModel = SettingsPresenterDefault(
+        let presenter = SettingsPresenterDefault(
             getConfigInteractor: getConfigInteractor,
             updateConfigInteractor: updateConfigInteractor,
             updateNotificationPermissionInteractor: updateNotificationPermissionInteractor,
             getNotificationPermissionInteractor: getNotificationPermissionInteractor
         )
         
-        let view: some View = SettingsView<SettingsPresenterDefault>(viewModel: viewModel)
+        let view: some View = SettingsView<SettingsPresenterDefault>(presenter: presenter)
         
         return view
     }

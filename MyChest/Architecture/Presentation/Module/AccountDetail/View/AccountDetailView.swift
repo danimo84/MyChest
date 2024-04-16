@@ -8,10 +8,10 @@
 import SwiftUI
 import UIKit
 
-struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
+struct AccountDetailView<Presenter: AccountDetailPresenter>: View {
     
     @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject var presenter: Presenter
     
     var body: some View {
         NavigationStack {
@@ -19,27 +19,27 @@ struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
                 accountForm
             }
             .navigationTitle(
-                viewModel.newAccount
+                presenter.newAccount
                 ? Strings.AccountDetailScreen.newAccountDetailTitle
                 : Strings.AccountDetailScreen.accountDetailTitle
             )
             .toolbar(
-                .accountDetail(forNewAccount: viewModel.newAccount),
-                tralingButtonDisabled: $viewModel.isSaveButtonDisabled,
+                .accountDetail(forNewAccount: presenter.newAccount),
+                tralingButtonDisabled: $presenter.isSaveButtonDisabled,
                 action: {
                     handleToolbarAction($0)
                 }
             )
-            .sheet(isPresented: $viewModel.isPassConfigSheetPresented, content: {
+            .sheet(isPresented: $presenter.isPassConfigSheetPresented, content: {
                 passwordConfigSheet
             })
             .alert(
-                isPresented: $viewModel.alertIsVisible,
-                viewModel: $viewModel.alertViewModel,
-                bindableString: $viewModel.account.image
+                isPresented: $presenter.alertIsVisible,
+                viewModel: $presenter.alertViewModel,
+                bindableString: $presenter.account.image
             )
-            .onChange(of: viewModel.isPresented) {
-                if !viewModel.isPresented {
+            .onChange(of: presenter.isPresented) {
+                if !presenter.isPresented {
                     dismiss()
                 }
             }
@@ -49,16 +49,16 @@ struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
     var accountForm: some View {
         Form {
             AccountDetailDomainSection(
-                viewModel: viewModel,
-                isUrlAlertPresented: $viewModel.alertIsVisible
+                viewModel: presenter,
+                isUrlAlertPresented: $presenter.alertIsVisible
             )
-            AccountDetailUserSection(viewModel: viewModel)
+            AccountDetailUserSection(viewModel: presenter)
             AccountDetailPasswordSection(
-                viewModel: viewModel,
-                isPresented: $viewModel.isPassConfigSheetPresented
+                viewModel: presenter,
+                isPresented: $presenter.isPassConfigSheetPresented
             )
-            AccountDetailRememberUpdatePasswordSection(viewModel: viewModel)
-            AccountDetailNotesSection(viewModel: viewModel)
+            AccountDetailRememberUpdatePasswordSection(viewModel: presenter)
+            AccountDetailNotesSection(viewModel: presenter)
             lastPasswordUpdatedDate
         }
     }
@@ -67,11 +67,11 @@ struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
         NavigationStack {
             List {
                 PasswordGeneratorSettings(
-                    charactersNumber: $viewModel.config.charactersNumber,
-                    requireUpper: $viewModel.config.requireUpper,
-                    requireLower: $viewModel.config.requireLower,
-                    requireNumber: $viewModel.config.requireNumber,
-                    requireSpecialCharacter: $viewModel.config.requireSpecialCharacter,
+                    charactersNumber: $presenter.config.charactersNumber,
+                    requireUpper: $presenter.config.requireUpper,
+                    requireLower: $presenter.config.requireLower,
+                    requireNumber: $presenter.config.requireNumber,
+                    requireSpecialCharacter: $presenter.config.requireSpecialCharacter,
                     showHeader: false
                 )
             }
@@ -85,7 +85,7 @@ struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
             Text(Strings.AccountDetailScreen.lastPasswordUpdatedDate)
                 .font(Theme.Font.caption)
             Spacer()
-            Text(viewModel.account.updatedAt.description
+            Text(presenter.account.updatedAt.description
             )
             .font(Theme.Font.footnote)
         }
@@ -96,10 +96,10 @@ struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
         case .cancel:
             dismiss()
         case .delete:
-            viewModel.showAlert(.deleteConfirmation(.account))
-            viewModel.alertIsVisible = true
+            presenter.showAlert(.deleteConfirmation(.account))
+            presenter.alertIsVisible = true
         case .save:
-            viewModel.saveNewAccount()
+            presenter.saveNewAccount()
             dismiss()
         default:
             return
@@ -108,7 +108,6 @@ struct AccountDetailView<ViewModel: AccountDetailPresenter>: View {
 }
 
 #Preview {
-    AccountDetailView<MockAccountDetailPresenter>()
-        .environmentObject(MockAccountDetailPresenter())
+    AccountDetailView<MockAccountDetailPresenter>(presenter: MockAccountDetailPresenter())
         .modelContainer(for: AccountEntityCache.self)
 }

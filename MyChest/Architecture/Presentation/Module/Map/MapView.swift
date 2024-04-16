@@ -8,19 +8,20 @@
 import SwiftUI
 import MapKit
 
-struct MapView<ViewModel: MapPresenter>: View {
+struct MapView<Presenter: MapPresenter>: View {
     
-    @EnvironmentObject var viewModel: ViewModel
+    @StateObject
+    var presenter: Presenter
     @State private var position: MapCameraPosition = .automatic
     
     var body: some View {
         Map(position: $position) {
             Marker(
-                viewModel.formattedAddress,
+                presenter.formattedAddress,
                 systemImage: Assets.SystemImage.houseFill,
                 coordinate: .init(
-                    latitude: viewModel.latitude,
-                    longitude: viewModel.longitude
+                    latitude: presenter.latitude,
+                    longitude: presenter.longitude
                 )
             )
         }
@@ -28,20 +29,20 @@ struct MapView<ViewModel: MapPresenter>: View {
         .mapControlVisibility(.visible)
         .onAppear {
             position = setupPosition(
-                latitude: viewModel.latitude,
-                longitude: viewModel.longitude
+                latitude: presenter.latitude,
+                longitude: presenter.longitude
             )
         }
         .toolbar(.hidden, for: .tabBar)
-        .navigationTitle(viewModel.formattedAddress)
+        .navigationTitle(presenter.formattedAddress)
     }
     
     private func setupPosition(latitude: Double, longitude: Double) -> MapCameraPosition {
         MapCameraPosition.region(
             MKCoordinateRegion(
                 center: CLLocationCoordinate2D(
-                    latitude: viewModel.latitude,
-                    longitude: viewModel.longitude
+                    latitude: presenter.latitude,
+                    longitude: presenter.longitude
                 ),
                 span: MKCoordinateSpan(
                     latitudeDelta: Theme.Map.spanLatitudeDelta,
@@ -53,6 +54,5 @@ struct MapView<ViewModel: MapPresenter>: View {
 }
 
 #Preview {
-    MapView<MockMapPresenter>()
-        .environmentObject(MockMapPresenter())
+    MapView<MockMapPresenter>(presenter: MockMapPresenter())
 }

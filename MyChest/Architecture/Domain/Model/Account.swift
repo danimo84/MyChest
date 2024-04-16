@@ -37,6 +37,21 @@ extension Account {
             updatedAt: .now
         )
     }
+    
+    static func emptyMock() -> Account {
+        .init(
+            id: UUID().uuidString,
+            user: "",
+            password: "",
+            domain: "",
+            domainProtocol: DomainProtocol.http.rawValue,
+            image: "",
+            comment: "",
+            rememberUpdateMonths: 0,
+            createdAt: Date(timeIntervalSince1970: 1300),
+            updatedAt: Date(timeIntervalSince1970: 1000)
+        )
+    }
 
     static func mock() -> Account {
         .init(
@@ -59,7 +74,7 @@ extension Account {
                 id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
-                domain: "google.com",
+                domain: "netflix.com",
                 domainProtocol: DomainProtocol.http.rawValue,
                 image: "",
                 comment: "Cuenta para publicidad.",
@@ -107,9 +122,9 @@ extension Account {
                 id: UUID().uuidString,
                 user: "danimo321",
                 password: "123123",
-                domain: "discord.com",
+                domain: "hbomax.com",
                 domainProtocol: DomainProtocol.https.rawValue,
-                image: "",
+                image: "https://hbomax-images.warnermediacdn.com/2020-05/square%20social%20logo%20400%20x%20400_0.png",
                 comment: "Cuenta de trabajo."
                 ,
                 rememberUpdateMonths: 6,
