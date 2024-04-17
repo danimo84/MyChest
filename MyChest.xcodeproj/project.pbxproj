@@ -53,6 +53,7 @@
 		195998FA2B59442300F17512 /* SettingsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195998F92B59442300F17512 /* SettingsConfigurator.swift */; };
 		195998FC2B59443C00F17512 /* MockSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195998FB2B59443C00F17512 /* MockSettingsPresenter.swift */; };
 		196105CE2B876C6900EA47AE /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196105CD2B876C6900EA47AE /* Theme.swift */; };
+		196691732BD023B2007C2F37 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 196691722BD023B2007C2F37 /* Readme.md */; };
 		196C39A92B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C39A82B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift */; };
 		196C39AB2B8BC316001235E9 /* LinkMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196C39AA2B8BC316001235E9 /* LinkMetadata.swift */; };
 		1988CB7E2B582A3800D2C08F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1988CB7D2B582A3800D2C08F /* AppDelegate.swift */; };
@@ -300,6 +301,7 @@
 		195998F92B59442300F17512 /* SettingsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfigurator.swift; sourceTree = "<group>"; };
 		195998FB2B59443C00F17512 /* MockSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSettingsPresenter.swift; sourceTree = "<group>"; };
 		196105CD2B876C6900EA47AE /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		196691722BD023B2007C2F37 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 		196C39A82B8BC2AC001235E9 /* LPMetadataProvider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LPMetadataProvider+Extension.swift"; sourceTree = "<group>"; };
 		196C39AA2B8BC316001235E9 /* LinkMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMetadata.swift; sourceTree = "<group>"; };
 		1988CB7D2B582A3800D2C08F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 		191A77072B57119500AFC37F = {
 			isa = PBXGroup;
 			children = (
+				196691722BD023B2007C2F37 /* Readme.md */,
 				191A77122B57119600AFC37F /* MyChest */,
 				19B1DF652BC3F2B60014AB14 /* MyChestUnitTests */,
 				19CEC55A2BCD484000EC906F /* MyChestUITests */,
@@ -1456,6 +1459,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196691732BD023B2007C2F37 /* Readme.md in Resources */,
 				191D17C52B66619900E2A19E /* MyChestLaunchScreen.storyboard in Resources */,
 				191A771C2B57119600AFC37F /* Preview Assets.xcassets in Resources */,
 				1913A2ED2B9C6960004FFC2F /* Localizable.xcstrings in Resources */,
